@@ -104,37 +104,6 @@ Make sure you have Node.js installed on your machine:
    ```
 
 ---
-
-## 📂 Project Structure
-
-```
-react-native-docs/
-├── public/                     # Static assets and branding icons
-├── src/
-│   ├── components/             # Reusable UI Components
-│   │   ├── AllComponentsGrid.jsx  # Interactive component showcase cards grid
-│   │   ├── CodeBlock.jsx          # Copyable solid black code snippet viewer
-│   │   ├── Footer.jsx             # Corona style ultra-modern footer
-│   │   ├── MobileDevicePreview.jsx# Dual iOS & Android phone frame simulator
-│   │   ├── Navbar.jsx             # Corona dark header navigation & search
-│   │   ├── SetupSection.jsx       # Equal-height Bare CLI & Expo setup cards
-│   │   └── TableOfContentsGrid.jsx# Boxed Table of Contents utility cards
-│   ├── data/
-│   │   ├── componentsData.js      # Technical data for 27 components & APIs
-│   │   └── tocData.js             # Table of contents section dataset
-│   ├── pages/
-│   │   ├── HomePage.jsx           # Main overview landing page
-│   │   └── ComponentDetailPage.jsx# Dedicated component detail documentation page
-│   ├── App.jsx                    # Root App router & state container
-│   ├── index.css                  # Corona Dark Theme CSS tokens & media queries
-│   └── main.jsx                   # Vite application entry point
-├── package.json                # Project dependencies and build scripts
-├── vite.config.js              # Vite configuration
-└── README.md                   # Project documentation
-```
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License** — feel free to use it for personal learning or commercial applications.
