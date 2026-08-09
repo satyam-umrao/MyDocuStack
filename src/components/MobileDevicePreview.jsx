@@ -12,13 +12,10 @@ import {
   Battery, 
   Signal,
   ExternalLink,
-  Share2,
-  Maximize2,
-  Sliders,
-  Type
+  Share2
 } from 'lucide-react';
 
-export default function MobileDevicePreview({ component }) {
+export default function MobileDevicePreview({ component = { id: 'view', name: 'View' } }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [platform, setPlatform] = useState('ios'); // 'ios' | 'android'
   
@@ -44,6 +41,8 @@ export default function MobileDevicePreview({ component }) {
   const [isLandscape, setIsLandscape] = useState(false); // for Dimensions
 
   const isIOS = platform === 'ios';
+  const compId = component?.id || 'view';
+  const compName = component?.name || 'View';
 
   const triggerRefresh = () => {
     setIsRefreshing(true);
@@ -55,8 +54,34 @@ export default function MobileDevicePreview({ component }) {
     setTimeout(() => setAlertText(''), 3200);
   };
 
+  // Helper button styles
+  const getFilterChipStyle = (isActive) => ({
+    padding: '5px 12px',
+    fontSize: '12px',
+    fontWeight: '600',
+    borderRadius: '16px',
+    border: '1px solid ' + (isActive ? '#0066cc' : isDarkMode ? '#444' : '#444'),
+    backgroundColor: isActive ? '#0066cc' :'#2c2c2e',
+    color: isActive ? '#ffffff' : isDarkMode ? '#ffffff' : '#ffffff',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px'
+  });
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', alignItems: 'center' }}>
+      {/* Inject Keyframe Animations for Spinners */}
+      <style>{`
+        @keyframes mobilePreviewSpin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        .spin-anim {
+          animation: mobilePreviewSpin 0.8s linear infinite;
+        }
+      `}</style>
       
       {/* Platform Switcher & Theme Selector Header */}
       <div style={{ 
@@ -68,29 +93,26 @@ export default function MobileDevicePreview({ component }) {
         flexWrap: 'wrap', 
         gap: '12px' 
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-ink)', fontWeight: '600', fontSize: '15px' }}>
-          <Smartphone size={18} style={{ color: 'var(--color-primary)' }} />
-          <span>{isIOS ? ' iOS (iPhone)' : 'Android'} Preview</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#fff' , fontWeight: '600', fontSize: '15px' }}>
+          <Smartphone size={18} style={{ color: '#0066cc' }} />
+          <span>{isIOS ? 'iOS (iPhone)' : 'Android'} Preview</span>
         </div>
 
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
           <button
-            className={`filter-chip ${isIOS ? 'active' : ''}`}
-            style={{ padding: '5px 12px', fontSize: '12px', fontWeight: '600' }}
+            style={getFilterChipStyle(isIOS)}
             onClick={() => setPlatform('ios')}
           >
-             iOS
+            iOS
           </button>
           <button
-            className={`filter-chip ${!isIOS ? 'active' : ''}`}
-            style={{ padding: '5px 12px', fontSize: '12px', fontWeight: '600' }}
+            style={getFilterChipStyle(!isIOS)}
             onClick={() => setPlatform('android')}
           >
             Android
           </button>
           <button
-            className="filter-chip"
-            style={{ padding: '5px 8px' }}
+            style={getFilterChipStyle(false)}
             onClick={() => setIsDarkMode(!isDarkMode)}
             title="Toggle Device Theme"
           >
@@ -99,15 +121,15 @@ export default function MobileDevicePreview({ component }) {
         </div>
       </div>
 
-      {/* Real Mobile Device Frame (Exact iOS vs Android Chassis) */}
+      {/* Real Mobile Device Frame */}
       <div style={{ 
         width: '100%', 
-        maxWidth: isLandscape ? '460px' : '360px', 
+        maxWidth: isLandscape ? '560px' : '360px', 
         height: isLandscape ? '360px' : '640px',
         borderRadius: isIOS ? '48px' : '28px',
         border: isIOS ? '12px solid #2c2c2e' : '10px solid #1a1a1a',
         backgroundColor: '#000000',
-        boxShadow: 'var(--shadow-product)',
+        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -117,49 +139,27 @@ export default function MobileDevicePreview({ component }) {
       }}>
         
         {/* iOS Dynamic Island VS Android Camera Punch Hole */}
-        {isIOS ? (
-          <div style={{
-            width: '96px',
-            height: '24px',
-            backgroundColor: '#000000',
-            margin: '0 auto',
-            borderRadius: '20px',
-            zIndex: 30,
-            flexShrink: 0,
-            marginTop: '2px'
-          }} />
-        ) : (
-          <div style={{
-            width: '14px',
-            height: '14px',
-            backgroundColor: '#000000',
-            margin: '6px auto 0',
-            borderRadius: '50%',
-            zIndex: 30,
-            flexShrink: 0,
-            border: '1px solid #222222'
-          }} />
-        )}
+       
 
         {/* Device Screen Viewport */}
         <div style={{
-          flexGrow: 1,
+          flex: 1,
           backgroundColor: isDarkMode 
             ? (isIOS ? '#000000' : '#121212') 
             : (isIOS ? '#f2f2f7' : '#f8f9fa'),
           color: isDarkMode ? '#ffffff' : '#000000',
           display: 'flex',
           flexDirection: 'column',
-          overflowY: 'auto',
+          overflow: 'hidden',
           position: 'relative'
         }}>
           
           {/* Status Bar */}
           <div style={{ 
             display: 'flex', 
-            justify: 'space-between', 
+            justifyContent: 'space-between', 
             alignItems: 'center', 
-            padding: isIOS ? '4px 18px 8px' : '4px 14px 6px',
+            padding: isIOS ? '10px 20px 8px' : '8px 14px 6px',
             fontSize: '12px',
             fontWeight: '600',
             flexShrink: 0,
@@ -182,8 +182,9 @@ export default function MobileDevicePreview({ component }) {
           {isIOS ? (
             <div style={{
               display: 'flex',
+              width: '100%',
               alignItems: 'center',
-              justify: 'space-between',
+              justifyContent: 'space-between',
               padding: '8px 16px 12px',
               borderBottom: isDarkMode ? '1px solid #1c1c1e' : '1px solid #e5e5ea',
               backgroundColor: isDarkMode ? 'rgba(28,28,30,0.85)' : 'rgba(249,249,249,0.85)',
@@ -194,7 +195,7 @@ export default function MobileDevicePreview({ component }) {
                 <ChevronLeft size={20} />
                 <span>Back</span>
               </div>
-              <span style={{ fontSize: '16px', fontWeight: '600' }}>{component.name}</span>
+              <span style={{ fontSize: '16px', fontWeight: '600' }}>{compName}</span>
               <span style={{ color: '#007aff', fontSize: '15px', fontWeight: '600' }}>Done</span>
             </div>
           ) : (
@@ -210,7 +211,7 @@ export default function MobileDevicePreview({ component }) {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <ArrowLeft size={20} style={{ cursor: 'pointer' }} />
-                <span style={{ fontSize: '18px', fontWeight: '500' }}>{component.name}</span>
+                <span style={{ fontSize: '18px', fontWeight: '500' }}>{compName}</span>
               </div>
               <MoreVertical size={18} style={{ cursor: 'pointer' }} />
             </div>
@@ -219,12 +220,16 @@ export default function MobileDevicePreview({ component }) {
           {/* Toast / Alert Notification Popup */}
           {alertText && (
             <div style={{
-              margin: '12px 14px 0',
+              position: 'absolute',
+              top: '60px',
+              left: '14px',
+              right: '14px',
+              zIndex: 50,
               padding: '10px 14px',
               borderRadius: isIOS ? '14px' : '4px',
               backgroundColor: isIOS ? (isDarkMode ? '#1c1c1e' : '#ffffff') : '#323232',
               color: isIOS ? (isDarkMode ? '#ffffff' : '#000000') : '#ffffff',
-              boxShadow: isIOS ? '0 4px 16px rgba(0,0,0,0.15)' : '0 3px 6px rgba(0,0,0,0.3)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
               fontSize: '13px',
               display: 'flex',
               alignItems: 'center',
@@ -237,7 +242,7 @@ export default function MobileDevicePreview({ component }) {
           )}
 
           {/* Safe Area View Outer Guides */}
-          {component.id === 'safeareaview' && showSafeAreaGuides && (
+          {compId === 'safeareaview' && showSafeAreaGuides && (
             <div style={{
               position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
               borderTop: '32px solid rgba(239, 68, 68, 0.25)',
@@ -255,31 +260,32 @@ export default function MobileDevicePreview({ component }) {
             </div>
           )}
 
-          {/* Screen Body Content Container (Individual Tailored Demos) */}
+          {/* Screen Body Content Container */}
           <div style={{ 
-            flexGrow: 1, 
+            flex: 1, 
             padding: '16px', 
             display: 'flex', 
             flexDirection: 'column', 
             gap: '14px', 
             justify: 'center',
-            transform: isKeyboardOpen && (component.id === 'keyboardavoidingview' || component.id === 'keyboard') ? 'translateY(-50px)' : 'none',
+            overflowY: 'auto',
+            transform: isKeyboardOpen && (compId === 'keyboardavoidingview' || compId === 'keyboard') ? 'translateY(-40px)' : 'none',
             transition: 'transform 0.3s ease'
           }}>
 
             {/* 1. View */}
-            {component.id === 'view' && (
+            {compId === 'view' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   <button 
                     onClick={() => setFlexDirection('column')} 
-                    style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: flexDirection === 'column' ? '#0066cc' : '#e0e0e0', color: flexDirection === 'column' ? '#fff' : '#000', border: 'none' }}
+                    style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: flexDirection === 'column' ? '#0066cc' : '#e0e0e0', color: flexDirection === 'column' ? '#fff' : '#000', border: 'none', cursor: 'pointer' }}
                   >
                     Column
                   </button>
                   <button 
                     onClick={() => setFlexDirection('row')} 
-                    style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: flexDirection === 'row' ? '#0066cc' : '#e0e0e0', color: flexDirection === 'row' ? '#fff' : '#000', border: 'none' }}
+                    style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: flexDirection === 'row' ? '#0066cc' : '#e0e0e0', color: flexDirection === 'row' ? '#fff' : '#000', border: 'none', cursor: 'pointer' }}
                   >
                     Row
                   </button>
@@ -291,7 +297,7 @@ export default function MobileDevicePreview({ component }) {
                   padding: '16px', 
                   backgroundColor: isIOS ? (isDarkMode ? '#1c1c1e' : '#ffffff') : (isDarkMode ? '#1e1e1e' : '#ffffff'), 
                   borderRadius: isIOS ? '12px' : '4px',
-                  border: '1px solid var(--color-hairline)'
+                  border: isDarkMode ? '1px solid #333' : '1px solid #e0e0e0'
                 }}>
                   <div style={{ padding: '12px', background: '#0066cc', color: '#fff', borderRadius: '6px', fontSize: '13px', fontWeight: '600' }}>Box A</div>
                   <div style={{ padding: '12px', background: '#34c759', color: '#fff', borderRadius: '6px', fontSize: '13px', fontWeight: '600' }}>Box B</div>
@@ -301,15 +307,15 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 2. Text */}
-            {component.id === 'text' && (
+            {compId === 'text' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <button 
                   onClick={() => setTextNumLines(textNumLines === 0 ? 1 : 0)} 
-                  style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: '#0066cc', color: '#fff', border: 'none', alignSelf: 'flex-start' }}
+                  style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: '#0066cc', color: '#fff', border: 'none', alignSelf: 'flex-start', cursor: 'pointer' }}
                 >
                   Toggle Truncation ({textNumLines === 1 ? '1 Line' : 'Unlimited'})
                 </button>
-                <p style={{ fontSize: '20px', fontWeight: isIOS ? '700' : '500', color: isDarkMode ? '#ffffff' : '#000000' }}>
+                <p style={{ fontSize: '20px', fontWeight: isIOS ? '700' : '500', color: isDarkMode ? '#ffffff' : '#000000', margin: 0 }}>
                   Headline <span style={{ color: isIOS ? '#007aff' : '#1a73e8' }}>Inline Text</span>
                 </p>
                 <p 
@@ -319,7 +325,8 @@ export default function MobileDevicePreview({ component }) {
                     lineHeight: '1.45',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    whiteSpace: textNumLines === 1 ? 'nowrap' : 'normal'
+                    whiteSpace: textNumLines === 1 ? 'nowrap' : 'normal',
+                    margin: 0
                   }}
                 >
                   Text components support nesting, custom font weights, line clamping, and inline touch handling.
@@ -328,22 +335,22 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 3. Image */}
-            {component.id === 'image' && (
+            {compId === 'image' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                   {['cover', 'contain', 'stretch'].map((mode) => (
                     <button 
                       key={mode} 
                       onClick={() => setImageResizeMode(mode)} 
-                      style={{ padding: '4px 8px', fontSize: '11px', borderRadius: '4px', background: imageResizeMode === mode ? '#0066cc' : '#e0e0e0', color: imageResizeMode === mode ? '#fff' : '#000', border: 'none' }}
+                      style={{ padding: '4px 8px', fontSize: '11px', borderRadius: '4px', background: imageResizeMode === mode ? '#0066cc' : '#e0e0e0', color: imageResizeMode === mode ? '#fff' : '#000', border: 'none', cursor: 'pointer' }}
                     >
                       {mode}
                     </button>
                   ))}
                 </div>
                 <img 
-                  src="/images/rn_app_mockup.jpg" 
-                  alt="RN Image"
+                  src="https://picsum.photos/400/250" 
+                  alt="RN Mobile Preview"
                   style={{ 
                     width: '100%', 
                     height: '180px', 
@@ -356,7 +363,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 4. TextInput */}
-            {component.id === 'textinput' && (
+            {compId === 'textinput' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label style={{ fontSize: '13px', fontWeight: '600', color: isDarkMode ? '#8e8e93' : '#666666' }}>EMAIL ADDRESS</label>
                 <input
@@ -380,7 +387,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 5. Button */}
-            {component.id === 'button' && (
+            {compId === 'button' && (
               <div>
                 <button
                   onClick={() => setPressCount(pressCount + 1)}
@@ -403,7 +410,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 6. Pressable */}
-            {component.id === 'pressable' && (
+            {compId === 'pressable' && (
               <div>
                 <button
                   onClick={() => setPressCount(pressCount + 1)}
@@ -416,8 +423,7 @@ export default function MobileDevicePreview({ component }) {
                     width: '100%',
                     fontSize: '15px',
                     fontWeight: '600',
-                    cursor: 'pointer',
-                    transition: 'transform 0.1s'
+                    cursor: 'pointer'
                   }}
                 >
                   Pressable Custom Button (Taps: {pressCount})
@@ -426,7 +432,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 7. TouchableOpacity */}
-            {component.id === 'touchableopacity' && (
+            {compId === 'touchableopacity' && (
               <button
                 onClick={() => setPressCount(pressCount + 1)}
                 style={{
@@ -439,7 +445,7 @@ export default function MobileDevicePreview({ component }) {
                   fontSize: '15px',
                   fontWeight: '500',
                   cursor: 'pointer',
-                  opacity: 0.8
+                  opacity: 0.85
                 }}
               >
                 TouchableOpacity (Opacity dim: {pressCount})
@@ -447,7 +453,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 8. TouchableHighlight */}
-            {component.id === 'touchablehighlight' && (
+            {compId === 'touchablehighlight' && (
               <div 
                 style={{
                   padding: '14px 16px',
@@ -464,7 +470,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 9. TouchableWithoutFeedback */}
-            {component.id === 'touchablewithoutfeedback' && (
+            {compId === 'touchablewithoutfeedback' && (
               <div 
                 style={{ 
                   padding: '20px', 
@@ -480,7 +486,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 10. ScrollView */}
-            {component.id === 'scrollview' && (
+            {compId === 'scrollview' && (
               <div style={{ height: '240px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {Array.from({ length: 8 }).map((_, i) => (
                   <div key={i} style={{ 
@@ -496,7 +502,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 11. FlatList */}
-            {component.id === 'flatlist' && (
+            {compId === 'flatlist' && (
               <div style={{ height: '240px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <div style={{ fontSize: '12px', fontWeight: '600', color: isIOS ? '#007aff' : '#1a73e8', textTransform: 'uppercase' }}>Virtualized Feed</div>
                 {[
@@ -519,7 +525,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 12. SectionList */}
-            {component.id === 'sectionlist' && (
+            {compId === 'sectionlist' && (
               <div style={{ height: '240px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <div style={{ background: isIOS ? '#007aff' : '#1a73e8', color: '#fff', padding: '6px 12px', fontSize: '12px', fontWeight: '600' }}>FRUITS</div>
                 <div style={{ padding: '8px 12px', fontSize: '14px' }}>Apple</div>
@@ -531,7 +537,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 13. Modal */}
-            {component.id === 'modal' && (
+            {compId === 'modal' && (
               <div style={{ textAlign: 'center' }}>
                 <button
                   onClick={() => setModalVisible(true)}
@@ -568,8 +574,8 @@ export default function MobileDevicePreview({ component }) {
                       flexDirection: 'column', 
                       width: '100%'
                     }}>
-                      <h4 style={{ fontWeight: '600', fontSize: '17px' }}>{isIOS ? 'iOS Modal View' : 'Material Dialog'}</h4>
-                      <p style={{ fontSize: '13px', opacity: 0.8 }}>Renders overlay above screen.</p>
+                      <h4 style={{ fontWeight: '600', fontSize: '17px', margin: 0 }}>{isIOS ? 'iOS Modal View' : 'Material Dialog'}</h4>
+                      <p style={{ fontSize: '13px', opacity: 0.8, margin: 0 }}>Renders overlay above screen.</p>
                       <button 
                         onClick={() => setModalVisible(false)} 
                         style={{ 
@@ -578,7 +584,8 @@ export default function MobileDevicePreview({ component }) {
                           border: 'none', 
                           padding: '10px', 
                           borderRadius: isIOS ? '8px' : '4px', 
-                          fontWeight: '600'
+                          fontWeight: '600',
+                          cursor: 'pointer'
                         }}
                       >
                         Dismiss
@@ -590,7 +597,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 14. ActivityIndicator */}
-            {component.id === 'activityindicator' && (
+            {compId === 'activityindicator' && (
               <div style={{ textAlign: 'center', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   {['#0066cc', '#34c759', '#ff9500', '#ff3b30'].map((col) => (
@@ -615,7 +622,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 15. Switch */}
-            {component.id === 'switch' && (
+            {compId === 'switch' && (
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
@@ -635,14 +642,14 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 16. RefreshControl */}
-            {component.id === 'refreshcontrol' && (
+            {compId === 'refreshcontrol' && (
               <div style={{ textAlign: 'center' }}>
                 <button
                   onClick={triggerRefresh}
                   style={{ 
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%',
                     background: isIOS ? '#007aff' : '#1a73e8', color: '#fff', padding: '10px',
-                    borderRadius: isIOS ? '10px' : '4px', border: 'none', fontWeight: '500'
+                    borderRadius: isIOS ? '10px' : '4px', border: 'none', fontWeight: '500', cursor: 'pointer'
                   }}
                 >
                   <RefreshCw size={14} className={isRefreshing ? 'spin-anim' : ''} />
@@ -655,11 +662,11 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 17. KeyboardAvoidingView */}
-            {component.id === 'keyboardavoidingview' && (
+            {compId === 'keyboardavoidingview' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <button 
                   onClick={() => setIsKeyboardOpen(!isKeyboardOpen)} 
-                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px' }}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
                 >
                   {isKeyboardOpen ? 'Close Soft Keyboard' : 'Simulate Open Keyboard'}
                 </button>
@@ -670,7 +677,7 @@ export default function MobileDevicePreview({ component }) {
                   style={{
                     padding: '12px',
                     borderRadius: '8px',
-                    border: '1px solid var(--color-hairline)',
+                    border: isDarkMode ? '1px solid #333' : '1px solid #ccc',
                     background: isDarkMode ? '#1c1c1e' : '#ffffff',
                     color: isDarkMode ? '#ffffff' : '#000000',
                     outline: 'none',
@@ -681,18 +688,18 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 18. StatusBar */}
-            {component.id === 'statusbar' && (
+            {compId === 'statusbar' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button 
                     onClick={() => setStatusBarStyle('dark-content')} 
-                    style={{ padding: '6px 12px', fontSize: '12px', borderRadius: '4px', background: statusBarStyle === 'dark-content' ? '#0066cc' : '#e0e0e0', color: statusBarStyle === 'dark-content' ? '#fff' : '#000', border: 'none' }}
+                    style={{ padding: '6px 12px', fontSize: '12px', borderRadius: '4px', background: statusBarStyle === 'dark-content' ? '#0066cc' : '#e0e0e0', color: statusBarStyle === 'dark-content' ? '#fff' : '#000', border: 'none', cursor: 'pointer' }}
                   >
                     Dark Icons
                   </button>
                   <button 
                     onClick={() => setStatusBarStyle('light-content')} 
-                    style={{ padding: '6px 12px', fontSize: '12px', borderRadius: '4px', background: statusBarStyle === 'light-content' ? '#0066cc' : '#e0e0e0', color: statusBarStyle === 'light-content' ? '#fff' : '#000', border: 'none' }}
+                    style={{ padding: '6px 12px', fontSize: '12px', borderRadius: '4px', background: statusBarStyle === 'light-content' ? '#0066cc' : '#e0e0e0', color: statusBarStyle === 'light-content' ? '#fff' : '#000', border: 'none', cursor: 'pointer' }}
                   >
                     Light Icons
                   </button>
@@ -702,11 +709,11 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 19. SafeAreaView */}
-            {component.id === 'safeareaview' && (
+            {compId === 'safeareaview' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
                 <button 
                   onClick={() => setShowSafeAreaGuides(!showSafeAreaGuides)} 
-                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px' }}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
                 >
                   {showSafeAreaGuides ? 'Hide Notch Guides' : 'Show Notch Guides'}
                 </button>
@@ -717,9 +724,9 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 20. ImageBackground */}
-            {component.id === 'imagebackground' && (
+            {compId === 'imagebackground' && (
               <div style={{
-                backgroundImage: 'url(/images/rn_app_mockup.jpg)',
+                backgroundImage: 'url(https://picsum.photos/400/250)',
                 backgroundSize: 'cover',
                 height: '180px',
                 borderRadius: '12px',
@@ -735,7 +742,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 21. Keyboard */}
-            {component.id === 'keyboard' && (
+            {compId === 'keyboard' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <input 
                   placeholder="Focus input to trigger keyboard..." 
@@ -744,7 +751,7 @@ export default function MobileDevicePreview({ component }) {
                 />
                 <button 
                   onClick={() => { setIsKeyboardOpen(false); triggerAlert('Keyboard.dismiss() executed'); }} 
-                  style={{ background: '#0066cc', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', fontWeight: '600' }}
+                  style={{ background: '#0066cc', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', fontWeight: '600', cursor: 'pointer' }}
                 >
                   Keyboard.dismiss()
                 </button>
@@ -753,11 +760,11 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 22. Alert */}
-            {component.id === 'alert' && (
+            {compId === 'alert' && (
               <div style={{ textAlign: 'center' }}>
                 <button 
                   onClick={() => triggerAlert('Alert.alert("Confirm Delete", "This action cannot be undone.", [{ text: "Cancel" }, { text: "Delete" }])')} 
-                  style={{ background: '#dc2626', color: '#fff', border: 'none', padding: '12px', borderRadius: '8px', width: '100%', fontWeight: '600' }}
+                  style={{ background: '#dc2626', color: '#fff', border: 'none', padding: '12px', borderRadius: '8px', width: '100%', fontWeight: '600', cursor: 'pointer' }}
                 >
                   Alert.alert(...) Dialog
                 </button>
@@ -765,18 +772,18 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 23. Linking */}
-            {component.id === 'linking' && (
+            {compId === 'linking' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <button 
                   onClick={() => triggerAlert('Linking.openURL("https://reactnative.dev")')} 
-                  style={{ background: '#0066cc', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                  style={{ background: '#0066cc', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', cursor: 'pointer' }}
                 >
                   <ExternalLink size={14} />
                   <span>Linking.openURL(Web)</span>
                 </button>
                 <button 
                   onClick={() => triggerAlert('Linking.openURL("tel:1234567890")')} 
-                  style={{ background: '#34c759', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                  style={{ background: '#34c759', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', cursor: 'pointer' }}
                 >
                   <Smartphone size={14} />
                   <span>Linking.openURL(Phone)</span>
@@ -785,11 +792,11 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 24. Share */}
-            {component.id === 'share' && (
+            {compId === 'share' && (
               <div style={{ textAlign: 'center' }}>
                 <button 
                   onClick={() => triggerAlert('Share.share({ message: "Check out React Native Docs" })')} 
-                  style={{ background: '#0066cc', color: '#fff', border: 'none', padding: '12px', borderRadius: '8px', width: '100%', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                  style={{ background: '#0066cc', color: '#fff', border: 'none', padding: '12px', borderRadius: '8px', width: '100%', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', cursor: 'pointer' }}
                 >
                   <Share2 size={16} />
                   <span>Share.share(...) Sheet</span>
@@ -797,17 +804,17 @@ export default function MobileDevicePreview({ component }) {
               </div>
             )}
 
-            {/* 25. useWindowDimensions */}
-            {component.id === 'dimensions' && (
+            {/* 25. Dimensions */}
+            {compId === 'dimensions' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
                 <button 
                   onClick={() => setIsLandscape(!isLandscape)} 
-                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px' }}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
                 >
                   Rotate Orientation ({isLandscape ? 'Landscape' : 'Portrait'})
                 </button>
                 <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', width: '100%', fontSize: '13px' }}>
-                  <div><strong>Width:</strong> {isLandscape ? '460px' : '360px'}</div>
+                  <div><strong>Width:</strong> {isLandscape ? '560px' : '360px'}</div>
                   <div><strong>Height:</strong> {isLandscape ? '360px' : '640px'}</div>
                   <div><strong>Font Scale:</strong> 1.0</div>
                 </div>
@@ -815,7 +822,7 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 26. Platform */}
-            {component.id === 'platform' && (
+            {compId === 'platform' && (
               <div style={{ padding: '16px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
                 <div style={{ fontSize: '15px', fontWeight: '600', color: isIOS ? '#007aff' : '#1a73e8' }}>
                   Platform.OS = '{platform}'
@@ -827,18 +834,18 @@ export default function MobileDevicePreview({ component }) {
             )}
 
             {/* 27. Animated */}
-            {component.id === 'animated' && (
+            {compId === 'animated' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   <button 
                     onClick={() => setAnimOpacity(animOpacity === 1 ? 0.2 : 1)} 
-                    style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px' }}
+                    style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
                   >
                     Fade ({animOpacity})
                   </button>
                   <button 
                     onClick={() => setAnimScale(animScale === 1 ? 1.25 : 1)} 
-                    style={{ padding: '6px 12px', fontSize: '12px', background: '#34c759', color: '#fff', border: 'none', borderRadius: '4px' }}
+                    style={{ padding: '6px 12px', fontSize: '12px', background: '#34c759', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
                   >
                     Scale ({animScale}x)
                   </button>
@@ -854,7 +861,42 @@ export default function MobileDevicePreview({ component }) {
 
           </div>
 
-          {/* Bottom iOS Home Indicator Bar VS Android 3-Button Nav Bar */}
+          {/* Simulated On-Screen Virtual Keyboard */}
+          {isKeyboardOpen && (
+            <div 
+              style={{
+                backgroundColor: isDarkMode ? '#222' : '#d1d5db',
+                padding: '8px 4px',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(10, 1fr)',
+                gap: '4px',
+                borderTop: '1px solid #ccc',
+                zIndex: 35,
+                flexShrink: 0
+              }}
+              onClick={() => setIsKeyboardOpen(false)}
+            >
+              {['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'].map((key) => (
+                <div 
+                  key={key} 
+                  style={{
+                    backgroundColor: isDarkMode ? '#444' : '#fff',
+                    color: isDarkMode ? '#fff' : '#000',
+                    borderRadius: '4px',
+                    padding: '6px 0',
+                    textAlign: 'center',
+                    fontSize: '11px',
+                    fontWeight: 'bold',
+                    boxShadow: '0 1px 1px rgba(0,0,0,0.2)'
+                  }}
+                >
+                  {key}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Bottom iOS Home Indicator Bar VS Android Navigation Bar */}
           {isIOS ? (
             <div style={{
               width: '134px',
@@ -870,14 +912,14 @@ export default function MobileDevicePreview({ component }) {
               backgroundColor: isDarkMode ? '#000000' : '#e0e0e0',
               display: 'flex',
               alignItems: 'center',
-              justify: 'space-around',
+              justifyContent: 'space-around',
               color: isDarkMode ? '#ffffff' : '#000000',
-              fontSize: '14px',
+              fontSize: '16px',
               flexShrink: 0
             }}>
               <span style={{ cursor: 'pointer', fontWeight: 'bold' }}>◀</span>
-              <span style={{ cursor: 'pointer', fontWeight: 'bold' }}>●</span>
-              <span style={{ cursor: 'pointer', fontWeight: 'bold' }}>■</span>
+              <span style={{ cursor: 'pointer', fontWeight: 'bold' ,fontSize: '30px'}}>●</span>
+              <span style={{ cursor: 'pointer', fontWeight: 'bold' ,fontSize: '24px'}}>■</span>
             </div>
           )}
 

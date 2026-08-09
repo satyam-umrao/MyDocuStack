@@ -26,7 +26,7 @@ export default function TableOfContentsGrid({ onSelectCategory, onSelectSetup })
           >
             <div className="toc-boxed-top">
               <div className="toc-icon-badge">
-                <Terminal size={24} />
+                <Terminal size={22} />
               </div>
               <span className="toc-boxed-count-badge">2 Workflows</span>
             </div>
@@ -46,16 +46,18 @@ export default function TableOfContentsGrid({ onSelectCategory, onSelectSetup })
           <div 
             className="toc-boxed-card"
             onClick={() => {
-              onSelectCategory('All');
+              if (onSelectCategory) onSelectCategory('All');
               const gridEl = document.getElementById('all-components-section');
               if (gridEl) gridEl.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <div className="toc-boxed-top">
-              <div className="toc-icon-badge" style={{ color: '#a855f7', background: 'radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(245, 245, 247, 1) 100%)' }}>
-                <Layers size={24} />
+              <div className="toc-icon-badge" style={{ color: 'var(--color-corona-purple)', backgroundColor: 'rgba(143, 95, 232, 0.15)' }}>
+                <Layers size={22} />
               </div>
-              <span className="toc-boxed-count-badge" style={{ backgroundColor: 'rgba(168, 85, 247, 0.1)', color: '#a855f7' }}>27 Components</span>
+              <span className="toc-boxed-count-badge" style={{ backgroundColor: 'rgba(143, 95, 232, 0.15)', color: 'var(--color-corona-purple)' }}>
+                27 Components
+              </span>
             </div>
 
             <h3 className="toc-boxed-title">All Components & APIs</h3>
@@ -63,7 +65,7 @@ export default function TableOfContentsGrid({ onSelectCategory, onSelectSetup })
               Browse all 27 core React Native components and APIs featuring authentic iOS & Android device frame previews, props tables, and copyable code.
             </p>
 
-            <div className="toc-boxed-link" style={{ color: '#a855f7' }}>
+            <div className="toc-boxed-link" style={{ color: 'var(--color-corona-purple)' }}>
               <span>Browse 27 Components</span>
               <ArrowRight size={16} />
             </div>
