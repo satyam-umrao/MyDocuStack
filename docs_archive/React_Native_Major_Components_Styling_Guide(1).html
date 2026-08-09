@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>React Native Major Components & Styling Guide</title>
+<style>
+:root{--bg:#f7f7f8;--card:#fff;--text:#171717;--muted:#666;--border:#ddd;--code:#111827;--codeText:#f5f5f5;--accent:#2563eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55}
+main{max-width:1100px;margin:0 auto;padding:40px 22px 80px}h1{font-size:42px;line-height:1.1;margin-bottom:10px}h2{margin-top:48px;border-bottom:2px solid var(--border);padding-bottom:8px}h3{margin-top:30px}.subtitle{color:var(--muted);font-size:18px}.note{background:#eef5ff;border-left:4px solid var(--accent);padding:14px 16px;border-radius:8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.code-wrap{position:relative;margin:12px 0}.code-label{font-size:12px;color:var(--muted);margin:6px 0}.copy{position:absolute;right:8px;top:8px;border:1px solid #555;background:#222;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer}.copy:hover{background:#333}
+pre{margin:0;background:var(--code);color:var(--codeText);padding:18px;border-radius:8px;overflow:auto;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;background:#fff;margin:16px 0}th,td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top}th{background:#f0f1f3}code{background:#eee;padding:2px 5px;border-radius:4px}ul{padding-left:22px}.toc a{color:var(--accent);text-decoration:none}.small{font-size:13px;color:var(--muted)}
+
+.component-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:20px 0 30px}
+.component-tile{display:block;background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-decoration:none;color:var(--text);font-weight:600;transition:transform .15s,box-shadow .15s,border-color .15s}
+.component-tile:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.08);border-color:var(--accent)}
+.component-number{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-bottom:4px}
+</style>
+<script>
+function copyCode(btn){
+  const pre=btn.parentElement.querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(()=>{
+    const old=btn.innerText; btn.innerText='Copied!';
+    setTimeout(()=>btn.innerText=old,1000);
+  });
+}
+</script>
+</head><body><main>
+<h1>React Native Major Components & Styling Guide</h1>
+<p class="subtitle">Practical reference with imports, install commands, copyable code, and styling properties.</p>
+<div class="note"><b>Version note:</b> This guide is aligned with React Native 0.86-era documentation. React Native's release page lists 0.86 as the latest stable release as of August 2026. Always check the current docs before adding native dependencies.</div>
+
+<h2 id='toc'>Table of Contents</h2><ol class='toc'>
+<li><a href='#setup'>Setup</a></li>
+<li><a href='#core-components'>Core Components</a></li>
+<li><a href='#styling'>Styling</a></li>
+<li><a href='#useful-third-party-dependencies'>Useful Third-Party Dependencies</a></li>
+<li><a href='#best-practices'>Best Practices</a></li>
+<li><a href='#sources'>Sources</a></li>
+</ol>
+<h2>Component Quick Grid</h2>
+<p class='small'>Click any component to jump directly to its example and documentation.</p>
+<div class='component-grid'>
+<a class='component-tile' href='#component-1'><span class='component-number'>01</span>View</a>
+<a class='component-tile' href='#component-2'><span class='component-number'>02</span>Text</a>
+<a class='component-tile' href='#component-3'><span class='component-number'>03</span>Image</a>
+<a class='component-tile' href='#component-4'><span class='component-number'>04</span>TextInput</a>
+<a class='component-tile' href='#component-5'><span class='component-number'>05</span>Button</a>
+<a class='component-tile' href='#component-6'><span class='component-number'>06</span>Pressable</a>
+<a class='component-tile' href='#component-7'><span class='component-number'>07</span>TouchableOpacity</a>
+<a class='component-tile' href='#component-8'><span class='component-number'>08</span>TouchableHighlight</a>
+<a class='component-tile' href='#component-9'><span class='component-number'>09</span>TouchableWithoutFeedback</a>
+<a class='component-tile' href='#component-10'><span class='component-number'>10</span>ScrollView</a>
+<a class='component-tile' href='#component-11'><span class='component-number'>11</span>FlatList</a>
+<a class='component-tile' href='#component-12'><span class='component-number'>12</span>SectionList</a>
+<a class='component-tile' href='#component-13'><span class='component-number'>13</span>Modal</a>
+<a class='component-tile' href='#component-14'><span class='component-number'>14</span>ActivityIndicator</a>
+<a class='component-tile' href='#component-15'><span class='component-number'>15</span>Switch</a>
+<a class='component-tile' href='#component-16'><span class='component-number'>16</span>RefreshControl</a>
+<a class='component-tile' href='#component-17'><span class='component-number'>17</span>KeyboardAvoidingView</a>
+<a class='component-tile' href='#component-18'><span class='component-number'>18</span>StatusBar</a>
+<a class='component-tile' href='#component-19'><span class='component-number'>19</span>Safe Area</a>
+<a class='component-tile' href='#component-20'><span class='component-number'>20</span>ImageBackground</a>
+<a class='component-tile' href='#component-21'><span class='component-number'>21</span>Keyboard API</a>
+<a class='component-tile' href='#component-22'><span class='component-number'>22</span>Alert</a>
+<a class='component-tile' href='#component-23'><span class='component-number'>23</span>Linking</a>
+<a class='component-tile' href='#component-24'><span class='component-number'>24</span>Share</a>
+<a class='component-tile' href='#component-25'><span class='component-number'>25</span>Dimensions / useWindowDimensions</a>
+<a class='component-tile' href='#component-26'><span class='component-number'>26</span>Platform</a>
+<a class='component-tile' href='#component-27'><span class='component-number'>27</span>Animated</a>
+</div>
+
+<h2 id='setup'>Setup</h2>
+<p>This guide is a practical React Native reference covering the major built-in UI components,
+common APIs, imports, dependency requirements, and styling options. Examples use modern
+functional components and hooks. The guide targets React Native 0.86-era APIs (the latest
+stable release as of August 2026), but most examples are intentionally version-neutral.</p>
+<div class='card'><h3>React Native CLI</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npx @react-native-community/cli@latest init MyApp
+cd MyApp
+npm start
+
+# In another terminal:
+npm run android
+# or
+npm run ios</pre></div></div>
+<div class='card'><h3>Expo</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npx create-expo-app@latest MyApp
+cd MyApp
+npx expo start</pre></div></div>
+<h2 id='core-components'>Core Components</h2>
+<div class='card' id='component-1'><h3>View</h3><p>Container/layout primitive. No extra dependency.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { View, Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={{ padding: 20, gap: 12 }}&gt;
+      &lt;Text&gt;Hello&lt;/Text&gt;
+      &lt;Text&gt;World&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-2'><h3>Text</h3><p>Displays text; supports nesting and text-specific styling.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Text, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View&gt;
+      &lt;Text style={{ fontSize: 22, fontWeight: &#x27;700&#x27; }}&gt;
+        Hello &lt;Text style={{ color: &#x27;tomato&#x27; }}&gt;React Native&lt;/Text&gt;
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-3'><h3>Image</h3><p>Displays local or remote images. No extra dependency for basic use.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Image } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;Image
+      source={{ uri: &#x27;https://picsum.photos/300/200&#x27; }}
+      style={{ width: 300, height: 200, borderRadius: 12 }}
+      resizeMode=&quot;cover&quot;
+      accessibilityLabel=&quot;Sample landscape&quot;
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-4'><h3>TextInput</h3><p>Single-line or multiline keyboard input.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { useState } from &#x27;react&#x27;;
+import { TextInput, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const [email, setEmail] = useState(&#x27;&#x27;);
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;TextInput
+        value={email}
+        onChangeText={setEmail}
+        placeholder=&quot;Email address&quot;
+        keyboardType=&quot;email-address&quot;
+        autoCapitalize=&quot;none&quot;
+        style={{ borderWidth: 1, borderRadius: 8, padding: 12 }}
+      /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-5'><h3>Button</h3><p>Simple platform button for common actions. Limited styling; use Pressable for custom UI.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Alert, Button, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Button
+        title=&quot;Save&quot;
+        onPress={() =&gt; Alert.alert(&#x27;Saved&#x27;)}
+      /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-6'><h3>Pressable</h3><p>Recommended flexible primitive for custom tappable controls.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Pressable, Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;Pressable
+      onPress={() =&gt; console.log(&#x27;Pressed&#x27;)}
+      style={({ pressed }) =&gt; [
+        { padding: 14, borderRadius: 10, backgroundColor: &#x27;royalblue&#x27; },
+        pressed &amp;&amp; { opacity: 0.65 },
+      ]}
+      accessibilityRole=&quot;button&quot;
+      accessibilityLabel=&quot;Save item&quot;
+    &gt;
+      &lt;Text style={{ color: &#x27;white&#x27;, textAlign: &#x27;center&#x27;, fontWeight: &#x27;700&#x27; }}&gt;
+        Save
+      &lt;/Text&gt;
+    &lt;/Pressable&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-7'><h3>TouchableOpacity</h3><p>Legacy/common touch wrapper. Prefer Pressable for new code.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Text, TouchableOpacity } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;TouchableOpacity
+      activeOpacity={0.7}
+      onPress={() =&gt; console.log(&#x27;Tapped&#x27;)}
+      style={{ padding: 14, backgroundColor: &#x27;#222&#x27;, borderRadius: 8 }}
+    &gt;
+      &lt;Text style={{ color: &#x27;#fff&#x27; }}&gt;Tap me&lt;/Text&gt;
+    &lt;/TouchableOpacity&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-8'><h3>TouchableHighlight</h3><p>Touch wrapper that reveals an underlay color when pressed.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Text, TouchableHighlight } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;TouchableHighlight
+      underlayColor=&quot;#ddd&quot;
+      onPress={() =&gt; console.log(&#x27;Pressed&#x27;)}
+      style={{ padding: 14, borderRadius: 8 }}
+    &gt;
+      &lt;Text&gt;Tap me&lt;/Text&gt;
+    &lt;/TouchableHighlight&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-9'><h3>TouchableWithoutFeedback</h3><p>Captures touch without visual feedback. Use sparingly.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Keyboard, TouchableWithoutFeedback, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;TouchableWithoutFeedback onPress={Keyboard.dismiss}&gt;
+      &lt;View style={{ flex: 1 }} /&gt;
+    &lt;/TouchableWithoutFeedback&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-10'><h3>ScrollView</h3><p>Scrollable container. Best for bounded/small content; renders all children.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { ScrollView, Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;ScrollView contentContainerStyle={{ padding: 20, gap: 12 }}&gt;
+      {Array.from({ length: 30 }, (_, i) =&gt; (
+        &lt;Text key={i}&gt;Row {i + 1}&lt;/Text&gt;
+      ))}
+    &lt;/ScrollView&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-11'><h3>FlatList</h3><p>Virtualized list for performant one-dimensional lists.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { FlatList, Text, View } from &#x27;react-native&#x27;;
+
+const data = [
+  { id: &#x27;1&#x27;, name: &#x27;Apple&#x27; },
+  { id: &#x27;2&#x27;, name: &#x27;Banana&#x27; },
+  { id: &#x27;3&#x27;, name: &#x27;Orange&#x27; },
+];
+
+export default function Example() {
+  return (
+    &lt;FlatList
+      data={data}
+      keyExtractor={(item) =&gt; item.id}
+      renderItem={({ item }) =&gt; (
+        &lt;View style={{ padding: 16 }}&gt;
+          &lt;Text&gt;{item.name}&lt;/Text&gt;
+        &lt;/View&gt;
+      )}
+      ItemSeparatorComponent={() =&gt; &lt;View style={{ height: 1 }} /&gt;}
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-12'><h3>SectionList</h3><p>Virtualized grouped/sectioned list.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { SectionList, Text, View } from &#x27;react-native&#x27;;
+
+const sections = [
+  { title: &#x27;Fruits&#x27;, data: [&#x27;Apple&#x27;, &#x27;Banana&#x27;] },
+  { title: &#x27;Vegetables&#x27;, data: [&#x27;Carrot&#x27;, &#x27;Potato&#x27;] },
+];
+
+export default function Example() {
+  return (
+    &lt;SectionList
+      sections={sections}
+      keyExtractor={(item, index) =&gt; `${item}-${index}`}
+      renderSectionHeader={({ section }) =&gt; (
+        &lt;Text style={{ fontWeight: &#x27;700&#x27;, padding: 12 }}&gt;
+          {section.title}
+        &lt;/Text&gt;
+      )}
+      renderItem={({ item }) =&gt; (
+        &lt;View style={{ padding: 12 }}&gt;
+          &lt;Text&gt;{item}&lt;/Text&gt;
+        &lt;/View&gt;
+      )}
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-13'><h3>Modal</h3><p>Presents content above the current view.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Modal, Pressable, Text, View } from &#x27;react-native&#x27;;
+import { useState } from &#x27;react&#x27;;
+
+export default function Example() {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    &lt;View style={{ flex: 1, justifyContent: &#x27;center&#x27;, alignItems: &#x27;center&#x27; }}&gt;
+      &lt;Pressable onPress={() =&gt; setVisible(true)}&gt;
+        &lt;Text&gt;Open modal&lt;/Text&gt;
+      &lt;/Pressable&gt;
+
+      &lt;Modal
+        visible={visible}
+        animationType=&quot;slide&quot;
+        transparent
+        onRequestClose={() =&gt; setVisible(false)}
+      &gt;
+        &lt;View style={{
+          flex: 1, justifyContent: &#x27;center&#x27;, alignItems: &#x27;center&#x27;,
+          backgroundColor: &#x27;rgba(0,0,0,0.4)&#x27;
+        }}&gt;
+          &lt;View style={{ padding: 24, backgroundColor: &#x27;white&#x27;, borderRadius: 16 }}&gt;
+            &lt;Text style={{ marginBottom: 12 }}&gt;Modal content&lt;/Text&gt;
+            &lt;Pressable onPress={() =&gt; setVisible(false)}&gt;
+              &lt;Text&gt;Close&lt;/Text&gt;
+            &lt;/Pressable&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+      &lt;/Modal&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-14'><h3>ActivityIndicator</h3><p>Circular loading indicator.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { ActivityIndicator, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;ActivityIndicator size=&quot;large&quot; /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-15'><h3>Switch</h3><p>Boolean on/off control.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { useState } from &#x27;react&#x27;;
+import { Switch, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const [enabled, setEnabled] = useState(false);
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Switch
+        value={enabled}
+        onValueChange={setEnabled}
+        accessibilityLabel=&quot;Enable notifications&quot;
+      /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-16'><h3>RefreshControl</h3><p>Pull-to-refresh control used with ScrollView/FlatList.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { useState } from &#x27;react&#x27;;
+import { FlatList, RefreshControl, Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const refresh = async () =&gt; {
+    setRefreshing(true);
+    await new Promise((r) =&gt; setTimeout(r, 1000));
+    setRefreshing(false);
+  };
+
+  return (
+    &lt;FlatList
+      data={[&#x27;One&#x27;, &#x27;Two&#x27;, &#x27;Three&#x27;]}
+      renderItem={({ item }) =&gt; &lt;Text style={{ padding: 20 }}&gt;{item}&lt;/Text&gt;}
+      keyExtractor={(item) =&gt; item}
+      refreshControl={
+        &lt;RefreshControl refreshing={refreshing} onRefresh={refresh} /&gt;
+      }
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-17'><h3>KeyboardAvoidingView</h3><p>Moves/resizes content so inputs remain visible above the keyboard.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { KeyboardAvoidingView, Platform, TextInput } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === &#x27;ios&#x27; ? &#x27;padding&#x27; : &#x27;height&#x27;}
+    &gt;
+      &lt;TextInput
+        placeholder=&quot;Type something&quot;
+        style={{ margin: 20, borderWidth: 1, padding: 12 }}
+      /&gt;
+    &lt;/KeyboardAvoidingView&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-18'><h3>StatusBar</h3><p>Controls status-bar appearance/behavior.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { StatusBar, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={{ flex: 1, backgroundColor: &#x27;#111&#x27; }}&gt;
+      &lt;StatusBar barStyle=&quot;light-content&quot; /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-19'><h3>Safe Area</h3><p>Use react-native-safe-area-context for modern safe-area handling.</p>
+<div class='code-label'>Install</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npm install react-native-safe-area-context</pre></div>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { SafeAreaView } from &#x27;react-native-safe-area-context&#x27;;
+import { Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;SafeAreaView style={{ flex: 1 }}&gt;
+      &lt;Text style={{ padding: 20 }}&gt;Safe content&lt;/Text&gt;
+    &lt;/SafeAreaView&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-20'><h3>ImageBackground</h3><p>Renders an image behind children.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { ImageBackground, Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;ImageBackground
+      source={{ uri: &#x27;https://picsum.photos/600/300&#x27; }}
+      style={{ height: 220, justifyContent: &#x27;flex-end&#x27;, padding: 20 }}
+    &gt;
+      &lt;Text style={{ color: &#x27;white&#x27;, fontSize: 24, fontWeight: &#x27;700&#x27; }}&gt;
+        Hero
+      &lt;/Text&gt;
+    &lt;/ImageBackground&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-21'><h3>Keyboard API</h3><p>Dismiss or inspect keyboard state.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Button, Keyboard, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Button title=&quot;Dismiss keyboard&quot; onPress={Keyboard.dismiss} /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-22'><h3>Alert</h3><p>Shows native alert dialogs.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Alert, Button } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;Button
+      title=&quot;Delete&quot;
+      onPress={() =&gt;
+        Alert.alert(
+          &#x27;Delete item?&#x27;,
+          &#x27;This action cannot be undone.&#x27;,
+          [
+            { text: &#x27;Cancel&#x27;, style: &#x27;cancel&#x27; },
+            { text: &#x27;Delete&#x27;, style: &#x27;destructive&#x27;, onPress: () =&gt; console.log(&#x27;deleted&#x27;) },
+          ]
+        )
+      }
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-23'><h3>Linking</h3><p>Opens URLs or deep links and reads incoming links.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Button, Linking } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;Button
+      title=&quot;Open website&quot;
+      onPress={() =&gt; Linking.openURL(&#x27;https://reactnative.dev&#x27;)}
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-24'><h3>Share</h3><p>Opens the platform share UI.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Button, Share } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;Button
+      title=&quot;Share&quot;
+      onPress={() =&gt;
+        Share.share({
+          message: &#x27;Check out React Native!&#x27;,
+          title: &#x27;React Native&#x27;,
+        })
+      }
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-25'><h3>Dimensions / useWindowDimensions</h3><p>Reads device/window dimensions; prefer the hook for responsive UI.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Text, useWindowDimensions, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const { width, height, fontScale } = useWindowDimensions();
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Text&gt;Width: {Math.round(width)}&lt;/Text&gt;
+      &lt;Text&gt;Height: {Math.round(height)}&lt;/Text&gt;
+      &lt;Text&gt;Font scale: {fontScale}&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<div class='card' id='component-26'><h3>Platform</h3><p>Runs platform-specific logic and selects platform-specific values/files.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Platform, Text } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const label = Platform.select({
+    ios: &#x27;Running on iOS&#x27;,
+    android: &#x27;Running on Android&#x27;,
+    default: &#x27;Running elsewhere&#x27;,
+  });
+
+  return &lt;Text&gt;{label}&lt;/Text&gt;;
+}</pre></div></div>
+<div class='card' id='component-27'><h3>Animated</h3><p>Built-in animation API for values and transitions.</p>
+<div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { useRef } from &#x27;react&#x27;;
+import { Animated, Button, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () =&gt; {
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Animated.View
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: &#x27;tomato&#x27;,
+          opacity,
+        }}
+      /&gt;
+      &lt;Button title=&quot;Fade in&quot; onPress={fadeIn} /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div></div>
+<h2 id='styling'>Styling</h2>
+<p>React Native styles are JavaScript objects. Property names use camelCase. A style can be inline, created with <code>StyleSheet.create()</code>, or combined with an array. In an array, later styles override earlier styles.</p>
+<div class='card'><h3>1. StyleSheet</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { StyleSheet, Text, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={styles.container}&gt;
+      &lt;Text style={styles.title}&gt;Hello&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: &#x27;#f5f5f5&#x27;,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: &#x27;700&#x27;,
+    color: &#x27;#111&#x27;,
+  },
+});</pre></div></div>
+<div class='card'><h3>2. Inline styles</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View style={{
+      padding: 20,
+      marginTop: 10,
+      backgroundColor: &#x27;white&#x27;,
+      borderRadius: 12,
+    }} /&gt;
+  );
+}</pre></div></div>
+<div class='card'><h3>3. Style arrays / overrides</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { View } from &#x27;react-native&#x27;;
+
+export default function Example({ active }) {
+  return (
+    &lt;View
+      style={[
+        { padding: 16, backgroundColor: &#x27;gray&#x27; },
+        active &amp;&amp; { backgroundColor: &#x27;green&#x27; },
+      ]}
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card'><h3>4. Platform-specific styles</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { Platform, StyleSheet } from &#x27;react-native&#x27;;
+
+const styles = StyleSheet.create({
+  card: {
+    padding: 16,
+    ...Platform.select({
+      ios: { shadowOpacity: 0.15, shadowRadius: 8 },
+      android: { elevation: 4 },
+      default: {},
+    }),
+  },
+});</pre></div></div>
+<div class='card'><h3>5. Responsive styling</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { StyleSheet, useWindowDimensions, View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  const { width } = useWindowDimensions();
+  const isTablet = width &gt;= 768;
+
+  return (
+    &lt;View style={[
+      styles.container,
+      { padding: isTablet ? 32 : 16 }
+    ]} /&gt;
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});</pre></div></div>
+<h3>Common styling properties</h3><table><tr><th>Category</th><th>Property</th><th>Typical values</th></tr>
+<tr><td>Layout</td><td>display</td><td>flex | none</td></tr>
+<tr><td>Layout</td><td>position</td><td>relative | absolute</td></tr>
+<tr><td>Layout</td><td>top/right/bottom/left</td><td>number or %</td></tr>
+<tr><td>Layout</td><td>zIndex</td><td>number</td></tr>
+<tr><td>Flex</td><td>flex</td><td>number</td></tr>
+<tr><td>Flex</td><td>flexDirection</td><td>row | column | row-reverse | column-reverse</td></tr>
+<tr><td>Flex</td><td>justifyContent</td><td>flex-start | center | flex-end | space-between | space-around | space-evenly</td></tr>
+<tr><td>Flex</td><td>alignItems</td><td>flex-start | center | flex-end | stretch | baseline</td></tr>
+<tr><td>Flex</td><td>alignSelf</td><td>auto | flex-start | center | flex-end | stretch | baseline</td></tr>
+<tr><td>Flex</td><td>alignContent</td><td>flex-start | center | flex-end | stretch | space-between | space-around | space-evenly</td></tr>
+<tr><td>Flex</td><td>flexWrap</td><td>nowrap | wrap | wrap-reverse</td></tr>
+<tr><td>Flex</td><td>flexGrow</td><td>number</td></tr>
+<tr><td>Flex</td><td>flexShrink</td><td>number</td></tr>
+<tr><td>Flex</td><td>flexBasis</td><td>number or %</td></tr>
+<tr><td>Size</td><td>width / height</td><td>number | % | auto</td></tr>
+<tr><td>Size</td><td>min/max width/height</td><td>number | %</td></tr>
+<tr><td>Spacing</td><td>margin</td><td>number | %</td></tr>
+<tr><td>Spacing</td><td>marginTop/Right/Bottom/Left</td><td>number | %</td></tr>
+<tr><td>Spacing</td><td>marginHorizontal/Vertical</td><td>number | %</td></tr>
+<tr><td>Spacing</td><td>padding</td><td>number | %</td></tr>
+<tr><td>Spacing</td><td>paddingTop/Right/Bottom/Left</td><td>number | %</td></tr>
+<tr><td>Spacing</td><td>paddingHorizontal/Vertical</td><td>number | %</td></tr>
+<tr><td>Background</td><td>backgroundColor</td><td>color</td></tr>
+<tr><td>Border</td><td>borderWidth</td><td>number</td></tr>
+<tr><td>Border</td><td>borderColor</td><td>color</td></tr>
+<tr><td>Border</td><td>borderRadius</td><td>number</td></tr>
+<tr><td>Border</td><td>borderTopLeftRadius etc.</td><td>number</td></tr>
+<tr><td>Border</td><td>borderStyle</td><td>solid | dashed | dotted</td></tr>
+<tr><td>Text</td><td>color</td><td>color</td></tr>
+<tr><td>Text</td><td>fontSize</td><td>number</td></tr>
+<tr><td>Text</td><td>fontWeight</td><td>normal | bold | 100...900</td></tr>
+<tr><td>Text</td><td>fontStyle</td><td>normal | italic</td></tr>
+<tr><td>Text</td><td>fontFamily</td><td>platform-available font family</td></tr>
+<tr><td>Text</td><td>lineHeight</td><td>number</td></tr>
+<tr><td>Text</td><td>letterSpacing</td><td>number</td></tr>
+<tr><td>Text</td><td>textAlign</td><td>auto | left | right | center | justify</td></tr>
+<tr><td>Text</td><td>textTransform</td><td>none | uppercase | lowercase | capitalize</td></tr>
+<tr><td>Text</td><td>textDecorationLine</td><td>none | underline | line-through | underline line-through</td></tr>
+<tr><td>Text</td><td>textShadowColor</td><td>color</td></tr>
+<tr><td>Text</td><td>textShadowOffset</td><td>{width, height}</td></tr>
+<tr><td>Text</td><td>textShadowRadius</td><td>number</td></tr>
+<tr><td>Image</td><td>resizeMode</td><td>cover | contain | stretch | repeat | center</td></tr>
+<tr><td>Image</td><td>tintColor</td><td>color</td></tr>
+<tr><td>Visual</td><td>opacity</td><td>0 to 1</td></tr>
+<tr><td>Visual</td><td>overflow</td><td>visible | hidden</td></tr>
+<tr><td>Visual</td><td>backfaceVisibility</td><td>visible | hidden</td></tr>
+<tr><td>Visual</td><td>transform</td><td>array of transform operations</td></tr>
+<tr><td>Shadow</td><td>shadowColor</td><td>color (iOS)</td></tr>
+<tr><td>Shadow</td><td>shadowOpacity</td><td>0 to 1 (iOS)</td></tr>
+<tr><td>Shadow</td><td>shadowRadius</td><td>number (iOS)</td></tr>
+<tr><td>Shadow</td><td>shadowOffset</td><td>{width, height} (iOS)</td></tr>
+<tr><td>Shadow</td><td>elevation</td><td>number (Android)</td></tr>
+</table>
+<div class='card'><h3>Transforms</h3><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { View } from &#x27;react-native&#x27;;
+
+export default function Example() {
+  return (
+    &lt;View
+      style={{
+        width: 100,
+        height: 100,
+        backgroundColor: &#x27;tomato&#x27;,
+        transform: [
+          { translateX: 20 },
+          { translateY: 10 },
+          { rotate: &#x27;12deg&#x27; },
+          { scale: 1.1 },
+        ],
+      }}
+    /&gt;
+  );
+}</pre></div></div>
+<h2 id='useful-third-party-dependencies'>Useful Third-Party Dependencies</h2>
+<div class='card'><h3>@react-navigation/native + @react-navigation/native-stack</h3><p>Navigation between screens.</p><div class='code-label'>Install</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npm install @react-navigation/native @react-navigation/native-stack
+npx expo install react-native-screens react-native-safe-area-context</pre></div><div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { NavigationContainer } from &#x27;@react-navigation/native&#x27;;
+import { createNativeStackNavigator } from &#x27;@react-navigation/native-stack&#x27;;
+import { Text, View } from &#x27;react-native&#x27;;
+
+const Stack = createNativeStackNavigator();
+
+function Home() {
+  return &lt;View&gt;&lt;Text&gt;Home&lt;/Text&gt;&lt;/View&gt;;
+}
+
+function Details() {
+  return &lt;View&gt;&lt;Text&gt;Details&lt;/Text&gt;&lt;/View&gt;;
+}
+
+export default function App() {
+  return (
+    &lt;NavigationContainer&gt;
+      &lt;Stack.Navigator&gt;
+        &lt;Stack.Screen name=&quot;Home&quot; component={Home} /&gt;
+        &lt;Stack.Screen name=&quot;Details&quot; component={Details} /&gt;
+      &lt;/Stack.Navigator&gt;
+    &lt;/NavigationContainer&gt;
+  );
+}</pre></div></div>
+<div class='card'><h3>react-native-safe-area-context</h3><p>Modern safe-area handling.</p><div class='code-label'>Install</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npm install react-native-safe-area-context</pre></div><div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { SafeAreaProvider, SafeAreaView } from &#x27;react-native-safe-area-context&#x27;;
+import { Text } from &#x27;react-native&#x27;;
+
+export default function App() {
+  return (
+    &lt;SafeAreaProvider&gt;
+      &lt;SafeAreaView style={{ flex: 1 }}&gt;
+        &lt;Text&gt;Safe area content&lt;/Text&gt;
+      &lt;/SafeAreaView&gt;
+    &lt;/SafeAreaProvider&gt;
+  );
+}</pre></div></div>
+<div class='card'><h3>react-native-gesture-handler</h3><p>Advanced gesture handling; commonly used by navigation and gesture-heavy UIs.</p><div class='code-label'>Install</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npm install react-native-gesture-handler</pre></div><div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { GestureHandlerRootView, Pressable, Text } from &#x27;react-native-gesture-handler&#x27;;
+
+export default function App() {
+  return (
+    &lt;GestureHandlerRootView style={{ flex: 1 }}&gt;
+      &lt;Pressable onPress={() =&gt; console.log(&#x27;pressed&#x27;)}&gt;
+        &lt;Text&gt;Gesture-aware UI&lt;/Text&gt;
+      &lt;/Pressable&gt;
+    &lt;/GestureHandlerRootView&gt;
+  );
+}</pre></div></div>
+<div class='card'><h3>react-native-reanimated</h3><p>High-performance animations and gesture-driven UI.</p><div class='code-label'>Install</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npm install react-native-reanimated</pre></div><div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import Animated, { useSharedValue, withTiming } from &#x27;react-native-reanimated&#x27;;
+
+export default function Example() {
+  const opacity = useSharedValue(1);
+
+  return (
+    &lt;Animated.View
+      style={{ width: 100, height: 100, opacity }}
+    /&gt;
+  );
+}</pre></div></div>
+<div class='card'><h3>react-native-webview</h3><p>Embeds web content in a native WebView.</p><div class='code-label'>Install</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>npm install react-native-webview
+# iOS projects with native dependencies may also need:
+npx pod-install</pre></div><div class='code-label'>Example</div><div class='code-wrap'><button class='copy' onclick='copyCode(this)'>Copy code</button><pre>import { WebView } from &#x27;react-native-webview&#x27;;
+
+export default function Example() {
+  return (
+    &lt;WebView
+      source={{ uri: &#x27;https://reactnative.dev&#x27; }}
+      style={{ flex: 1 }}
+    /&gt;
+  );
+}</pre></div></div>
+<h2 id='best-practices'>Best Practices</h2><ul>
+<li>Use FlatList/SectionList for large lists instead of rendering hundreds of children in ScrollView.</li>
+<li>Use Pressable for new custom buttons and touch targets; keep Button for simple platform-native actions.</li>
+<li>Keep reusable styles in StyleSheet.create() and use style arrays for conditional overrides.</li>
+<li>Use useWindowDimensions() for responsive layouts rather than reading dimensions once at module load.</li>
+<li>Always provide accessible labels/roles for custom controls and meaningful accessibilityLabel values for icon-only buttons.</li>
+<li>Prefer react-native-safe-area-context instead of the deprecated core SafeAreaView.</li>
+<li>Use stable keyExtractor values for lists; avoid array indexes when the item has a stable ID.</li>
+<li>Keep expensive work out of renderItem; memoize rows when profiling shows avoidable re-renders.</li>
+<li>Use KeyboardAvoidingView for forms and test both iOS and Android because keyboard behavior differs.</li>
+<li>Use Platform.select() or .ios/.android files when platform-specific behavior is clearer than branching inline.</li>
+<li>Prefer maintained libraries with New Architecture support for native functionality.</li>
+<li>Check the library&#x27;s compatibility with your React Native version before installing native dependencies.</li>
+</ul>
+<h2 id='sources'>Sources</h2><ul>
+<li><a href='https://reactnative.dev/docs/components-and-apis' target='_blank' rel='noreferrer'>React Native Components &amp; APIs</a></li>
+<li><a href='https://reactnative.dev/docs/style' target='_blank' rel='noreferrer'>React Native Style</a></li>
+<li><a href='https://reactnative.dev/docs/flexbox' target='_blank' rel='noreferrer'>React Native Flexbox</a></li>
+<li><a href='https://reactnative.dev/releases/' target='_blank' rel='noreferrer'>React Native Releases</a></li>
+<li><a href='https://reactnative.dev/blog/2026/06/11/react-native-0.86' target='_blank' rel='noreferrer'>React Native 0.86 release</a></li>
+<li><a href='https://reactnative.dev/docs/navigation' target='_blank' rel='noreferrer'>React Native Navigation</a></li>
+<li><a href='https://reactnative.dev/docs/libraries' target='_blank' rel='noreferrer'>React Native Libraries</a></li>
+<li><a href='https://reactnative.dev/docs/SafeAreaView' target='_blank' rel='noreferrer'>React Native SafeAreaView deprecation</a></li>
+</ul><p class='small'>Generated August 9, 2026.</p></main></body></html>
