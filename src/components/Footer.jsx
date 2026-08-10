@@ -32,22 +32,6 @@ export default function Footer({ onNavigateHome }) {
               <ArrowUpRight size={16} />
             </a>
           </div>
-
-          {/* Right: Clean Horizontal Navigation Menu */}
-          <nav className="footer-nav-menu">
-            <a href="#toc-section" onClick={(e) => { e.preventDefault(); scrollToSection('toc-section'); }}>
-              Table of Contents
-            </a>
-            <a href="#all-components-section" onClick={(e) => { e.preventDefault(); scrollToSection('all-components-section'); }}>
-              All Components
-            </a>
-            <a href="#setup-section" onClick={(e) => { e.preventDefault(); scrollToSection('setup-section'); }}>
-              RN CLI Setup
-            </a>
-            <a href="#setup-section" onClick={(e) => { e.preventDefault(); scrollToSection('setup-section'); }}>
-              Expo CLI Setup
-            </a>
-          </nav>
         </div>
 
         {/* Middle: Giant Signature Brand Logo Showcase */}
