@@ -103,10 +103,12 @@ a:hover {
   width: 100%;
 }
 
-/* Corona Dark Navbar Header (Height: 64px, Surface Black #000000) */
+/* Corona Dark Navbar Header (Height: 64px, Glassmorphic Dark) */
 .corona-navbar {
   height: 64px;
-  background-color: var(--color-corona-bg);
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-corona-border);
   position: sticky;
   top: 0;
@@ -135,6 +137,7 @@ a:hover {
   letter-spacing: 0.05em;
   text-decoration: none !important;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .corona-brand-icon {
@@ -245,9 +248,16 @@ a:hover {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   white-space: nowrap;
   transition: opacity var(--transition-fast);
+}
+
+.corona-green-btn.full-width {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
 }
 
 .corona-green-btn:hover {
@@ -264,6 +274,117 @@ a:hover {
 }
 
 .corona-github-icon:hover {
+  color: #ffffff;
+}
+
+/* Header Mobile Controls & Drawers */
+.corona-mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.corona-icon-btn {
+  background-color: var(--color-corona-surface);
+  border: 1px solid var(--color-corona-border);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.corona-icon-btn:hover {
+  background-color: var(--color-corona-surface-hover);
+  border-color: var(--color-corona-blue);
+}
+
+.corona-mobile-search-bar {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background-color: #0b0c0f;
+  border-bottom: 1px solid var(--color-corona-border);
+  padding: 10px 16px;
+  z-index: 999;
+}
+
+.mobile-search-inner {
+  width: 100%;
+  height: 40px;
+}
+
+.corona-search-close {
+  background: transparent;
+  border: none;
+  color: var(--color-corona-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corona-search-close:hover {
+  color: #ffffff;
+}
+
+.corona-mobile-drawer {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background-color: var(--color-corona-content);
+  border-bottom: 1px solid var(--color-corona-border);
+  box-shadow: var(--shadow-product);
+  z-index: 998;
+  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 16px;
+}
+
+.mobile-nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none !important;
+}
+
+.mobile-drawer-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.mobile-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--color-corona-muted);
+  font-size: 13px;
+  padding: 8px;
+}
+
+.mobile-github-link:hover {
   color: #ffffff;
 }
 
@@ -668,11 +789,46 @@ a:hover {
 }
 
 /* Compact Equal Height Setup Cards in Corona Style */
+.setup-mobile-tabs {
+  display: none;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.setup-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: var(--color-corona-surface);
+  border: 1px solid var(--color-corona-border);
+  color: var(--color-corona-muted);
+  border-radius: var(--radius-xs);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.setup-tab-btn:hover {
+  color: #ffffff;
+}
+
+.setup-tab-btn.active {
+  background-color: var(--color-corona-blue);
+  color: #ffffff;
+  border-color: var(--color-corona-blue);
+}
+
 .setup-equal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 24px;
   width: 100%;
+  max-width: 100%;
 }
 
 .setup-compact-card {
@@ -682,7 +838,12 @@ a:hover {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 520px;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .setup-card-top-header {
@@ -691,17 +852,26 @@ a:hover {
   gap: 14px;
   margin-bottom: 16px;
   flex-shrink: 0;
+  min-width: 0;
+}
+
+.setup-card-title-group {
+  min-width: 0;
+  flex-grow: 1;
 }
 
 .setup-card-title {
   font-size: 22px;
   font-weight: 700;
   color: #ffffff;
+  word-break: break-word;
 }
 
 .setup-card-subtitle {
   font-size: 13px;
   color: var(--color-corona-muted);
+  display: block;
+  word-break: break-word;
 }
 
 .setup-badge-icon-apple {
@@ -713,6 +883,16 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.setup-badge-icon-apple.expo-badge {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  color: #a855f7 !important;
+}
+
+.timeline-num.expo-num {
+  background: #a855f7 !important;
 }
 
 .setup-quick-cmd-bar {
@@ -726,6 +906,7 @@ a:hover {
   margin-bottom: 16px;
   flex-shrink: 0;
   border: 1px solid var(--color-corona-border);
+  min-width: 0;
 }
 
 .cmd-text {
@@ -1086,8 +1267,8 @@ pre.code-text-apple {
     padding: 0 20px;
   }
 
-  .corona-search-box {
-    width: 200px;
+  .corona-search-box.desktop-search {
+    width: 180px;
   }
 
   .corona-nav-links {
@@ -1111,7 +1292,7 @@ pre.code-text-apple {
   }
 
   .setup-compact-card {
-    height: 480px;
+    height: 500px;
   }
 }
 
@@ -1125,27 +1306,21 @@ pre.code-text-apple {
     height: 58px;
   }
 
+  /* Hide Desktop-only Header items */
+  .desktop-search, 
+  .desktop-btn, 
+  .desktop-github, 
   .corona-nav-links {
-    display: none; /* Hide heavy text links on mobile */
+    display: none !important;
   }
 
-  .corona-search-box {
-    width: 140px;
-    height: 34px;
-    padding: 0 8px;
-  }
-
-  .corona-kbd {
-    display: none; /* Hide shortcut kbd on mobile touch screens */
+  /* Show Mobile Header Action Buttons */
+  .corona-mobile-actions {
+    display: flex !important;
   }
 
   .corona-brand-name {
     font-size: 15px;
-  }
-
-  .corona-green-btn {
-    padding: 6px 12px;
-    font-size: 12px;
   }
 
   .corona-banner-tile {
@@ -1174,6 +1349,23 @@ pre.code-text-apple {
 
   .section-subtext-apple {
     font-size: 14px;
+  }
+
+  /* Show Setup Mobile Tab Switcher */
+  .setup-mobile-tabs {
+    display: flex !important;
+  }
+
+  .setup-equal-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .setup-compact-card {
+    padding: 18px;
+    height: auto;
+    max-height: 540px;
+    min-height: 420px;
   }
 
   .toc-boxed-grid {
@@ -1205,11 +1397,6 @@ pre.code-text-apple {
     grid-template-columns: 1fr;
   }
 
-  .setup-compact-card {
-    padding: 18px;
-    height: 480px;
-  }
-
   .detail-header-apple {
     padding: 20px;
   }
@@ -1239,21 +1426,40 @@ pre.code-text-apple {
   }
 }
 
-/* 4. Small Mobile Breakpoint (<400px) */
-@media (max-width: 400px) {
+/* 4. Small Mobile Breakpoint (<480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
   .corona-brand-tag {
     display: none;
   }
   
-  .corona-search-box {
-    width: 110px;
+  .corona-brand-name {
+    font-size: 14px;
   }
 
-  .corona-search-input::placeholder {
-    content: "Search...";
+  .setup-card-title {
+    font-size: 18px;
+  }
+
+  .setup-card-subtitle {
+    font-size: 12px;
+  }
+
+  .setup-badge-icon-apple {
+    width: 38px;
+    height: 38px;
   }
 
   .setup-compact-card {
-    height: 460px;
+    padding: 14px;
+    max-height: 500px;
+  }
+
+  pre.code-text-apple {
+    font-size: 12px;
+    padding: 12px;
   }
 }
