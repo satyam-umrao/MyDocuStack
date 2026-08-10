@@ -47,7 +47,7 @@ export default function Footer({ onNavigateHome }) {
             © 2026 React Native Docs. All rights reserved.
           </div>
 
-          <div className="footer-social-links">
+          <div className="footer-social-links" style={{ display: 'flex', gap: '1rem' }}>
             <a href="https://github.com/facebook/react-native" target="_blank" rel="noreferrer">GitHub</a>
             <a href="https://expo.dev" target="_blank" rel="noreferrer">Expo</a>
             <a href="https://reactnavigation.org" target="_blank" rel="noreferrer">Navigation</a>
