@@ -1195,5 +1195,464 @@ const styles = StyleSheet.create({
       }
     ],
     previewType: 'animated'
+  },
+  {
+    id: 'usestate',
+    num: '28',
+    name: 'useState',
+    category: 'Hooks',
+    tagline: 'State hook for declaring reactive component state and updater functions',
+    importStatement: "import { useState } from 'react';",
+    description: "useState is the core React hook for storing and updating reactive state inside functional components. Calling useState(initialValue) returns a tuple with the current state and a setter function. When the setter is invoked, React re-renders the component to reflect the new state in the UI.",
+    props: [
+      { name: 'initialState', type: 'any|Function', default: 'undefined', desc: 'Initial value or lazy calculation function.' },
+      { name: 'returns', type: '[state, setState]', default: 'tuple', desc: 'Returns state value and dispatcher function.' }
+    ],
+    useCases: [
+      'Managing form input values, modal visibility, and counter numbers',
+      'Toggling UI active states, dark/light themes, and tab selections'
+    ],
+    codeExamples: [
+      {
+        title: 'Interactive State Counter Example',
+        code: `import { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function UseStateExample() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.counterText}>Count: {count}</Text>
+      <View style={styles.btnRow}>
+        <Button title="Decrement" onPress={() => setCount(c => c - 1)} color="#fc424a" />
+        <Button title="Increment" onPress={() => setCount(c => c + 1)} color="#00d25b" />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { padding: 20, alignItems: 'center', gap: 16 },
+  counterText: { fontSize: 24, fontWeight: '700', color: '#1d1d1f' },
+  btnRow: { flexDirection: 'row', gap: 12 },
+});`
+      }
+    ],
+    previewType: 'usestate'
+  },
+  {
+    id: 'useeffect',
+    num: '29',
+    name: 'useEffect',
+    category: 'Hooks',
+    tagline: 'Effect hook for handling side effects like subscriptions, timers, and data fetching',
+    importStatement: "import { useEffect, useState } from 'react';",
+    description: "useEffect lets you perform side-effects in functional components after rendering. Common use cases include fetching data from a REST API, listening to device hardware events, or setting up interval timers. It takes an effect function and a dependency array to control when the effect triggers and cleans up.",
+    props: [
+      { name: 'setupFunction', type: 'Function', default: 'required', desc: 'Function containing side-effect logic. Can return a cleanup function.' },
+      { name: 'dependencies', type: 'Array', default: 'undefined', desc: 'Triggers effect execution when values change. Empty array [] runs once on mount.' }
+    ],
+    useCases: [
+      'Fetching REST API data when a component mounts',
+      'Setting up timer intervals and event listeners with cleanup'
+    ],
+    codeExamples: [
+      {
+        title: 'Timer Interval & Cleanup Example',
+        code: `import { useState, useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function UseEffectExample() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setSeconds(s => s + 1), 1000);
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Elapsed Time: {seconds}s</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { padding: 20, alignItems: 'center' },
+  text: { fontSize: 18, color: '#0066cc', fontWeight: '600' },
+});`
+      }
+    ],
+    previewType: 'useeffect'
+  },
+  {
+    id: 'usecontext',
+    num: '30',
+    name: 'useContext',
+    category: 'Hooks',
+    tagline: 'Hook for consuming global context values without prop drilling',
+    importStatement: "import { useContext } from 'react';",
+    description: "useContext accepts a React Context object (created via createContext) and returns the current context value provided by the nearest <Context.Provider> above in the component tree. It eliminates manual prop drilling across deeply nested component hierarchies.",
+    props: [
+      { name: 'SomeContext', type: 'ReactContext', default: 'required', desc: 'Context object returned by createContext.' }
+    ],
+    useCases: [
+      'Reading app-wide user session authentication tokens',
+      'Accessing global theme tokens (Light/Dark mode) or localization strings'
+    ],
+    codeExamples: [
+      {
+        title: 'Theme Context Consumer Example',
+        code: `import { createContext, useContext, useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+const ThemeContext = createContext({ theme: 'light', toggle: () => {} });
+
+export default function App() {
+  const [theme, setTheme] = useState('dark');
+  const toggle = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggle }}>
+      <ChildCard />
+    </ThemeContext.Provider>
+  );
+}
+
+function ChildCard() {
+  const { theme, toggle } = useContext(ThemeContext);
+  const isDark = theme === 'dark';
+
+  return (
+    <View style={[styles.card, isDark && styles.darkCard]}>
+      <Text style={[styles.text, isDark && styles.darkText]}>Current Theme: {theme}</Text>
+      <Button title="Toggle Theme" onPress={toggle} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: { padding: 20, backgroundColor: '#f5f5f7', borderRadius: 8, gap: 12 },
+  darkCard: { backgroundColor: '#1c1c1e' },
+  text: { fontSize: 16, color: '#1d1d1f' },
+  darkText: { color: '#ffffff' },
+});`
+      }
+    ],
+    previewType: 'usecontext'
+  },
+  {
+    id: 'usememo',
+    num: '31',
+    name: 'useMemo',
+    category: 'Hooks',
+    tagline: 'Performance hook for caching expensive calculation results between renders',
+    importStatement: "import { useMemo } from 'react';",
+    description: "useMemo memoizes the result of a calculation between re-renders. It will only recompute the cached value when one of its dependencies changes. This optimizes performance by preventing CPU-heavy filtering, sorting, or computations on every render.",
+    props: [
+      { name: 'calculateValue', type: 'Function', default: 'required', desc: 'Pure calculation function returning memoized result.' },
+      { name: 'dependencies', type: 'Array', default: 'required', desc: 'Array of reactive dependencies that trigger recalculation.' }
+    ],
+    useCases: [
+      'Caching sorted/filtered arrays in large search list views',
+      'Preventing expensive mathematical transformation routines on render'
+    ],
+    codeExamples: [
+      {
+        title: 'Memoized Calculation Example',
+        code: `import { useState, useMemo } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function UseMemoExample() {
+  const [count, setCount] = useState(5);
+  const [text, setText] = useState('React');
+
+  // Expensive calculation cached with useMemo
+  const factorial = useMemo(() => {
+    let result = 1;
+    for (let i = 1; i <= count; i++) result *= i;
+    return result;
+  }, [count]);
+
+  return (
+    <View style={styles.box}>
+      <Text style={styles.val}>Factorial of {count}: {factorial}</Text>
+      <Button title="Increase Number" onPress={() => setCount(c => c + 1)} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  box: { padding: 20, gap: 12 },
+  val: { fontSize: 18, fontWeight: '600', color: '#1d1d1f' },
+});`
+      }
+    ],
+    previewType: 'usememo'
+  },
+  {
+    id: 'usecallback',
+    num: '32',
+    name: 'useCallback',
+    category: 'Hooks',
+    tagline: 'Performance hook for caching function instances between renders',
+    importStatement: "import { useCallback } from 'react';",
+    description: "useCallback caches a function definition between component re-renders. When passing callbacks down to optimized child components that rely on shallow prop comparison (like React.memo), useCallback prevents unwanted child re-renders caused by new function references.",
+    props: [
+      { name: 'fn', type: 'Function', default: 'required', desc: 'Callback function definition to memoize.' },
+      { name: 'dependencies', type: 'Array', default: 'required', desc: 'Array of dependencies that recreate the function instance when changed.' }
+    ],
+    useCases: [
+      'Passing event handlers to memoized list item components',
+      'Optimizing custom hook event dispatchers'
+    ],
+    codeExamples: [
+      {
+        title: 'Memoized Callback Handler Example',
+        code: `import { useState, useCallback } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function UseCallbackExample() {
+  const [items, setItems] = useState(['Apple', 'Banana']);
+
+  const addItem = useCallback(() => {
+    setItems(prev => [...prev, \`Item #\${prev.length + 1}\`]);
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Items: {items.join(', ')}</Text>
+      <Button title="Add Item" onPress={addItem} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { padding: 20, gap: 12 },
+  title: { fontSize: 16, color: '#1d1d1f' },
+});`
+      }
+    ],
+    previewType: 'usecallback'
+  },
+  {
+    id: 'useref',
+    num: '33',
+    name: 'useRef',
+    category: 'Hooks',
+    tagline: 'Hook for persisting mutable values or referencing native DOM/UI nodes without re-rendering',
+    importStatement: "import { useRef } from 'react';",
+    description: "useRef returns a mutable object whose .current property persists across re-renders without triggering a re-render when changed. It is primarily used to hold references to native component nodes (like calling TextInput.focus()) or keeping instance variables like timer IDs.",
+    props: [
+      { name: 'initialValue', type: 'any', default: 'undefined', desc: 'Initial value set to refObject.current.' }
+    ],
+    useCases: [
+      'Programmatically focusing text inputs or scrolling scrollviews',
+      'Storing timer IDs, previous props, or render counts without triggering UI updates'
+    ],
+    codeExamples: [
+      {
+        title: 'Focus TextInput Ref Example',
+        code: `import { useRef } from 'react';
+import { View, TextInput, Button, StyleSheet } from 'react-native';
+
+export default function UseRefExample() {
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current?.focus();
+  };
+
+  return (
+    <View style={styles.box}>
+      <TextInput ref={inputRef} placeholder="Tap button to focus me..." style={styles.input} />
+      <Button title="Focus Field" onPress={focusInput} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  box: { padding: 20, gap: 12 },
+  input: { borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 12 },
+});`
+      }
+    ],
+    previewType: 'useref'
+  },
+  {
+    id: 'createcontext',
+    num: '34',
+    name: 'createContext',
+    category: 'React',
+    tagline: 'Factory function for creating global Context objects for dependency injection',
+    importStatement: "import { createContext } from 'react';",
+    description: "createContext creates a React Context object. When React renders a component subscribing to this Context, it reads the current context value from the closest matching <Context.Provider> above it in the component tree.",
+    props: [
+      { name: 'defaultValue', type: 'any', default: 'undefined', desc: 'Fallback default context value when no matching Provider is found.' }
+    ],
+    useCases: [
+      'Creating global state containers (Auth, Theme, Cart State)',
+      'Injecting dependency services across app modules'
+    ],
+    codeExamples: [
+      {
+        title: 'Global Auth Context Creation Example',
+        code: `import { createContext, useState } from 'react';
+import { View, Text, Button } from 'react-native';
+
+export const UserContext = createContext({ user: null, login: () => {} });
+
+export function UserProvider({ children }) {
+  const [user, setUser] = useState(null);
+
+  return (
+    <UserContext.Provider value={{ user, login: () => setUser({ name: 'Satyam' }) }}>
+      {children}
+    </UserContext.Provider>
+  );
+}`
+      }
+    ],
+    previewType: 'createcontext'
+  },
+  {
+    id: 'memo',
+    num: '35',
+    name: 'memo',
+    category: 'React',
+    tagline: 'Higher-order component for skipping re-renders when props are unchanged',
+    importStatement: "import { memo } from 'react';",
+    description: "React.memo is a higher-order component that wraps a component to skip re-rendering if its props have not changed. It performs a shallow comparison of props, significantly boosting list rendering performance.",
+    props: [
+      { name: 'Component', type: 'Component', default: 'required', desc: 'Functional component to memoize.' },
+      { name: 'arePropsEqual', type: 'Function', default: 'undefined', desc: 'Optional custom prop equality comparator function (prevProps, nextProps).' }
+    ],
+    useCases: [
+      'Optimizing FlatList row items from re-rendering during list updates',
+      'Preventing heavy static UI cards from re-rendering on parent state changes'
+    ],
+    codeExamples: [
+      {
+        title: 'Memoized Component Example',
+        code: `import { memo, useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+const HeavyCard = memo(function HeavyCard({ title }) {
+  console.log('HeavyCard rendered!');
+  return (
+    <View style={styles.card}>
+      <Text style={styles.text}>{title}</Text>
+    </View>
+  );
+});
+
+export default function MemoExample() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View style={styles.box}>
+      <Button title={\`Re-render Parent (\${count})\`} onPress={() => setCount(c => c + 1)} />
+      <HeavyCard title="I only render when props change!" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  box: { padding: 20, gap: 12 },
+  card: { padding: 16, backgroundColor: '#0066cc', borderRadius: 8 },
+  text: { color: '#ffffff', fontWeight: '600' },
+});`
+      }
+    ],
+    previewType: 'memo'
+  },
+  {
+    id: 'lazy',
+    num: '36',
+    name: 'lazy',
+    category: 'React',
+    tagline: 'Function for code-splitting components and loading them dynamically on demand',
+    importStatement: "import { lazy, Suspense } from 'react';",
+    description: "React.lazy lets you defer loading component code until it is rendered for the first time. Combined with dynamic imports import(), it splits app bundle size for faster initial load times.",
+    props: [
+      { name: 'loadFunction', type: 'Function', default: 'required', desc: 'Function calling dynamic import() returning a Promise resolving to a module.' }
+    ],
+    useCases: [
+      'Lazy loading heavy modal dialogs or chart screens',
+      'Splitting optional feature modules into dynamic bundles'
+    ],
+    codeExamples: [
+      {
+        title: 'Lazy Loaded Component Example',
+        code: `import { lazy, Suspense, useState } from 'react';
+import { View, Text, Button, ActivityIndicator, StyleSheet } from 'react-native';
+
+// Dynamic import component
+const ExtraDetails = lazy(() => new Promise(res => {
+  setTimeout(() => res({ default: () => <Text style={{ color: '#00d25b' }}>Lazy Component Loaded!</Text> }), 1500);
+}));
+
+export default function LazyExample() {
+  const [show, setShow] = useState(false);
+
+  return (
+    <View style={styles.box}>
+      <Button title="Load Module On Demand" onPress={() => setShow(true)} />
+      {show && (
+        <Suspense fallback={<ActivityIndicator color="#0066cc" />}>
+          <ExtraDetails />
+        </Suspense>
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  box: { padding: 20, alignItems: 'center', gap: 16 },
+});`
+      }
+    ],
+    previewType: 'lazy'
+  },
+  {
+    id: 'suspense',
+    num: '37',
+    name: 'Suspense',
+    category: 'React',
+    tagline: 'Boundary component that displays fallback UI while child components are loading',
+    importStatement: "import { Suspense } from 'react';",
+    description: "Suspense lets you display a fallback UI (like a loading spinner or skeleton placeholder) while its child components are fetching data or loading dynamic code bundles.",
+    props: [
+      { name: 'fallback', type: 'ReactNode', default: 'required', desc: 'Fallback loader node rendered while child components suspend.' }
+    ],
+    useCases: [
+      'Displaying skeleton loaders while data or lazy modules resolve',
+      'Coordinating asynchronous loading boundaries across screen sections'
+    ],
+    codeExamples: [
+      {
+        title: 'Suspense Fallback Boundary Example',
+        code: `import { Suspense } from 'react';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+
+export default function SuspenseExample() {
+  return (
+    <View style={styles.container}>
+      <Suspense fallback={<ActivityIndicator size="large" color="#8f5fe8" />}>
+        <Text style={styles.loadedText}>Suspense Async Boundary Ready!</Text>
+      </Suspense>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { padding: 24, alignItems: 'center' },
+  loadedText: { fontSize: 16, fontWeight: '600', color: '#8f5fe8' },
+});`
+      }
+    ],
+    previewType: 'suspense'
   }
 ];
+
