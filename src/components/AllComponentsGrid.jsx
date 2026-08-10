@@ -9,7 +9,9 @@ const CATEGORIES = [
   'Feedback', 
   'Layout', 
   'APIs', 
-  'Animation'
+  'Animation',
+  'Hooks',
+  'React'
 ];
 
 export default function AllComponentsGrid({ 
