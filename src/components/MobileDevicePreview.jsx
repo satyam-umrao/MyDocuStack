@@ -859,6 +859,158 @@ export default function MobileDevicePreview({ component = { id: 'view', name: 'V
               </div>
             )}
 
+            {/* 28. useState */}
+            {compId === 'usestate' && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '20px', fontWeight: '700', color: isIOS ? '#007aff' : '#00d25b' }}>
+                  Count: {pressCount}
+                </div>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <button 
+                    onClick={() => setPressCount(c => c - 1)}
+                    style={{ padding: '8px 14px', background: '#fc424a', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600' }}
+                  >
+                    - Decrement
+                  </button>
+                  <button 
+                    onClick={() => setPressCount(c => c + 1)}
+                    style={{ padding: '8px 14px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600' }}
+                  >
+                    + Increment
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 29. useEffect */}
+            {compId === 'useeffect' && (
+              <div style={{ padding: '16px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', color: isDarkMode ? '#aaa' : '#666', marginBottom: '6px' }}>Effect Timer Running...</div>
+                <div style={{ fontSize: '18px', fontWeight: '700', color: '#0066cc' }}>
+                  Active Render Effect ({pressCount}s)
+                </div>
+                <button 
+                  onClick={triggerRefresh}
+                  style={{ marginTop: '10px', padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Trigger Effect Re-run
+                </button>
+              </div>
+            )}
+
+            {/* 30. useContext */}
+            {compId === 'usecontext' && (
+              <div style={{ padding: '16px', background: isDarkMode ? '#2c2c2e' : '#e5e5ea', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', opacity: 0.7 }}>ThemeContext Consumer</div>
+                <div style={{ fontSize: '16px', fontWeight: '600', margin: '8px 0', color: isDarkMode ? '#34c759' : '#007aff' }}>
+                  Provided Mode: {isDarkMode ? 'Dark Theme 🌙' : 'Light Theme ☀️'}
+                </div>
+                <button 
+                  onClick={() => setIsDarkMode(!isDarkMode)}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: isDarkMode ? '#34c759' : '#007aff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Toggle Global Context
+                </button>
+              </div>
+            )}
+
+            {/* 31. useMemo */}
+            {compId === 'usememo' && (
+              <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600' }}>Memoized Calculation</div>
+                <div style={{ fontSize: '15px', color: '#8f5fe8', margin: '6px 0' }}>
+                  Factorial({pressCount || 4}): {(pressCount || 4) <= 1 ? 1 : Array.from({length: pressCount || 4}).reduce((acc, _, i) => acc * (i + 1), 1)}
+                </div>
+                <button 
+                  onClick={() => setPressCount((pressCount + 1) % 8)}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: '#8f5fe8', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Recompute Memoized Result
+                </button>
+              </div>
+            )}
+
+            {/* 32. useCallback */}
+            {compId === 'usecallback' && (
+              <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600' }}>Memoized Callback Reference</div>
+                <div style={{ fontSize: '12px', color: '#00d25b', margin: '6px 0' }}>
+                  fnRef: useCallback(handleClick, [deps])
+                </div>
+                <button 
+                  onClick={() => triggerAlert('Callback executed!')}
+                  style={{ padding: '8px 14px', fontSize: '12px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Execute Memoized Callback
+                </button>
+              </div>
+            )}
+
+            {/* 33. useRef */}
+            {compId === 'useref' && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
+                <input 
+                  type="text" 
+                  placeholder="inputRef.current..." 
+                  value={inputValue}
+                  onChange={e => setInputValue(e.target.value)}
+                  style={{ width: '100%', padding: '8px 12px', borderRadius: '6px', border: '1px solid #ccc' }}
+                />
+                <button 
+                  onClick={() => triggerAlert(`Ref current: "${inputValue || 'Focused!'}"`)}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: '#0066cc', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Access inputRef.current
+                </button>
+              </div>
+            )}
+
+            {/* 34. createContext */}
+            {compId === 'createcontext' && (
+              <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#007aff' }}>createContext Factory</div>
+                <div style={{ fontSize: '12px', margin: '6px 0', opacity: 0.8 }}>
+                  UserContext = createContext(&#123; user: 'Satyam' &#125;)
+                </div>
+              </div>
+            )}
+
+            {/* 35. memo */}
+            {compId === 'memo' && (
+              <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b' }}>React.memo Component</div>
+                <div style={{ fontSize: '12px', opacity: 0.8, margin: '6px 0' }}>
+                  Props Unchanged: Render Skipped!
+                </div>
+                <button 
+                  onClick={() => triggerAlert('Parent re-rendered. Child memoized!')}
+                  style={{ padding: '6px 12px', fontSize: '12px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Trigger Parent Re-render
+                </button>
+              </div>
+            )}
+
+            {/* 36. lazy */}
+            {compId === 'lazy' && (
+              <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#a855f7' }}>React.lazy Component</div>
+                <div style={{ fontSize: '12px', margin: '6px 0', opacity: 0.8 }}>
+                  Code Bundle Loaded On Demand!
+                </div>
+              </div>
+            )}
+
+            {/* 37. Suspense */}
+            {compId === 'suspense' && (
+              <div style={{ padding: '14px', background: isDarkMode ? '#1c1c1e' : '#f5f5f7', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8' }}>&lt;Suspense fallback=&#123;&lt;Spinner/&gt;&#125;&gt;</div>
+                <div style={{ fontSize: '12px', margin: '6px 0', color: '#8f5fe8' }}>
+                  Fallback UI Ready
+                </div>
+              </div>
+            )}
+
           </div>
 
           {/* Simulated On-Screen Virtual Keyboard */}
