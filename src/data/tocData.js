@@ -8,9 +8,16 @@ export const tocData = [
   },
   {
     id: 'all-components',
-    title: 'All Components',
-    count: '27 Components',
+    title: 'All Components & APIs',
+    count: '37 Items',
     iconName: 'Layers',
     category: 'All'
+  },
+  {
+    id: 'hooks-section',
+    title: 'React Hooks & APIs',
+    count: '10 Hooks & APIs',
+    iconName: 'Sparkles',
+    category: 'Hooks'
   }
 ];
