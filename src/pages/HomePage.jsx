@@ -50,13 +50,13 @@ export default function HomePage({
             
             <div className="corona-stat-card">
               <div className="corona-stat-top">
-                <span className="corona-stat-value">27</span>
+                <span className="corona-stat-value">{components.length || 37}</span>
                 <span className="corona-stat-badge green">+100%</span>
                 <div className="corona-icon-box green">
                   <Layers size={18} />
                 </div>
               </div>
-              <span className="corona-stat-label">Core Components & APIs</span>
+              <span className="corona-stat-label">Components, Hooks & APIs</span>
             </div>
 
             <div className="corona-stat-card">
