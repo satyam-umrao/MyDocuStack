@@ -1,6 +1,7 @@
 <div align="center">
+<img src="https://github.com/satyam-umrao/react-native-docs/blob/3d96cce6be538f6eb267e93f925c91c4c90d96e3/src/data/1_a-HMmQFQNC76zCZBZfFgJg-no-bg.gif" width="200px">
 
-# ⚛️ React Native 0.86 Interactive Component Hub
+# React Native 0.86 Interactive Component Hub
 
   <p align="center">
     <strong>An extreme modern, dark-themed interactive documentation hub for React Native 0.86 core components & native APIs with authentic iOS & Android device frame previews.</strong>
