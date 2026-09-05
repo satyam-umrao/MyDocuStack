@@ -13,9 +13,15 @@
   --color-corona-muted: #6c7293;
   --color-corona-border: #2c2e33;
 
-  --font-display: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  --font-body: "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display:
+    "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+    sans-serif;
+  --font-body:
+    "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+    sans-serif;
+  --font-mono:
+    "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
 
   --radius-none: 0px;
   --radius-xs: 4px;
@@ -30,7 +36,9 @@
   --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-bounce: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-color: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  --transition-color:
+    background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 * {
@@ -82,7 +90,12 @@ section[id] {
 }
 
 /* Typography Hierarchy */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 600;
   color: #ffffff;
@@ -100,7 +113,7 @@ a:hover {
 
 /* Container Layout */
 .container {
-  max-width: 1240px;
+  /* max-width: 1240px; */
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
@@ -177,11 +190,15 @@ a:hover {
   border-radius: var(--radius-xs);
   padding: 0 12px;
   height: 38px;
-  width: 280px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  margin-right: 16px;
+  margin-left: 16px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.corona-search-box.focused, 
+.corona-search-box.focused,
 .corona-search-box:focus-within,
 .corona-search-box:hover {
   border-color: var(--color-corona-blue);
@@ -257,7 +274,11 @@ a:hover {
   justify-content: center;
   gap: 6px;
   white-space: nowrap;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.2s ease,
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
 }
 
 .corona-green-btn.full-width {
@@ -359,8 +380,14 @@ a:hover {
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobile-drawer-inner {
@@ -479,7 +506,10 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.28s ease;
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    box-shadow 0.28s ease;
 }
 
 .corona-stat-card:hover {
@@ -599,7 +629,11 @@ a:hover {
   flex-direction: column;
   gap: 14px;
   cursor: pointer;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.28s ease;
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.28s ease;
   will-change: transform;
 }
 
@@ -691,7 +725,9 @@ a:hover {
   font-size: 14px;
   color: #ffffff;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .search-pill-input:focus {
@@ -748,7 +784,7 @@ a:hover {
 /* Corona Component Showcase Cards */
 .components-grid-apple {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
 }
@@ -762,7 +798,11 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.28s ease;
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.28s ease;
   cursor: pointer;
   min-height: 200px;
   will-change: transform;
@@ -888,7 +928,10 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  transition: border-color 0.25s ease, box-shadow 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .setup-compact-card:hover {
@@ -1098,7 +1141,11 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 5px;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .copy-btn-apple:hover {
@@ -1169,7 +1216,9 @@ pre.code-text-apple {
   border-radius: var(--radius-sm);
   padding: 28px;
   margin-bottom: 28px;
-  transition: border-color 0.25s ease, box-shadow 0.28s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.28s ease;
 }
 
 .block-card-apple:hover {
@@ -1206,7 +1255,8 @@ pre.code-text-apple {
   font-size: 13.5px;
 }
 
-.props-table th, .props-table td {
+.props-table th,
+.props-table td {
   padding: 10px 12px;
   text-align: left;
   border-bottom: 1px solid var(--color-corona-border);
@@ -1428,9 +1478,9 @@ pre.code-text-apple {
   }
 
   /* Hide Desktop-only Header items */
-  .desktop-search, 
-  .desktop-btn, 
-  .desktop-github, 
+  .desktop-search,
+  .desktop-btn,
+  .desktop-github,
   .corona-nav-links {
     display: none !important;
   }
@@ -1526,7 +1576,8 @@ pre.code-text-apple {
     padding: 18px;
   }
 
-  .props-table th, .props-table td {
+  .props-table th,
+  .props-table td {
     padding: 8px 10px;
     font-size: 12px;
   }
@@ -1556,7 +1607,7 @@ pre.code-text-apple {
   .corona-brand-tag {
     display: none;
   }
-  
+
   .corona-brand-name {
     font-size: 14px;
   }
@@ -1601,7 +1652,8 @@ pre.code-text-apple {
 }
 
 @keyframes glowPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 15px rgba(0, 210, 91, 0.15);
   }
   50% {
@@ -1610,7 +1662,8 @@ pre.code-text-apple {
 }
 
 @keyframes subtleFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1622,4 +1675,3 @@ pre.code-text-apple {
   animation: pageFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: opacity, transform;
 }
-
