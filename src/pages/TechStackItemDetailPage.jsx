@@ -79,6 +79,30 @@ const getExampleLanguage = (stackId, item, ex) => {
   }
 };
 
+// Determine appropriate syntax badge in top header pill
+const getItemSyntaxBadge = (stack, item) => {
+  if (item?.syntax) return item.syntax;
+  if (item?.methods?.[0]?.signature && !item.methods[0].signature.includes('void | any')) {
+    return item.methods[0].signature;
+  }
+  if (stack?.id === 'html') {
+    return `${item.name} ... </${item.name.replace(/<|>/g, '')}>`;
+  }
+  if (stack?.id === 'css') {
+    return `.selector { ${item.name}: value; }`;
+  }
+  if (stack?.id === 'docker') {
+    return item.name.startsWith('docker') ? `${item.name} [OPTIONS]` : `${item.name}`;
+  }
+  if (stack?.id === 'kubernetes') {
+    return item.name.startsWith('kubectl') ? `${item.name} [FLAGS]` : `kind: ${item.name}`;
+  }
+  if (stack?.id === 'postgresql') {
+    return `${item.name} ... ;`;
+  }
+  return `// ${stack?.name || 'API'}: ${item?.name || ''}`;
+};
+
 export default function TechStackItemDetailPage({ item, stack, onBackToStack, onBackToMaster }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -204,7 +228,7 @@ export default function TechStackItemDetailPage({ item, stack, onBackToStack, on
 
           <div className="import-pill-apple">
             <code>
-              {item.methods?.[0]?.signature ? item.methods[0].signature : `// ${stack.name} API: ${item.name}`}
+              {getItemSyntaxBadge(stack, item)}
             </code>
           </div>
         </div>
@@ -218,7 +242,7 @@ export default function TechStackItemDetailPage({ item, stack, onBackToStack, on
               <BookOpen size={20} style={{ color: stack.accentColor || 'var(--color-corona-blue)' }} />
               <span>Description & Architecture</span>
             </h3>
-            <p style={{ color: '#ffffff', fontSize: '15px', lineHeight: '1.6' }}>
+            <p style={{ color: '#ffffff', fontSize: '15px', lineHeight: '1.7', whiteSpace: 'pre-line' }}>
               {item.description}
             </p>
           </div>
@@ -309,14 +333,26 @@ export default function TechStackItemDetailPage({ item, stack, onBackToStack, on
             <div className="block-card-apple" style={{ margin: 0 }}>
               <h3 className="block-title-apple" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Layers size={20} style={{ color: 'var(--color-corona-purple)' }} />
-                <span>Key Props & Parameters Reference</span>
+                <span>
+                  {stack.id === 'html' ? 'Key HTML Attributes & Accessibility Options' :
+                   stack.id === 'css' ? 'Supported Values & Property Specifications' :
+                   stack.id === 'docker' || stack.id === 'kubernetes' ? 'Command Flags, Options & Schema Fields' :
+                   stack.id === 'postgresql' ? 'SQL Clauses, Options & Keywords' :
+                   'Key Props & Parameters Reference'}
+                </span>
               </h3>
               <div style={{ overflowX: 'auto' }}>
                 <table className="props-table">
                   <thead>
                     <tr>
-                      <th>Prop / Parameter</th>
-                      <th>Type / Value</th>
+                      <th>
+                        {stack.id === 'html' ? 'Attribute' :
+                         stack.id === 'css' ? 'Property / Keyword' :
+                         stack.id === 'docker' || stack.id === 'kubernetes' ? 'Flag / Field' :
+                         stack.id === 'postgresql' ? 'Clause / Param' :
+                         'Prop / Parameter'}
+                      </th>
+                      <th>Type / Accepted Values</th>
                       <th>Default</th>
                       <th>Description</th>
                     </tr>
@@ -345,14 +381,26 @@ export default function TechStackItemDetailPage({ item, stack, onBackToStack, on
             <div className="block-card-apple" style={{ margin: 0 }}>
               <h3 className="block-title-apple" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Terminal size={20} style={{ color: 'var(--color-corona-green)' }} />
-                <span>Key Methods & Functions</span>
+                <span>
+                  {stack.id === 'html' ? 'DOM Interface Methods & API Events' :
+                   stack.id === 'css' ? 'CSS Syntax & Rule Formats' :
+                   stack.id === 'docker' || stack.id === 'kubernetes' ? 'CLI Commands & Syntax Reference' :
+                   stack.id === 'postgresql' ? 'Execution Commands & Statements' :
+                   'Key Methods & Function Signatures'}
+                </span>
               </h3>
               <div style={{ overflowX: 'auto' }}>
                 <table className="props-table">
                   <thead>
                     <tr>
-                      <th>Method / Command</th>
-                      <th>Signature / Arguments</th>
+                      <th>
+                        {stack.id === 'docker' || stack.id === 'kubernetes' ? 'Command' :
+                         stack.id === 'postgresql' ? 'Statement' :
+                         stack.id === 'html' ? 'DOM Method' :
+                         stack.id === 'css' ? 'Rule / Function' :
+                         'Method / Function'}
+                      </th>
+                      <th>Signature / Syntax</th>
                       <th>Returns</th>
                       <th>Description</th>
                     </tr>
