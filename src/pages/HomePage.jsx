@@ -10,7 +10,9 @@ export default function HomePage({
   setupData, 
   onSelectComponent, 
   selectedCategory, 
-  setSelectedCategory 
+  setSelectedCategory,
+  searchQuery,
+  setSearchQuery
 }) {
   const scrollToSetup = () => {
     const el = document.getElementById('setup-section');
@@ -50,7 +52,7 @@ export default function HomePage({
             
             <div className="corona-stat-card">
               <div className="corona-stat-top">
-                <span className="corona-stat-value">{components.length || 37}</span>
+                <span className="corona-stat-value">{components.length || 58}</span>
                 <span className="corona-stat-badge green">+100%</span>
                 <div className="corona-icon-box green">
                   <Layers size={18} />
@@ -91,6 +93,7 @@ export default function HomePage({
       {/* 1. Table of Contents Section (Corona Dark Boxed Cards) */}
       <TableOfContentsGrid 
         tocItems={tocItems} 
+        totalCount={components.length}
         onSelectCategory={setSelectedCategory}
         onSelectSetup={scrollToSetup}
       />
@@ -101,6 +104,8 @@ export default function HomePage({
         onSelectComponent={onSelectComponent}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
 
       {/* 3. Setup Section (React Native CLI and Expo CLI) */}

@@ -256,19 +256,25 @@ const styles = StyleSheet.create({
     codeExamples: [
       {
         title: 'Dynamic Pressable Pill Example',
-        code: `import { Pressable, Text, StyleSheet } from 'react-native';
+        code: `import { useState } from 'react';
+import { Pressable, Text, StyleSheet, View } from 'react-native';
 
 export default function PressableExample() {
+  const [status, setStatus] = useState('Ready');
+
   return (
-    <Pressable
-      onPress={() => console.log('Tapped')}
-      style={({ pressed }) => [
-        styles.btn,
-        pressed && styles.btnPressed
-      ]}
-    >
-      <Text style={styles.btnText}>Get Started</Text>
-    </Pressable>
+    <View style={{ gap: 10 }}>
+      <Pressable
+        onPress={() => setStatus('Action Completed!')}
+        style={({ pressed }) => [
+          styles.btn,
+          pressed && styles.btnPressed
+        ]}
+      >
+        <Text style={styles.btnText}>Get Started</Text>
+      </Pressable>
+      <Text style={styles.status}>Status: {status}</Text>
+    </View>
   );
 }
 
@@ -276,6 +282,7 @@ const styles = StyleSheet.create({
   btn: { backgroundColor: '#0066cc', padding: 14, borderRadius: 25, alignItems: 'center' },
   btnPressed: { opacity: 0.8, transform: [{ scale: 0.98 }] },
   btnText: { color: '#ffffff', fontSize: 16, fontWeight: '600' },
+  status: { textAlign: 'center', color: '#7a7a7a', fontSize: 14 },
 });`
       }
     ],
@@ -341,23 +348,32 @@ const styles = StyleSheet.create({
     codeExamples: [
       {
         title: 'TouchableHighlight Settings Row Example',
-        code: `import { TouchableHighlight, Text, StyleSheet } from 'react-native';
+        code: `import { useState } from 'react';
+import { TouchableHighlight, Text, StyleSheet, View } from 'react-native';
 
 export default function TouchableHighlightExample() {
+  const [active, setActive] = useState(false);
+
   return (
-    <TouchableHighlight
-      underlayColor="#e0e0e0"
-      onPress={() => console.log('Tapped')}
-      style={styles.row}
-    >
-      <Text style={styles.text}>Account Settings</Text>
-    </TouchableHighlight>
+    <View style={{ gap: 8 }}>
+      <TouchableHighlight
+        underlayColor="#e0e0e0"
+        onPress={() => setActive(!active)}
+        style={[styles.row, active && styles.rowActive]}
+      >
+        <Text style={[styles.text, active && styles.textActive]}>
+          Account Settings {active ? '✓ Enabled' : ''}
+        </Text>
+      </TouchableHighlight>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   row: { padding: 16, backgroundColor: '#f5f5f7', borderRadius: 8 },
+  rowActive: { backgroundColor: '#e8f0fe' },
   text: { fontSize: 16, color: '#1d1d1f' },
+  textActive: { color: '#0066cc', fontWeight: '600' },
 });`
       }
     ],
@@ -977,7 +993,7 @@ export default function AlertExample() {
       'This action cannot be undone.',
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: 'Delete', style: 'destructive', onPress: () => console.log('Deleted') }
+        { text: 'Delete', style: 'destructive', onPress: () => Alert.alert('Deleted', 'The post was successfully removed.') }
       ]
     );
   };
@@ -1539,7 +1555,6 @@ export function UserProvider({ children }) {
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const HeavyCard = memo(function HeavyCard({ title }) {
-  console.log('HeavyCard rendered!');
   return (
     <View style={styles.card}>
       <Text style={styles.text}>{title}</Text>

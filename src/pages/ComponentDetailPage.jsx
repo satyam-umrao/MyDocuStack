@@ -4,7 +4,8 @@ import {
   Code, 
   CheckCircle, 
   BookOpen, 
-  Layers 
+  Layers,
+  Terminal
 } from 'lucide-react';
 import CodeBlock from '../components/CodeBlock';
 import MobileDevicePreview from '../components/MobileDevicePreview';
@@ -124,7 +125,39 @@ export default function ComponentDetailPage({ component, onBack }) {
             </div>
           )}
 
-          {/* 5. Copyable Code Examples */}
+          {/* 5. Key Methods & Imperative Functions Table */}
+          {component.methods && component.methods.length > 0 && (
+            <div className="block-card-apple" style={{ margin: 0 }}>
+              <h3 className="block-title-apple" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <Terminal size={20} style={{ color: 'var(--color-corona-green)' }} />
+                <span>Key Methods & Imperative Functions</span>
+              </h3>
+              <div style={{ overflowX: 'auto' }}>
+                <table className="props-table">
+                  <thead>
+                    <tr>
+                      <th>Method Name</th>
+                      <th>Signature / Arguments</th>
+                      <th>Returns</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {component.methods.map((method, idx) => (
+                      <tr key={idx}>
+                        <td className="prop-name" style={{ color: 'var(--color-corona-green)' }}>{method.name}</td>
+                        <td className="prop-type" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>{method.signature}</td>
+                        <td style={{ fontFamily: 'var(--font-mono)', fontSize: '12.5px', color: '#ffffff' }}>{method.returns || 'void'}</td>
+                        <td style={{ color: 'var(--color-corona-muted)' }}>{method.desc}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* 6. Copyable Code Examples */}
           <div className="block-card-apple" style={{ margin: 0 }}>
             <h3 className="block-title-apple" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Code size={20} style={{ color: 'var(--color-corona-blue)' }} />

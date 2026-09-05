@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   Smartphone, 
   Moon, 
@@ -44,14 +44,56 @@ export default function MobileDevicePreview({ component = { id: 'view', name: 'V
   const compId = component?.id || 'view';
   const compName = component?.name || 'View';
 
+  // Timer cleanups
+  const refreshTimerRef = useRef(null);
+  const alertTimerRef = useRef(null);
+  const toastTimerRef = useRef(null);
+
+  // New Demo States for 21 Components
+  const [appStateStatus, setAppStateStatus] = useState('active');
+  const [reducerCount, setReducerCount] = useState(0);
+  const [toastText, setToastText] = useState('');
+  const [isActionSheetOpen, setIsActionSheetOpen] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [isScreenReaderOn, setIsScreenReaderOn] = useState(false);
+  const [screenReaderAnnouncement, setScreenReaderAnnouncement] = useState('');
+  const [taskQueued, setTaskQueued] = useState(false);
+  const [isVibrating, setIsVibrating] = useState(false);
+  const [hairlineActive, setHairlineActive] = useState(true);
+  const [childRefInputVal, setChildRefInputVal] = useState('');
+  const [transitionInput, setTransitionInput] = useState('');
+  const [transitionResult, setTransitionResult] = useState('');
+  const [isTransitionPending, setIsTransitionPending] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
+      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
+  }, []);
+
   const triggerRefresh = () => {
     setIsRefreshing(true);
-    setTimeout(() => setIsRefreshing(false), 1200);
+    if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
+    refreshTimerRef.current = setTimeout(() => setIsRefreshing(false), 1200);
   };
 
   const triggerAlert = (msg) => {
     setAlertText(msg || 'Action triggered');
-    setTimeout(() => setAlertText(''), 3200);
+    if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+    alertTimerRef.current = setTimeout(() => setAlertText(''), 3200);
+  };
+
+  const triggerToast = (msg) => {
+    setToastText(msg || 'Android Toast Message');
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    toastTimerRef.current = setTimeout(() => setToastText(''), 2500);
+  };
+
+  const triggerVibration = () => {
+    setIsVibrating(true);
+    setTimeout(() => setIsVibrating(false), 600);
   };
 
   // Helper button styles
@@ -1010,6 +1052,444 @@ export default function MobileDevicePreview({ component = { id: 'view', name: 'V
                 </div>
               </div>
             )}
+            {/* 38. AppState */}
+            {compId === 'appstate' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-corona-green)' }}>AppState.currentState</div>
+                <div style={{
+                  padding: '10px 24px',
+                  borderRadius: '20px',
+                  backgroundColor: appStateStatus === 'active' ? 'rgba(0,210,91,0.2)' : 'rgba(239,68,68,0.2)',
+                  border: '1px solid ' + (appStateStatus === 'active' ? '#00d25b' : '#ef4444'),
+                  color: appStateStatus === 'active' ? '#00d25b' : '#ef4444',
+                  fontWeight: '700',
+                  fontSize: '16px'
+                }}>
+                  {appStateStatus.toUpperCase()}
+                </div>
+                <p style={{ fontSize: '12px', textAlign: 'center', color: isDarkMode ? '#aaa' : '#666' }}>
+                  Simulate OS state transition:
+                </p>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button onClick={() => setAppStateStatus('active')} style={{ padding: '6px 12px', fontSize: '11px', borderRadius: '6px', background: '#00d25b', color: '#fff', border: 'none', cursor: 'pointer' }}>Active</button>
+                  <button onClick={() => setAppStateStatus('inactive')} style={{ padding: '6px 12px', fontSize: '11px', borderRadius: '6px', background: '#eab308', color: '#000', border: 'none', cursor: 'pointer' }}>Inactive</button>
+                  <button onClick={() => setAppStateStatus('background')} style={{ padding: '6px 12px', fontSize: '11px', borderRadius: '6px', background: '#ef4444', color: '#fff', border: 'none', cursor: 'pointer' }}>Background</button>
+                </div>
+              </div>
+            )}
+
+            {/* 39. BackHandler */}
+            {compId === 'backhandler' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#0090e7' }}>Android BackHandler</div>
+                <p style={{ fontSize: '12px', color: isDarkMode ? '#aaa' : '#666' }}>
+                  Simulate pressing the hardware back button or swipe-back gesture:
+                </p>
+                <button
+                  onClick={() => triggerAlert('BackHandler: Intercepted back press! Showing Exit prompt.')}
+                  style={{ padding: '10px 18px', fontSize: '13px', borderRadius: '8px', background: '#0090e7', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: '600' }}
+                >
+                  Press Hardware Back Button
+                </button>
+              </div>
+            )}
+
+            {/* 40. Appearance */}
+            {compId === 'appearance' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8' }}>Appearance & useColorScheme</div>
+                <div style={{ padding: '14px', borderRadius: '10px', background: isDarkMode ? '#1c1c1e' : '#e5e5ea', width: '100%', textAlign: 'center' }}>
+                  <div style={{ fontSize: '14px', fontWeight: '600', color: isDarkMode ? '#fff' : '#000' }}>
+                    Current Scheme: {isDarkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsDarkMode(!isDarkMode)}
+                  style={{ padding: '8px 16px', fontSize: '12px', borderRadius: '6px', background: '#8f5fe8', color: '#fff', border: 'none', cursor: 'pointer' }}
+                >
+                  Toggle OS Color Scheme
+                </button>
+              </div>
+            )}
+
+            {/* 41. Dimensions API */}
+            {compId === 'dimensions_api' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#0090e7', textAlign: 'center' }}>Dimensions.get('window')</div>
+                <div style={{ background: isDarkMode ? '#1c1c1e' : '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #444', fontSize: '12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <div>Width: <strong>{isLandscape ? 560 : 360} dp</strong></div>
+                  <div>Height: <strong>{isLandscape ? 360 : 640} dp</strong></div>
+                  <div>Scale: <strong>3x (@3x retina)</strong></div>
+                  <div>FontScale: <strong>1.0</strong></div>
+                </div>
+                <button
+                  onClick={() => setIsLandscape(!isLandscape)}
+                  style={{ padding: '8px 14px', fontSize: '12px', background: '#0090e7', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Rotate Screen: {isLandscape ? 'Landscape' : 'Portrait'}
+                </button>
+              </div>
+            )}
+
+            {/* 42. StyleSheet API */}
+            {compId === 'stylesheet' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b', textAlign: 'center' }}>StyleSheet.compose & hairlineWidth</div>
+                <div style={{
+                  padding: '16px',
+                  borderRadius: '8px',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                  borderColor: hairlineActive ? '#00d25b' : '#555',
+                  backgroundColor: hairlineActive ? 'rgba(0,210,91,0.08)' : (isDarkMode ? '#1c1c1e' : '#f5f5f7'),
+                  textAlign: 'center'
+                }}>
+                  <div style={{ fontSize: '13px', fontWeight: '600', color: hairlineActive ? '#00d25b' : (isDarkMode ? '#fff' : '#000') }}>
+                    {hairlineActive ? 'StyleSheet.compose() Active' : 'Base Style Only'}
+                  </div>
+                  <div style={{ fontSize: '11px', marginTop: '4px', opacity: 0.8 }}>
+                    Border Width: StyleSheet.hairlineWidth (0.33px)
+                  </div>
+                </div>
+                <button
+                  onClick={() => setHairlineActive(!hairlineActive)}
+                  style={{ padding: '8px 14px', fontSize: '12px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Toggle Compose State
+                </button>
+              </div>
+            )}
+
+            {/* 43. PanResponder */}
+            {compId === 'panresponder' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#ff9500' }}>PanResponder Gesture Box</div>
+                <p style={{ fontSize: '11px', color: isDarkMode ? '#aaa' : '#666', textAlign: 'center' }}>
+                  Click arrows to simulate drag coordinates:
+                </p>
+                <div style={{
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, #ff9500, #ff5e3a)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  fontSize: '12px',
+                  boxShadow: '0 8px 16px rgba(255,149,0,0.3)',
+                  transform: `translate(${dragOffset.x}px, ${dragOffset.y}px)`,
+                  transition: 'transform 0.15s ease'
+                }}>
+                  Drag Me
+                </div>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  <button onClick={() => setDragOffset(p => ({ ...p, x: p.x - 15 }))} style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: '#333', color: '#fff', border: 'none', cursor: 'pointer' }}>◀ Left</button>
+                  <button onClick={() => setDragOffset(p => ({ ...p, x: p.x + 15 }))} style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: '#333', color: '#fff', border: 'none', cursor: 'pointer' }}>Right ▶</button>
+                  <button onClick={() => setDragOffset({ x: 0, y: 0 })} style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '4px', background: '#ef4444', color: '#fff', border: 'none', cursor: 'pointer' }}>Reset</button>
+                </div>
+              </div>
+            )}
+
+            {/* 44. AccessibilityInfo */}
+            {compId === 'accessibilityinfo' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8' }}>AccessibilityInfo (VoiceOver / TalkBack)</div>
+                <div style={{ padding: '12px', borderRadius: '8px', background: isDarkMode ? '#1c1c1e' : '#fff', border: '1px solid #444', width: '100%', textAlign: 'center', fontSize: '12px' }}>
+                  Screen Reader Active: <strong style={{ color: isScreenReaderOn ? '#00d25b' : '#ef4444' }}>{isScreenReaderOn ? 'YES' : 'NO'}</strong>
+                  {screenReaderAnnouncement && (
+                    <div style={{ marginTop: '6px', color: '#8f5fe8', fontStyle: 'italic' }}>
+                      🔊 "{screenReaderAnnouncement}"
+                    </div>
+                  )}
+                </div>
+                <button
+                  onClick={() => {
+                    const msg = 'New message received from Satyam';
+                    setScreenReaderAnnouncement(msg);
+                    triggerAlert('Spoken: ' + msg);
+                  }}
+                  style={{ padding: '8px 14px', fontSize: '12px', background: '#8f5fe8', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Trigger Spoken Announcement
+                </button>
+              </div>
+            )}
+
+            {/* 45. InteractionManager */}
+            {compId === 'interactionmanager' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#0090e7' }}>InteractionManager.runAfterInteractions</div>
+                <div style={{ padding: '12px', background: isDarkMode ? '#1c1c1e' : '#fff', border: '1px solid #444', borderRadius: '8px', width: '100%', fontSize: '12px' }}>
+                  Task Status: <strong style={{ color: taskQueued ? '#00d25b' : '#7a7a7a' }}>{taskQueued ? 'Completed After Animation (60 FPS)' : 'Idle'}</strong>
+                </div>
+                <button
+                  onClick={() => {
+                    setTaskQueued(false);
+                    triggerAlert('Animation started... task queued');
+                    setTimeout(() => setTaskQueued(true), 1000);
+                  }}
+                  style={{ padding: '8px 16px', fontSize: '12px', background: '#0090e7', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Schedule Heavy Task
+                </button>
+              </div>
+            )}
+
+            {/* 46. PixelRatio */}
+            {compId === 'pixelratio' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b', textAlign: 'center' }}>PixelRatio Measurements</div>
+                <div style={{ background: isDarkMode ? '#1c1c1e' : '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #444', fontSize: '12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <div>PixelRatio.get(): <strong>3.0 (@3x Super Retina)</strong></div>
+                  <div>PixelRatio.getFontScale(): <strong>1.0 (Standard)</strong></div>
+                  <div>roundToNearestPixel(16.4): <strong>16.33 px</strong></div>
+                  <div>getPixelSizeForLayoutSize(50): <strong>150 px</strong></div>
+                </div>
+              </div>
+            )}
+
+            {/* 47. Vibration */}
+            {compId === 'vibration' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '14px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#ff5f56' }}>Vibration API</div>
+                <div style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  background: isVibrating ? '#ff5f56' : '#333',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontSize: '24px',
+                  transform: isVibrating ? 'scale(1.15)' : 'scale(1)',
+                  transition: 'all 0.1s ease',
+                  boxShadow: isVibrating ? '0 0 20px #ff5f56' : 'none'
+                }}>
+                  📳
+                </div>
+                <button
+                  onClick={triggerVibration}
+                  style={{ padding: '8px 16px', fontSize: '12px', background: '#ff5f56', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Vibrate (400ms Haptic Pulse)
+                </button>
+              </div>
+            )}
+
+            {/* 48. ToastAndroid */}
+            {compId === 'toastandroid' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b' }}>ToastAndroid.show</div>
+                <p style={{ fontSize: '11px', color: isDarkMode ? '#aaa' : '#666', textAlign: 'center' }}>
+                  Android-only lightweight bottom notification:
+                </p>
+                <button
+                  onClick={() => triggerToast('Message saved successfully!')}
+                  style={{ padding: '8px 16px', fontSize: '12px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Show Toast (Short)
+                </button>
+                {toastText && (
+                  <div style={{
+                    marginTop: '20px',
+                    padding: '8px 16px',
+                    borderRadius: '20px',
+                    background: '#323232',
+                    color: '#fff',
+                    fontSize: '12px',
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+                    animation: 'mobilePreviewSpin 0s'
+                  }}>
+                    {toastText}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* 49. ActionSheetIOS */}
+            {compId === 'actionsheetios' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#007aff' }}>ActionSheetIOS.showActionSheetWithOptions</div>
+                <button
+                  onClick={() => setIsActionSheetOpen(true)}
+                  style={{ padding: '8px 16px', fontSize: '12px', background: '#007aff', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Open iOS Action Sheet
+                </button>
+                {isActionSheetOpen && (
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: isDarkMode ? '#1c1c1e' : '#e5e5ea',
+                    borderTopLeftRadius: '14px',
+                    borderTopRightRadius: '14px',
+                    padding: '12px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '6px',
+                    zIndex: 40,
+                    boxShadow: '0 -4px 20px rgba(0,0,0,0.3)'
+                  }}>
+                    <button onClick={() => { setIsActionSheetOpen(false); triggerAlert('Shared!'); }} style={{ padding: '10px', borderRadius: '8px', background: '#fff', border: 'none', color: '#007aff', fontWeight: '600', cursor: 'pointer' }}>Share Document</button>
+                    <button onClick={() => { setIsActionSheetOpen(false); triggerAlert('Deleted!'); }} style={{ padding: '10px', borderRadius: '8px', background: '#fff', border: 'none', color: '#ef4444', fontWeight: '600', cursor: 'pointer' }}>Delete File</button>
+                    <button onClick={() => setIsActionSheetOpen(false)} style={{ padding: '10px', borderRadius: '8px', background: '#fff', border: 'none', color: '#000', fontWeight: '700', cursor: 'pointer', marginTop: '4px' }}>Cancel</button>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* 50. VirtualizedList */}
+            {compId === 'virtualizedlist' && (
+              <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ fontSize: '12px', fontWeight: '600', color: '#0090e7', textAlign: 'center' }}>VirtualizedList Windowing (1000 items)</div>
+                <div style={{ height: '200px', overflowY: 'auto', border: '1px solid #444', borderRadius: '8px' }}>
+                  {[...Array(20)].map((_, i) => (
+                    <div key={i} style={{ padding: '10px', borderBottom: '1px solid #333', fontSize: '12px' }}>
+                      ⚡ Virtual Row #{i + 1} (Render Window Active)
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 51. InputAccessoryView */}
+            {compId === 'inputaccessoryview' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#007aff', textAlign: 'center' }}>iOS InputAccessoryView</div>
+                <input
+                  type="text"
+                  placeholder="Tap to focus input..."
+                  style={{ padding: '10px', borderRadius: '6px', border: '1px solid #444', background: isDarkMode ? '#222' : '#fff', color: isDarkMode ? '#fff' : '#000', fontSize: '13px' }}
+                />
+                <div style={{ padding: '8px 12px', background: '#e5e5ea', borderRadius: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '11px', color: '#555' }}>Accessory Bar:</span>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button style={{ padding: '4px 8px', fontSize: '11px', background: '#fff', border: '1px solid #ccc', borderRadius: '4px' }}>Bold</button>
+                    <button onClick={() => triggerAlert('Keyboard Done pressed')} style={{ padding: '4px 8px', fontSize: '11px', background: '#007aff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Done</button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 52. useReducer */}
+            {compId === 'usereducer' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b' }}>useReducer Counter</div>
+                <div style={{ fontSize: '28px', fontWeight: '700', color: '#00d25b' }}>{reducerCount}</div>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button onClick={() => setReducerCount(c => c + 1)} style={{ padding: '6px 14px', fontSize: '12px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>+1 Increment</button>
+                  <button onClick={() => setReducerCount(c => c - 1)} style={{ padding: '6px 14px', fontSize: '12px', background: '#0090e7', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>-1 Decrement</button>
+                  <button onClick={() => setReducerCount(0)} style={{ padding: '6px 14px', fontSize: '12px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>Reset</button>
+                </div>
+              </div>
+            )}
+
+            {/* 53. useLayoutEffect */}
+            {compId === 'uselayouteffect' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#0090e7' }}>useLayoutEffect (Pre-paint Measurement)</div>
+                <div style={{ padding: '14px', borderRadius: '8px', background: isDarkMode ? '#1c1c1e' : '#fff', border: '1px solid #444', fontSize: '12px' }}>
+                  <div>Measured Node Height: <strong>64 px</strong></div>
+                  <div style={{ fontSize: '11px', color: '#00d25b', marginTop: '4px' }}>✓ Zero visual layout shift or flicker!</div>
+                </div>
+              </div>
+            )}
+
+            {/* 54. useId */}
+            {compId === 'useid' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8', textAlign: 'center' }}>useId Unique Tokens</div>
+                <div style={{ padding: '10px', background: isDarkMode ? '#1c1c1e' : '#fff', borderRadius: '6px', border: '1px solid #444', fontSize: '12px' }}>
+                  <div>Input ID: <code style={{ color: '#8f5fe8' }}>:r1:</code></div>
+                  <div>Label ID: <code style={{ color: '#8f5fe8' }}>:r1:-label</code></div>
+                  <div>Helper ID: <code style={{ color: '#8f5fe8' }}>:r1:-helper</code></div>
+                </div>
+              </div>
+            )}
+
+            {/* 55. useImperativeHandle */}
+            {compId === 'useimperativehandle' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b' }}>useImperativeHandle Ref Methods</div>
+                <input
+                  id="demo-imperative-input"
+                  type="text"
+                  value={childRefInputVal}
+                  onChange={(e) => setChildRefInputVal(e.target.value)}
+                  placeholder="Child input"
+                  style={{ padding: '8px 12px', borderRadius: '6px', border: '1px solid #444', background: isDarkMode ? '#222' : '#fff', color: isDarkMode ? '#fff' : '#000', fontSize: '12px' }}
+                />
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button onClick={() => { document.getElementById('demo-imperative-input')?.focus(); triggerAlert('childRef.current.focusInput() called!'); }} style={{ padding: '6px 12px', fontSize: '11px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Call focusInput()</button>
+                  <button onClick={() => { setChildRefInputVal(''); triggerAlert('childRef.current.clearInput() called!'); }} style={{ padding: '6px 12px', fontSize: '11px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Call clearInput()</button>
+                </div>
+              </div>
+            )}
+
+            {/* 56. forwardRef */}
+            {compId === 'forwardref' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#0090e7' }}>React.forwardRef(TextInput)</div>
+                <div style={{ padding: '12px', borderRadius: '8px', border: '1px solid #0090e7', width: '100%', textAlign: 'center', fontSize: '12px' }}>
+                  Parent holds ref directly to native child view
+                </div>
+                <button
+                  onClick={() => triggerAlert('Ref forwarded directly to native node!')}
+                  style={{ padding: '8px 14px', fontSize: '12px', background: '#0090e7', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  Trigger Ref Action
+                </button>
+              </div>
+            )}
+
+            {/* 57. useTransition */}
+            {compId === 'usetransition' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b', textAlign: 'center' }}>useTransition (Concurrent React)</div>
+                <input
+                  type="text"
+                  placeholder="Type to filter with transition..."
+                  value={transitionInput}
+                  onChange={(e) => {
+                    setTransitionInput(e.target.value);
+                    setIsTransitionPending(true);
+                    setTimeout(() => {
+                      setTransitionResult(e.target.value);
+                      setIsTransitionPending(false);
+                    }, 300);
+                  }}
+                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #444', background: isDarkMode ? '#222' : '#fff', color: isDarkMode ? '#fff' : '#000', fontSize: '12px' }}
+                />
+                <div style={{ fontSize: '12px', color: '#00d25b' }}>
+                  isPending: <strong>{isTransitionPending ? '⏳ Deferring heavy render...' : '✅ Fluid 60 FPS'}</strong>
+                </div>
+                <div style={{ fontSize: '12px', opacity: 0.8 }}>Active Filter: {transitionResult || 'None'}</div>
+              </div>
+            )}
+
+            {/* 58. useDeferredValue */}
+            {compId === 'usedeferredvalue' && (
+              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8', textAlign: 'center' }}>useDeferredValue Lag Demo</div>
+                <input
+                  type="text"
+                  placeholder="Type rapidly..."
+                  value={transitionInput}
+                  onChange={(e) => setTransitionInput(e.target.value)}
+                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #444', background: isDarkMode ? '#222' : '#fff', color: isDarkMode ? '#fff' : '#000', fontSize: '12px' }}
+                />
+                <div style={{ padding: '10px', background: isDarkMode ? '#1c1c1e' : '#fff', borderRadius: '6px', border: '1px solid #444', fontSize: '12px' }}>
+                  <div>Immediate State: <strong>{transitionInput}</strong></div>
+                  <div style={{ color: '#8f5fe8', marginTop: '4px' }}>Deferred State: <strong>{transitionInput}</strong></div>
+                </div>
+              </div>
+            )}
+
 
           </div>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Terminal, Layers, ArrowRight } from 'lucide-react';
 
-export default function TableOfContentsGrid({ onSelectCategory, onSelectSetup }) {
+export default function TableOfContentsGrid({ onSelectCategory, onSelectSetup, totalCount = 58 }) {
   return (
     <section className="section-tile-parchment" id="toc-section">
       <div className="container">
@@ -56,17 +56,17 @@ export default function TableOfContentsGrid({ onSelectCategory, onSelectSetup })
                 <Layers size={22} />
               </div>
               <span className="toc-boxed-count-badge" style={{ backgroundColor: 'rgba(143, 95, 232, 0.15)', color: 'var(--color-corona-purple)' }}>
-                27 Components
+                {totalCount} Items
               </span>
             </div>
 
             <h3 className="toc-boxed-title">All Components & APIs</h3>
             <p className="toc-boxed-desc">
-              Browse all 27 core React Native components and APIs featuring authentic iOS & Android device frame previews, props tables, and copyable code.
+              Browse all {totalCount} core React Native components, APIs, and React hooks featuring authentic iOS & Android device frame previews, methods & props tables, and copyable code.
             </p>
 
             <div className="toc-boxed-link" style={{ color: 'var(--color-corona-purple)' }}>
-              <span>Browse 27 Components</span>
+              <span>Browse {totalCount} Components</span>
               <ArrowRight size={16} />
             </div>
           </div>

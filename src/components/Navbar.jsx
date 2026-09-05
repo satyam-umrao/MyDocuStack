@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Smartphone, Search, Github, Plus, Menu, X } from 'lucide-react';
 
 export default function Navbar({ 
   onNavigateHome, 
   onSelectSetup, 
-  searchQuery, 
+  searchQuery = '', 
   setSearchQuery 
 }) {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const scrollTimerRef = useRef(null);
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        setIsMobileSearchOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+    };
+  }, []);
 
   const scrollToSection = (id) => {
-    onNavigateHome();
+    if (onNavigateHome) onNavigateHome();
     setIsMobileMenuOpen(false);
     setIsMobileSearchOpen(false);
-    setTimeout(() => {
+    if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+    scrollTimerRef.current = setTimeout(() => {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }, 100);
@@ -28,7 +44,7 @@ export default function Navbar({
         {/* Left: Corona-Style Brand Logo & Title */}
         <a 
           href="#" 
-          onClick={(e) => { e.preventDefault(); onNavigateHome(); setIsMobileMenuOpen(false); }} 
+          onClick={(e) => { e.preventDefault(); onNavigateHome && onNavigateHome(); setIsMobileMenuOpen(false); }} 
           className="corona-brand"
         >
           <div className="corona-brand-icon">
@@ -42,10 +58,11 @@ export default function Navbar({
         <div className={`corona-search-box desktop-search ${isSearchFocused ? 'focused' : ''}`}>
           <Search size={15} className="corona-search-icon" />
           <input
+            id="navbar-search-input"
             type="text"
             placeholder="Search components or APIs..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
             onFocus={() => {
               setIsSearchFocused(true);
               scrollToSection('all-components-section');
@@ -122,7 +139,7 @@ export default function Navbar({
               type="text"
               placeholder="Search components or APIs..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
               onFocus={() => scrollToSection('all-components-section')}
               className="corona-search-input"
               autoFocus

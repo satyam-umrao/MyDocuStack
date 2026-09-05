@@ -37,7 +37,7 @@ Built with a sleek **Corona Dark Dashboard Aesthetic**, it features pixel-perfec
 ## ✨ Key Features
 
 - 📱 **Authentic iOS & Android Mobile Previews**: Dedicated interactive simulators with authentic Apple Dynamic Island pill, iOS Home Bar, Android Punch-Hole camera, and Material 3-button navigation.
-- ⚡ **27 Core Components & APIs**: Deep-dive documentation for `View`, `Text`, `Image`, `TextInput`, `Pressable`, `FlatList`, `SectionList`, `Modal`, `Switch`, `KeyboardAvoidingView`, `Animated`, `Platform`, `Linking`, `Share`, `useWindowDimensions`, and more.
+- ⚡ **58 Core Components, APIs & React Hooks**: Deep-dive documentation and imperative methods reference for `View`, `Text`, `Image`, `TextInput`, `Pressable`, `FlatList`, `SectionList`, `AppState`, `BackHandler`, `Appearance`, `StyleSheet`, `PanResponder`, `Animated`, `Platform`, `Linking`, `useReducer`, and more.
 - 🛠️ **Equal-Height Setup Workflows**: Comprehensive side-by-side guides for **Bare React Native CLI** and **Managed Expo CLI** with prerequisites, step-by-step terminal commands, and folder structure trees.
 - 🎨 **Corona Dark Dashboard Aesthetic**: High-contrast midnight obsidian palette (`#000000` / `#0d0e12`), Corona surface tiles (`#191c24`), Emerald Green (`#00d25b`), Neon Blue (`#0090e7`), and Purple status badges (`#8f5fe8`).
 - 🔍 **Instant Search & Filter Bar**: Real-time component searching with `CTRL K` shortcut integration and touch-friendly category filter chips (`Core`, `Controls`, `Lists`, `Feedback`, `Layout`, `APIs`, `Animation`).

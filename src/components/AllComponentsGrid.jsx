@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
 import { Search, ChevronRight, X } from 'lucide-react';
 
 const CATEGORIES = [
@@ -18,26 +18,27 @@ export default function AllComponentsGrid({
   components = [], 
   onSelectComponent, 
   selectedCategory = 'All', 
-  setSelectedCategory 
+  setSelectedCategory,
+  searchQuery = '',
+  setSearchQuery
 }) {
-  const [searchQuery, setSearchQuery] = useState('');
+  // Safe search filtering with useMemo for performance
+  const filteredComponents = useMemo(() => {
+    const query = (searchQuery || '').trim().toLowerCase();
+    return components.filter((comp) => {
+      const matchesCategory = selectedCategory === 'All' || comp.category === selectedCategory;
+      if (!query) return matchesCategory;
 
-  // Safe search filtering
-  const filteredComponents = components.filter((comp) => {
-    const matchesCategory = selectedCategory === 'All' || comp.category === selectedCategory;
-    const query = searchQuery.trim().toLowerCase();
+      const nameMatch = comp.name?.toLowerCase().includes(query) ?? false;
+      const taglineMatch = comp.tagline?.toLowerCase().includes(query) ?? false;
+      const descMatch = comp.description?.toLowerCase().includes(query) ?? false;
 
-    if (!query) return matchesCategory;
-
-    const nameMatch = comp.name?.toLowerCase().includes(query) ?? false;
-    const taglineMatch = comp.tagline?.toLowerCase().includes(query) ?? false;
-    const descMatch = comp.description?.toLowerCase().includes(query) ?? false;
-
-    return matchesCategory && (nameMatch || taglineMatch || descMatch);
-  });
+      return matchesCategory && (nameMatch || taglineMatch || descMatch);
+    });
+  }, [components, selectedCategory, searchQuery]);
 
   const handleResetFilters = () => {
-    setSearchQuery('');
+    if (setSearchQuery) setSearchQuery('');
     if (setSelectedCategory) setSelectedCategory('All');
   };
 

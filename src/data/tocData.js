@@ -9,14 +9,14 @@ export const tocData = [
   {
     id: 'all-components',
     title: 'All Components & APIs',
-    count: '37 Items',
+    count: '58 Items',
     iconName: 'Layers',
     category: 'All'
   },
   {
     id: 'hooks-section',
     title: 'React Hooks & APIs',
-    count: '10 Hooks & APIs',
+    count: '17 Hooks & APIs',
     iconName: 'Sparkles',
     category: 'Hooks'
   }
