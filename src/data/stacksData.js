@@ -81,12 +81,12 @@ export const stacksData = [
         "description": "The <header> semantic element represents introductory content for its nearest ancestor sectioning content or sectioning root element. In web page architecture, when placed as a direct descendant of the <body> element, the user agent automatically assigns it an implicit ARIA role of \"banner\", creating an accessible landmark navigation point for screen readers.\n\nUnder the hood, browser layout engines treat <header> as a block-level container without adding innate styling beyond user-agent defaults. It typically aggregates navigation bars, brand logotypes, search widgets, breadcrumb trails, and primary page headlines. Best architectural practice recommends exactly one top-level banner <header> per document, though localized section headers within <article> and <section> elements are fully valid for independent sub-components.",
         "demo": {
           "type": "html",
-          "preview": "<header style=\"background:#1e212b;padding:12px;border-bottom:2px solid #00d25b;border-radius:4px;\"><strong style=\"color:#00d25b;\">Header Landmark</strong></header>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <header> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -126,12 +126,12 @@ export const stacksData = [
         "description": "The <nav> element designates a dedicated section of a document whose purpose is to provide navigation links, either within the current document or to external pages. Assistive technologies rely on the implicit ARIA \"navigation\" landmark exposed by <nav> to allow keyboard and screen-reader users to skip directly to navigation menus or bypass them during content browsing.\n\nFrom an architectural standpoint, not all hyperlinks on a page should be wrapped in <nav>; standard industry practice reserves <nav> for primary navigation bars, table of contents sidebars, paginations, and breadcrumb trails. Providing an accessible label via 'aria-label' or 'aria-labelledby' is highly recommended when multiple navigation blocks exist on the same webpage.",
         "demo": {
           "type": "html",
-          "preview": "<nav style=\"background:#1e212b;padding:8px;border-radius:4px;\"><a style=\"color:#00d25b;\" href=\"#\">Docs</a></nav>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <nav> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -171,12 +171,12 @@ export const stacksData = [
         "description": "The <main> element encapsulates the dominant, central content unique to the document body. It directly expands upon the central topic of the page and must exclude repeated boilerplates such as global headers, footers, persistent sidebars, search engines, and copyright notices.\n\nIn browser accessibility trees, <main> maps to the ARIA \"main\" landmark. The W3C specification strictly dictates that a document must have no more than one visible <main> element at any given time. Providing an id of \"main-content\" paired with tabindex=\"-1\" enables standard \"Skip to Content\" accessibility links to programmatically transfer keyboard focus to the core document payload immediately upon arrival.",
         "demo": {
           "type": "html",
-          "preview": "<main style=\"background:#1e212b;padding:12px;border-left:4px solid #0090e7;border-radius:4px;\"><span style=\"color:#0090e7;\">Main Body Area</span></main>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <main> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -216,12 +216,12 @@ export const stacksData = [
         "description": "The <div> (division) element is the universal generic container for flow content. It does not carry any intrinsic semantic meaning or ARIA accessibility role in the browser accessibility tree, functioning strictly as a grouping container for layout architecture, CSS styling hooks, and DOM manipulation.\n\nArchitecturally, <div> should be utilized as a structural wrapper for CSS Flexbox, Grid layouts, background panels, or responsive card containers only when no semantic tag (such as <article>, <section>, <header>, or <aside>) is semantically appropriate. Modern browser rendering engines optimize <div> layout containers by isolating style recalculation boundaries when CSS containment rules are declared.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#1e212b;border:1px dashed #555;padding:8px;border-radius:4px;color:#aaa;text-align:center;\">&lt;div&gt; Generic Layout Wrapper &lt;/div&gt;</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <div> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -261,12 +261,12 @@ export const stacksData = [
         "description": "The <span> element is the universal generic inline container for phrasing content. Much like <div> for block layouts, <span> imparts zero semantic value by default and generates an inline box formatting context, allowing developers to target and style words, badges, status indicators, and text fragments within sentences without disrupting paragraph text flow.\n\nIn frontend design systems, <span> is extensively deployed for micro-components such as typography highlights, notification counter pills, icon wrappers, and animated status badges. When conveying state (such as error or success status), accessible ARIA attributes or assistive text should accompany the span to inform screen readers.",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"background:rgba(0,210,91,0.2);color:#00d25b;padding:2px 8px;border-radius:10px;font-size:12px;\">Active Badge</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <span> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -306,12 +306,12 @@ export const stacksData = [
         "description": "The <article> element represents a self-contained, complete composition in a document, page, application, or site that is intended to be independently distributable or reusable (e.g. in syndication, RSS feeds, or news aggregators). Common use cases include blog posts, news stories, forum threads, user reviews, and interactive product cards.\n\nArchitecturally, an <article> should always include a heading (<h1> through <h6>) to define its hierarchical topic in the document outline. Each <article> establishes an independent semantic container and can even nest internal <header>, <footer>, and sub-<section> components without colliding with top-level page landmarks.",
         "demo": {
           "type": "html",
-          "preview": "<article style=\"background:#1e212b;padding:10px;border-radius:4px;border:1px solid #333;\"><strong style=\"color:#fff;\">Independent Article</strong></article>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <article> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -351,12 +351,12 @@ export const stacksData = [
         "description": "The <section> element represents a standalone thematic grouping of content, typically with a heading. Unlike <div>, which is purely presentational, <section> defines a distinct chapter, tab view, feature cluster, or numbered section of an active document.\n\nUnder W3C standards, <section> should only be chosen when its contents can be reasonably listed in an automated document outline. If the container merely exists to apply CSS styling, background gradients, or flexbox layouts, a <div> must be used instead. Adding an 'aria-labelledby' referencing its heading elevates <section> to an accessible ARIA \"region\" landmark.",
         "demo": {
           "type": "html",
-          "preview": "<section style=\"background:#1e212b;padding:10px;border-radius:4px;border-top:3px solid #8f5fe8;\"><strong style=\"color:#8f5fe8;\">Thematic Section</strong></section>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <section> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -396,12 +396,12 @@ export const stacksData = [
         "description": "The <aside> element represents a portion of a document whose content is only tangentially related to the main surrounding content. In publication layouts, <aside> elements are typically rendered as sidebars, callout boxes, related article links, author biographies, glossaries, or advertising units.\n\nIn the accessibility object model (AOM), <aside> exposes the implicit ARIA \"complementary\" landmark. Assistive technologies enable users to jump straight into or out of sidebars. If an <aside> is nested inside an <article>, its contents are tangentially related to that specific article; if nested directly in <body>, its contents are related to the entire website.",
         "demo": {
           "type": "html",
-          "preview": "<aside style=\"background:#13151b;border-left:3px solid #ffab00;padding:8px;color:#ffab00;font-size:12px;\">Pro Tip Callout</aside>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <aside> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -435,12 +435,12 @@ export const stacksData = [
         "description": "The <footer> element represents a footer for its nearest sectioning content or sectioning root element. When placed as a direct child of <body>, it maps to the ARIA \"contentinfo\" landmark, housing organizational copyright notices, legal terms, author attribution, sitemaps, and licensing links.\n\nWhen placed inside an <article> or <section>, <footer> represents the metadata footer of that individual component, displaying author bio, publication date, social share triggers, or category tag clouds. Multiple footers can exist across a single page as long as they reside within their respective sectioning containers.",
         "demo": {
           "type": "html",
-          "preview": "<footer style=\"background:#13151b;padding:8px;text-align:center;font-size:12px;color:#777;\">&copy; 2026 My DocuStack</footer>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <footer> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Establishes accessible ARIA landmark structure for screen readers and assistive navigation",
+          "Enhances SEO indexing by clearly demarcating core content boundaries for search crawlers",
+          "Eliminates unsemantic <div> clutter, enforcing clean semantic document hierarchy"
         ],
         "props": [
           {
@@ -474,12 +474,12 @@ export const stacksData = [
         "description": "The <h1> heading represents the most prominent title of the page and defines the top-level topic in the document heading outline. For optimal search engine optimization (SEO) and web accessibility (WCAG 2.2), every web page should contain exactly one <h1> element that accurately reflects the page's primary theme.\n\nScreen reader software allows users to navigate web pages by scanning through headings. Skipping heading levels (such as jumping from <h1> directly to <h3>) creates cognitive friction for assistive technology users. <h1> elements should be concise, descriptive, and placed high in the DOM flow.",
         "demo": {
           "type": "html",
-          "preview": "<h1 style=\"margin:0;color:#fff;font-size:18px;\">H1: Primary Page Title</h1>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <h1> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -513,12 +513,12 @@ export const stacksData = [
         "description": "The <h2> heading designates major section headings directly subordinate to the document's <h1>. In technical documentation, <h2> elements denote core chapters, primary feature categories, and top-level architecture blocks.\n\nBrowser accessibility trees prioritize <h2> nodes as tier-2 outline waypoints. Standard best practices dictate that every <h2> should be paired with an anchor ID to support direct URL fragment navigation and automated Table of Contents generation.",
         "demo": {
           "type": "html",
-          "preview": "<h2 style=\"margin:0;color:#00d25b;font-size:16px;\">H2: Main Feature Section</h2>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <h2> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -552,12 +552,12 @@ export const stacksData = [
         "description": "The <h3> heading establishes a subsection within an existing <h2> topic. It serves as an organizational hierarchy tool for breaking lengthy topics into digestible sub-themes (such as component props, method signatures, or architectural nuances).",
         "demo": {
           "type": "html",
-          "preview": "<h3 style=\"margin:0;color:#0090e7;font-size:14px;\">H3: Sub-component Details</h3>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <h3> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -585,12 +585,12 @@ export const stacksData = [
         "description": "The <h4> heading provides four levels of hierarchical depth. In modern card-based and dashboard architectures, <h4> elements are frequently used as card widget headers, parameter names, or configuration titles within detailed technical layouts.",
         "demo": {
           "type": "html",
-          "preview": "<h4 style=\"margin:0;color:#ffab00;font-size:13px;\">H4: Configuration Options</h4>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <h4> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -618,12 +618,12 @@ export const stacksData = [
         "description": "The <h5> element represents fifth-level section headings in deep hierarchical outlines, such as micro-parameter breakdowns, terminal option notes, or API response field classifications.",
         "demo": {
           "type": "html",
-          "preview": "<h5 style=\"margin:0;color:#8f5fe8;font-size:12px;\">H5: Micro-parameter</h5>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <h5> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -651,12 +651,12 @@ export const stacksData = [
         "description": "The <h6> element is the lowest rank heading in the standard HTML document specification. It is typically reserved for fine-grained technical footnotes, driver flags, or legacy sub-parameter classifications.",
         "demo": {
           "type": "html",
-          "preview": "<h6 style=\"margin:0;color:#aaa;font-size:11px;\">H6: Internal Flag</h6>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <h6> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -684,12 +684,12 @@ export const stacksData = [
         "description": "The <p> element represents a paragraph of text. In browser rendering engines, user agent stylesheets automatically apply margin blocks above and below paragraphs to maintain natural vertical typographical rhythm and legibility.\n\nParagraphs should strictly contain phrasing content (such as text, links, spans, and strong emphasis). HTML parser specifications dictate that placing a block-level element (such as <div>, <table>, or <form>) inside a <p> will automatically force the browser parser to prematurely close the open paragraph.",
         "demo": {
           "type": "html",
-          "preview": "<p style=\"margin:0;color:#ccc;font-size:13px;\">Prose paragraph running text block.</p>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <p> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -717,12 +717,12 @@ export const stacksData = [
         "description": "The <a> (anchor) element creates a hyperlink to web pages, files, email addresses, phone numbers, or intra-document fragment targets using its 'href' attribute. Without an 'href' attribute, <a> acts merely as a placeholder for a link.\n\nSecurity and architecture best practices mandate that when opening external destinations via target=\"_blank\", developers MUST specify rel=\"noopener noreferrer\" to prevent the target window from accessing the originating window via the 'window.opener' API, preventing cross-window tab-napping and performance degradation.",
         "demo": {
           "type": "html",
-          "preview": "<a href=\"#\" onclick=\"return false;\" style=\"color:#00d25b;text-decoration:none;font-weight:bold;\">Anchor Link &rarr;</a>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <a> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -768,12 +768,12 @@ export const stacksData = [
         "description": "The <img> element embeds raster or vector graphic media into an HTML document. Modern high-performance web architecture relies heavily on explicit 'width' and 'height' aspect-ratio attributes to prevent Cumulative Layout Shift (CLS), along with 'loading=\"lazy\"' to defer offscreen asset fetching until user viewport proximity.\n\nWeb accessibility standards (WCAG 2.2 Level A) require all non-decorative <img> elements to declare an informative 'alt' attribute for screen readers. If an image is purely decorative, 'alt=\"\"' must be explicitly provided so screen readers will intentionally skip the asset.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#13151b;padding:8px;border:1px solid #00d25b;color:#00d25b;text-align:center;font-size:12px;\">&lt;img loading=\"lazy\" /&gt;</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <img> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Streams high-fidelity multimedia natively without requiring external browser plugins",
+          "Supports responsive aspect ratios, lazy loading, and bandwidth-adaptive source selection",
+          "Provides accessibility accommodations via captions, text transcripts, and descriptive alt tags"
         ],
         "props": [
           {
@@ -825,12 +825,12 @@ export const stacksData = [
         "description": "The <form> element represents a document section containing interactive controls for submitting information to a web server. Browsers provide built-in client-side constraint validation (HTML5 Validation API), automatic serialization of named child inputs, and standard keyboard submission (Enter key handling).\n\nArchitecturally, forms support GET and POST methods, with enctype specifying data serialization format ('application/x-www-form-urlencoded', 'multipart/form-data' for files, or JSON via JavaScript fetch handlers). In single-page applications (SPAs), form submission events are commonly intercepted using 'event.preventDefault()'.",
         "demo": {
           "type": "html",
-          "preview": "<form onsubmit=\"return false;\" style=\"background:#1e212b;padding:8px;border-radius:4px;display:flex;gap:6px;\"><input style=\"flex:1;background:#13151b;border:1px solid #333;color:#fff;padding:4px;\" /><button style=\"background:#00d25b;color:#000;border:none;padding:4px 8px;\">Go</button></form>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <form> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Captures validated user input with native browser constraint checking (pattern, required, types)",
+          "Integrates with assistive technologies using explicit label associations and keyboard tab indexes",
+          "Guarantees secure client-to-server payload submission with standard HTTP method support"
         ],
         "props": [
           {
@@ -901,12 +901,12 @@ export const stacksData = [
         "description": "The <input> element is the most versatile data entry control in the HTML specification, supporting over 20 distinct types (text, email, password, number, search, checkbox, radio, file, date, range, etc.).\n\nEach input type activates specialized mobile keyboard layouts (e.g. 'type=\"email\"' opens the @-optimized keyboard on iOS and Android) and built-in constraint validation rules (min, max, pattern, required, minlength). Pair inputs with <label for=\"...\"> to ensure complete accessibility compliance.",
         "demo": {
           "type": "html",
-          "preview": "<input type=\"text\" placeholder=\"Enter text...\" style=\"background:#13151b;border:1px solid #00d25b;color:#fff;padding:6px;border-radius:4px;width:100%;\" />"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <input> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Captures validated user input with native browser constraint checking (pattern, required, types)",
+          "Integrates with assistive technologies using explicit label associations and keyboard tab indexes",
+          "Guarantees secure client-to-server payload submission with standard HTTP method support"
         ],
         "props": [
           {
@@ -983,12 +983,12 @@ export const stacksData = [
         "description": "The <button> element represents a clickable interactive control used to trigger client-side JavaScript actions or submit forms. Crucially, the default 'type' attribute of a <button> inside a <form> is \"submit\". Failing to explicitly declare 'type=\"button\"' on auxiliary buttons will cause accidental form submissions and full-page refreshes.\n\nButtons receive native keyboard focus, fire both click and Space/Enter key activations automatically, and integrate seamlessly with ARIA states like 'aria-expanded' and 'aria-busy'.",
         "demo": {
           "type": "html",
-          "preview": "<button style=\"background:#00d25b;color:#000;border:none;padding:6px 14px;border-radius:4px;font-weight:bold;cursor:pointer;\">Click Button</button>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <button> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Captures validated user input with native browser constraint checking (pattern, required, types)",
+          "Integrates with assistive technologies using explicit label associations and keyboard tab indexes",
+          "Guarantees secure client-to-server payload submission with standard HTTP method support"
         ],
         "props": [
           {
@@ -1035,12 +1035,12 @@ export const stacksData = [
         "description": "The <textarea> element provides a multi-line plain-text editing control for lengthier user inputs (comments, reviews, markdown editors, or code snippets). Unlike <input>, child text placed between opening and closing tags serves as the initial default value.",
         "demo": {
           "type": "html",
-          "preview": "<textarea rows=\"2\" style=\"background:#13151b;border:1px solid #333;color:#fff;width:100%;padding:4px;border-radius:4px;\" placeholder=\"Multi-line input...\"></textarea>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <textarea> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Captures validated user input with native browser constraint checking (pattern, required, types)",
+          "Integrates with assistive technologies using explicit label associations and keyboard tab indexes",
+          "Guarantees secure client-to-server payload submission with standard HTTP method support"
         ],
         "props": [
           {
@@ -1093,12 +1093,12 @@ export const stacksData = [
         "description": "The <select> element presents a dropdown menu of selectable <option> elements. It supports single selection, multiple selection via 'multiple', and categorical grouping via <optgroup>.",
         "demo": {
           "type": "html",
-          "preview": "<select style=\"background:#13151b;border:1px solid #00d25b;color:#fff;padding:6px;border-radius:4px;width:100%;\"><option>Option A</option><option>Option B</option></select>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <select> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Captures validated user input with native browser constraint checking (pattern, required, types)",
+          "Integrates with assistive technologies using explicit label associations and keyboard tab indexes",
+          "Guarantees secure client-to-server payload submission with standard HTTP method support"
         ],
         "props": [
           {
@@ -1138,12 +1138,12 @@ export const stacksData = [
         "description": "The <option> element defines an individual choice contained within a <select>, <optgroup>, or <datalist> control.",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#00d25b;font-size:12px;\">&lt;option value=\"prod\"&gt;Production&lt;/option&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <option> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Captures validated user input with native browser constraint checking (pattern, required, types)",
+          "Integrates with assistive technologies using explicit label associations and keyboard tab indexes",
+          "Guarantees secure client-to-server payload submission with standard HTTP method support"
         ],
         "props": [
           {
@@ -1183,12 +1183,12 @@ export const stacksData = [
         "description": "The <table> element represents tabular two-dimensional data structured into horizontal rows and vertical columns. Accessible table architecture mandates semantic structure tags: <thead> for column headers, <tbody> for data body, and <th> with 'scope=\"col\"' or 'scope=\"row\"' for screen reader navigation.",
         "demo": {
           "type": "html",
-          "preview": "<table style=\"width:100%;background:#1e212b;font-size:12px;border-radius:4px;color:#fff;\"><tr><th style=\"color:#00d25b;text-align:left;padding:4px;\">Col 1</th><th style=\"color:#00d25b;text-align:left;padding:4px;\">Col 2</th></tr><tr><td style=\"padding:4px;\">Data A</td><td style=\"padding:4px;\">Data B</td></tr></table>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <table> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures tabular financial, metric, and entity datasets with standard tabular markup",
+          "Enables screen readers to associate data cells with corresponding column and row headers",
+          "Serves as accessible presentation layer for sortable, paginated enterprise data views"
         ],
         "props": [
           {
@@ -1216,12 +1216,12 @@ export const stacksData = [
         "description": "The <thead> element encapsulates a set of table rows (<tr>) defining the column titles for tabular data. In print media or paged displays, browsers re-render <thead> across page break boundaries.",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#00d25b;font-size:12px;\">&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Header Column&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <thead> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures tabular financial, metric, and entity datasets with standard tabular markup",
+          "Enables screen readers to associate data cells with corresponding column and row headers",
+          "Serves as accessible presentation layer for sortable, paginated enterprise data views"
         ],
         "props": [
           {
@@ -1249,12 +1249,12 @@ export const stacksData = [
         "description": "The <tbody> element groups the data rows of a table, cleanly separating main records from the header (<thead>) and summary footer (<tfoot>).",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#fff;font-size:12px;\">&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Data row&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <tbody> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures tabular financial, metric, and entity datasets with standard tabular markup",
+          "Enables screen readers to associate data cells with corresponding column and row headers",
+          "Serves as accessible presentation layer for sortable, paginated enterprise data views"
         ],
         "props": [
           {
@@ -1282,12 +1282,12 @@ export const stacksData = [
         "description": "The <tr> element defines a horizontal row of cells within a table containing either header cells (<th>) or standard data cells (<td>).",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#aaa;font-size:12px;\">&lt;tr&gt; Table Row &lt;/tr&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <tr> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures tabular financial, metric, and entity datasets with standard tabular markup",
+          "Enables screen readers to associate data cells with corresponding column and row headers",
+          "Serves as accessible presentation layer for sortable, paginated enterprise data views"
         ],
         "props": [
           {
@@ -1315,12 +1315,12 @@ export const stacksData = [
         "description": "The <th> element defines a cell as the header of a group of table cells. Accessibility rules mandate declaring 'scope=\"col\"' or 'scope=\"row\"' so screen readers can announce the corresponding heading when users navigate data cells.",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#00d25b;font-size:12px;\">&lt;th scope=\"col\"&gt;Column Heading&lt;/th&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <th> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures tabular financial, metric, and entity datasets with standard tabular markup",
+          "Enables screen readers to associate data cells with corresponding column and row headers",
+          "Serves as accessible presentation layer for sortable, paginated enterprise data views"
         ],
         "props": [
           {
@@ -1348,12 +1348,12 @@ export const stacksData = [
         "description": "The <td> element defines a standard data cell within an HTML table containing text, numbers, badges, or nested elements.",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#ccc;font-size:12px;\">&lt;td&gt;Payload Value&lt;/td&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <td> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures tabular financial, metric, and entity datasets with standard tabular markup",
+          "Enables screen readers to associate data cells with corresponding column and row headers",
+          "Serves as accessible presentation layer for sortable, paginated enterprise data views"
         ],
         "props": [
           {
@@ -1387,12 +1387,12 @@ export const stacksData = [
         "description": "The <ul> element represents an unordered list of items, where ordering does not change the core meaning of the document. Typically rendered with bullet glyphs.",
         "demo": {
           "type": "html",
-          "preview": "<ul style=\"margin:0;padding-left:16px;color:#00d25b;font-size:12px;\"><li>Bulleted point</li></ul>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <ul> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -1420,12 +1420,12 @@ export const stacksData = [
         "description": "The <ol> element represents an ordered numbered list of items where sequence is significant (e.g. installation tutorials, recipe steps, or ranked leaderboards).",
         "demo": {
           "type": "html",
-          "preview": "<ol style=\"margin:0;padding-left:16px;color:#0090e7;font-size:12px;\"><li>Step One</li></ol>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <ol> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -1465,12 +1465,12 @@ export const stacksData = [
         "description": "The <li> element defines an individual item contained within an ordered (<ol>), unordered (<ul>), or menu list.",
         "demo": {
           "type": "html",
-          "preview": "<span style=\"color:#fff;font-size:12px;\">&lt;li&gt;List Item Node&lt;/li&gt;</span>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <li> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Structures web document content according to universal W3C/WHATWG standards",
+          "Ensures cross-browser compatibility and accessible semantic markup",
+          "Optimizes DOM tree traversal and rendering performance"
         ],
         "props": [
           {
@@ -1498,12 +1498,12 @@ export const stacksData = [
         "description": "The <dialog> element represents a native modal or non-modal popup dialog box. When opened via 'dialog.showModal()', modern browsers automatically render an accessible top-layer surface, instantiate the ::backdrop pseudo-element, enforce focus trapping inside the modal, and bind the Escape key for instantaneous dismissal.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#1e212b;padding:8px 12px;border-radius:4px;border:1px solid #8f5fe8;color:#8f5fe8;font-size:12px;\">Native Dialog Modal Active</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <dialog> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Implements accessible modal dialogs with native browser focus trapping and Escape key dismissal",
+          "Renders onto the browser top-layer stack, preventing z-index collisions with surrounding page elements",
+          "Supports backdrop pseudo-element styling with hardware-accelerated blur filters"
         ],
         "props": [
           {
@@ -1550,12 +1550,12 @@ export const stacksData = [
         "description": "The <video> element embeds hardware-accelerated video streaming playback into the webpage with native playback controls, picture-in-picture mode, and closed-caption subtitle tracks via nested <track> elements.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#13151b;padding:8px;border-radius:4px;color:#0090e7;text-align:center;font-size:12px;\">▶ Video Player Ready</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <video> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Streams high-fidelity multimedia natively without requiring external browser plugins",
+          "Supports responsive aspect ratios, lazy loading, and bandwidth-adaptive source selection",
+          "Provides accessibility accommodations via captions, text transcripts, and descriptive alt tags"
         ],
         "props": [
           {
@@ -1614,12 +1614,12 @@ export const stacksData = [
         "description": "The <audio> element embeds sound streams and audio files into the document with native playback scrubbing, volume manipulation, and Web Audio API integration.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#1e212b;padding:8px 12px;border-radius:4px;color:#fff;font-size:12px;\">🔊 Audio Track Playing</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <audio> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Streams high-fidelity multimedia natively without requiring external browser plugins",
+          "Supports responsive aspect ratios, lazy loading, and bandwidth-adaptive source selection",
+          "Provides accessibility accommodations via captions, text transcripts, and descriptive alt tags"
         ],
         "props": [
           {
@@ -1666,12 +1666,12 @@ export const stacksData = [
         "description": "The <canvas> element provides an immediate-mode resolution-dependent bitmap drawing surface. It enables hardware-accelerated 2D graphics, charting libraries (Chart.js, D3), image processing filters, and 3D WebGL / WebGPU scene rendering via its JavaScript context API.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#13151b;border:1px solid #00d25b;color:#00d25b;padding:6px;text-align:center;border-radius:4px;font-size:12px;\">Canvas 2D Surface Active</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <canvas> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Streams high-fidelity multimedia natively without requiring external browser plugins",
+          "Supports responsive aspect ratios, lazy loading, and bandwidth-adaptive source selection",
+          "Provides accessibility accommodations via captions, text transcripts, and descriptive alt tags"
         ],
         "props": [
           {
@@ -1718,12 +1718,12 @@ export const stacksData = [
         "description": "The <iframe> element represents an isolated nested browsing context, embedding another HTML document inside the current page. The 'sandbox' attribute enforces strict least-privilege security restrictions on untrusted embeds.",
         "demo": {
           "type": "html",
-          "preview": "<div style=\"background:#1e212b;padding:8px;border:1px dashed #555;color:#aaa;font-size:12px;text-align:center;\">&lt;iframe sandbox /&gt;</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <iframe> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard html engineering guidelines and best practices"
+          "Streams high-fidelity multimedia natively without requiring external browser plugins",
+          "Supports responsive aspect ratios, lazy loading, and bandwidth-adaptive source selection",
+          "Provides accessibility accommodations via captions, text transcripts, and descriptive alt tags"
         ],
         "props": [
           {
@@ -1832,12 +1832,12 @@ export const stacksData = [
         "description": "The 'display: flex' declaration establishes a one-dimensional Flexbox formatting context for an element and turns all its direct children into flex items. Flexbox solves the historical challenges of distributing variable whitespace, vertical centering, reordering elements, and fluid alignment across varying device screen viewports.\n\nUnder the hood, browser layout engines calculate flex line dimensions along two perpendicular axes: the Main Axis (determined by flex-direction) and the Cross Axis. Items flex dynamically based on their base sizes, flex-grow, and flex-shrink factors.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ display: flex active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of display: flex in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -1878,12 +1878,12 @@ export const stacksData = [
         "description": "The 'flex-direction' property establishes the primary main axis of the flex container, determining the direction in which flex items are laid out. Setting 'flex-direction: column' is fundamental for responsive mobile menus and card structures, shifting the main axis from horizontal to vertical.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ flex-direction active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of flex-direction in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -1929,12 +1929,12 @@ export const stacksData = [
         "description": "The 'justify-content' property aligns flex items along the main axis of the current line of the flex container. It distributes extra free space leftover after flex-grow factors are computed.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ justify-content active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of justify-content in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -1980,12 +1980,12 @@ export const stacksData = [
         "description": "The 'align-items' property sets the default alignment along the cross axis for all direct children inside the flex or grid container. Setting 'align-items: center' combined with 'justify-content: center' achieves universal two-dimensional centering.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ align-items active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of align-items in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2025,12 +2025,12 @@ export const stacksData = [
         "description": "The 'align-self' property overrides a container's 'align-items' value for an individual flex or grid item, allowing customized cross-axis alignment per element without affecting neighboring siblings.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ align-self active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of align-self in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2064,12 +2064,12 @@ export const stacksData = [
         "description": "The 'flex-wrap' property sets whether flex items are forced into a single line or can wrap onto multiple lines. Enabling wrap is essential for responsive tag clouds, button clusters, and fluid card layouts.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ flex-wrap active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of flex-wrap in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2103,12 +2103,12 @@ export const stacksData = [
         "description": "The 'flex-grow' CSS property sets the flex grow factor of a flex item's main size. It determines what proportion of the remaining available free space in the flex container will be absorbed by this specific item.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ flex-grow active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of flex-grow in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2136,12 +2136,12 @@ export const stacksData = [
         "description": "The 'flex-shrink' property sets the flex shrink factor of a flex item. If the total size of all flex items exceeds the container size, items will shrink proportionally to their flex-shrink factor. Setting 'flex-shrink: 0' prevents an element (like an avatar or icon) from collapsing.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ flex-shrink active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of flex-shrink in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2175,12 +2175,12 @@ export const stacksData = [
         "description": "The 'display: grid' declaration creates a two-dimensional Grid formatting context, capable of aligning items simultaneously across rows and columns. CSS Grid revolutionizes page layouts by decoupling HTML source order from visual visual grid coordinates.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ display: grid active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of display: grid in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2215,12 +2215,12 @@ export const stacksData = [
         "description": "Defines the track sizing functions and line names of grid columns. Utilizing 'repeat(auto-fit, minmax(250px, 1fr))' creates fully responsive, media-query-free card layouts that adapt automatically to viewport width changes.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ grid-template-columns active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of grid-template-columns in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2248,12 +2248,12 @@ export const stacksData = [
         "description": "Defines the track sizing functions of the grid rows, allowing precise control over header height, fluid content areas, and sticky footer rows.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ grid-template-rows active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of grid-template-rows in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2281,12 +2281,12 @@ export const stacksData = [
         "description": "Shorthand property for 'grid-column-start' and 'grid-column-end', specifying a grid item's size and location within grid columns by contributing a line, a span, or a track edge. 'grid-column: 1 / -1' spans across all grid columns.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ grid-column active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of grid-column in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2314,12 +2314,12 @@ export const stacksData = [
         "description": "Shorthand specifying a grid item's placement across vertical rows within the grid container.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ grid-row active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of grid-row in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2347,12 +2347,12 @@ export const stacksData = [
         "description": "Sets gutters between rows and columns in both Grid and Flexbox layouts without needing hacky margin offsets on child elements.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ gap active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of gap in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Constructs fluid, responsive grid and flexbox layouts without brittle pixel offsets",
+          "Distributes spatial alignment across main and cross axes dynamically across screen sizes",
+          "Minimizes browser reflow calculations, maintaining 60 FPS viewport resizing"
         ],
         "props": [
           {
@@ -2380,12 +2380,12 @@ export const stacksData = [
         "description": "Positions the element according to the normal flow of the document, then offsets it relative to itself based on top, right, bottom, and left values without changing surrounding layout space. Crucially, it serves as the positioning coordinate anchor for nested 'position: absolute' child elements.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ position: relative active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of position: relative in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Controls element placement within normal document flow or establishes fixed/sticky viewport anchors",
+          "Creates isolated stacking contexts and explicit z-index layer hierarchies",
+          "Powers persistent navigation headers, floating action buttons, and pinned sidebar panels"
         ],
         "props": [
           {
@@ -2413,12 +2413,12 @@ export const stacksData = [
         "description": "Removes the element entirely from normal document flow, creating no space in page layout. It is positioned relative to its nearest positioned ancestor (an ancestor with position other than static).",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ position: absolute active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of position: absolute in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Controls element placement within normal document flow or establishes fixed/sticky viewport anchors",
+          "Creates isolated stacking contexts and explicit z-index layer hierarchies",
+          "Powers persistent navigation headers, floating action buttons, and pinned sidebar panels"
         ],
         "props": [
           {
@@ -2446,12 +2446,12 @@ export const stacksData = [
         "description": "Removes the element from normal flow and anchors it relative to the initial viewport coordinate system. The element stays persistently locked on the screen during document scrolling (used for navigation headers and floating action buttons).",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ position: fixed active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of position: fixed in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Controls element placement within normal document flow or establishes fixed/sticky viewport anchors",
+          "Creates isolated stacking contexts and explicit z-index layer hierarchies",
+          "Powers persistent navigation headers, floating action buttons, and pinned sidebar panels"
         ],
         "props": [
           {
@@ -2479,12 +2479,12 @@ export const stacksData = [
         "description": "Hybrid positioning model. The element behaves as 'position: relative' until its containing scroll offset crosses a specified threshold (e.g. top: 0), at which point it acts as 'position: fixed' within its parent container.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ position: sticky active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of position: sticky in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Controls element placement within normal document flow or establishes fixed/sticky viewport anchors",
+          "Creates isolated stacking contexts and explicit z-index layer hierarchies",
+          "Powers persistent navigation headers, floating action buttons, and pinned sidebar panels"
         ],
         "props": [
           {
@@ -2512,12 +2512,12 @@ export const stacksData = [
         "description": "Changes the calculation of width and height to incorporate padding and border inside the declared dimensions rather than expanding outward. Applying 'box-sizing: border-box' universally via '* { box-sizing: border-box; }' eliminates unexpected layout overflows.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ box-sizing: border-box active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of box-sizing: border-box in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2545,12 +2545,12 @@ export const stacksData = [
         "description": "Creates transparent breathing space outside the element's border. Setting 'margin: 0 auto' on a block element with a declared max-width centers the element horizontally.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ margin active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of margin in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2578,12 +2578,12 @@ export const stacksData = [
         "description": "Sets the inner spacing area between the content of the element and its perimeter border.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ padding active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of padding in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2611,12 +2611,12 @@ export const stacksData = [
         "description": "Shorthand setting border width, line style (solid, dashed, dotted), and color around an element.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ border active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of border in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2644,12 +2644,12 @@ export const stacksData = [
         "description": "Rounds the corners of an element's outer border edge. Declaring 'border-radius: 9999px' creates an Apple-style pill button, while '50%' creates circular avatars.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ border-radius active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of border-radius in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2677,12 +2677,12 @@ export const stacksData = [
         "description": "Adds depth and elevation shadow effects around an element's frame. Supports multiple comma-separated shadow layers and the 'inset' keyword for interior shading.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ box-shadow active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of box-shadow in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2710,12 +2710,12 @@ export const stacksData = [
         "description": "Sets the background surface color of an element using HEX, RGB, HSL, or CSS custom properties.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ background-color active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of background-color in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2743,12 +2743,12 @@ export const stacksData = [
         "description": "Layers raster/vector graphics or CSS mathematical gradients (linear, radial, conic) on the element surface.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ background-image active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of background-image in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2776,12 +2776,12 @@ export const stacksData = [
         "description": "Specifies a prioritized fallback list of font family typeface names for rendering text glyphs.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ font-family active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of font-family in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2809,12 +2809,12 @@ export const stacksData = [
         "description": "Sets the size of typography font glyphs using absolute px, scalable rem, or fluid mathematical 'clamp()' units.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ font-size active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of font-size in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2842,12 +2842,12 @@ export const stacksData = [
         "description": "Configures the stroke thickness of font characters from thin (100) to regular (400) and bold (700).",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ font-weight active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of font-weight in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2875,12 +2875,12 @@ export const stacksData = [
         "description": "Sets the vertical leading space between wrapped lines of text. Best practice recommends a unitless number (e.g. 1.5 to 1.7) for optimal prose readability.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ line-height active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of line-height in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2908,12 +2908,12 @@ export const stacksData = [
         "description": "Sets the foreground color of text and icon glyphs, as well as providing the value for 'currentColor'.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ color active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of color in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -2941,12 +2941,12 @@ export const stacksData = [
         "description": "Enables smooth animated transitions between two property states over duration, with customizable easing curves (ease, linear, cubic-bezier).",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ transition active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of transition in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Offloads animations to the GPU compositor thread using transform and opacity properties",
+          "Creates intuitive tactile user feedback on hover, active, and focus micro-interactions",
+          "Respects user system preferences by wrapping heavy animations in prefers-reduced-motion queries"
         ],
         "props": [
           {
@@ -2980,12 +2980,12 @@ export const stacksData = [
         "description": "Declares the keyframe waypoints and property state changes for multi-step CSS animations.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @keyframes active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @keyframes in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -3020,12 +3020,12 @@ export const stacksData = [
         "description": "Applies keyframe animations to an element, configuring animation-name, duration, iteration-count, and fill-mode.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ animation active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of animation in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Offloads animations to the GPU compositor thread using transform and opacity properties",
+          "Creates intuitive tactile user feedback on hover, active, and focus micro-interactions",
+          "Respects user system preferences by wrapping heavy animations in prefers-reduced-motion queries"
         ],
         "props": [
           {
@@ -3053,12 +3053,12 @@ export const stacksData = [
         "description": "Applies 2D and 3D transformations (translate, rotate, scale, skew) to elements without causing browser layout reflow, executing directly on the GPU compositor thread.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ transform active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of transform in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Offloads animations to the GPU compositor thread using transform and opacity properties",
+          "Creates intuitive tactile user feedback on hover, active, and focus micro-interactions",
+          "Respects user system preferences by wrapping heavy animations in prefers-reduced-motion queries"
         ],
         "props": [
           {
@@ -3086,12 +3086,12 @@ export const stacksData = [
         "description": "Sets the transparency level of an element and all its children simultaneously, from 0 (completely transparent) to 1 (fully opaque).",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ opacity active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of opacity in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -3119,12 +3119,12 @@ export const stacksData = [
         "description": "Controls the 3D depth stacking order of positioned elements along the z-axis when overlapping. Requires position other than static to take effect.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ z-index active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of z-index in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Controls element placement within normal document flow or establishes fixed/sticky viewport anchors",
+          "Creates isolated stacking contexts and explicit z-index layer hierarchies",
+          "Powers persistent navigation headers, floating action buttons, and pinned sidebar panels"
         ],
         "props": [
           {
@@ -3152,12 +3152,12 @@ export const stacksData = [
         "description": "Controls desired clipping and scrollbar behavior when an element's content exceeds its allocated box dimensions.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ overflow active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of overflow in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Defines professional typographic and visual styling rules for modern web interfaces",
+          "Enforces consistent design system tokens and responsive layouts",
+          "Optimizes CSS cascade evaluation and rendering paint budgets"
         ],
         "props": [
           {
@@ -3185,12 +3185,12 @@ export const stacksData = [
         "description": "CSS Custom Properties (Variables) store reusable design values that cascade down the DOM tree and can be updated dynamically at runtime via JavaScript or media queries.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CSS Variables (--var) active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CSS Variables (--var) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Centralizes design tokens (colors, spacing, radii) for dynamic runtime theme switching",
+          "Allows scoped cascading overrides without duplicating style declarations",
+          "Enables JavaScript manipulation of CSS variables at runtime for interactive user interfaces"
         ],
         "props": [
           {
@@ -3225,12 +3225,12 @@ export const stacksData = [
         "description": "Conditionally applies CSS rules based on device characteristics, viewport width, screen resolution, and user system preferences ('prefers-color-scheme', 'prefers-reduced-motion').",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @media (Media Queries) active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @media (Media Queries) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Adapts visual presentation fluidly across mobile, tablet, and ultra-wide monitor viewports",
+          "Enables modular container-based component responsiveness independent of global viewport widths",
+          "Supports print stylesheets, high-DPI displays, and dark/light system preference modes"
         ],
         "props": [
           {
@@ -3265,12 +3265,12 @@ export const stacksData = [
         "description": "Container Queries adapt component styles based on the size of an immediate parent container rather than the global browser viewport window, unlocking truly modular UI components.",
         "demo": {
           "type": "css",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @container (Container Queries) active in css runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @container (Container Queries) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard css engineering guidelines and best practices"
+          "Adapts visual presentation fluidly across mobile, tablet, and ultra-wide monitor viewports",
+          "Enables modular container-based component responsiveness independent of global viewport widths",
+          "Supports print stylesheets, high-DPI displays, and dark/light system preference modes"
         ],
         "props": [
           {
@@ -3374,12 +3374,12 @@ export const stacksData = [
         "description": "The 'let' statement declares a block-scoped local variable, optionally initializing it to a value. Unlike 'var', which hoists and binds variables to function or global scope, 'let' variables are bound strictly to the enclosing block (curly braces { }).\n\nUnder the hood in JavaScript engines (like Google V8), 'let' variables exist in a \"Temporal Dead Zone\" (TDZ) from the start of the block until the declaration statement is evaluated. Accessing the variable before its declaration throws a ReferenceError. 'let' allows reassignment, making it ideal for loop accumulators, counters, and mutable operational state.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ let active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of let in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3413,12 +3413,12 @@ export const stacksData = [
         "description": "The 'const' statement declares a block-scoped constant identifier whose binding cannot be reassigned or re-declared. Like 'let', it is subject to the Temporal Dead Zone (TDZ).\n\nCrucially, 'const' creates an immutable variable binding, not an immutable value. When storing objects or arrays in a 'const' variable, internal object properties and array elements can still be mutated unless sealed via 'Object.freeze()'. Modern engineering best practices recommend defaulting to 'const' for all variables unless reassignment is strictly required.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ const active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of const in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3452,12 +3452,12 @@ export const stacksData = [
         "description": "Arrow function expressions provide a compact syntax for writing functions while lexically binding the 'this' keyword to the enclosing execution context. Unlike standard function declarations, arrow functions do not have their own 'this', 'arguments', 'super', or 'new.target' bindings, and cannot be invoked as constructors with 'new'.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Arrow Functions (() => {}) active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Arrow Functions (() => {}) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3491,12 +3491,12 @@ export const stacksData = [
         "description": "Destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables using pattern matching syntax. Supports default fallback values and nested object exploration.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Destructuring Assignment active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Destructuring Assignment in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3524,12 +3524,12 @@ export const stacksData = [
         "description": "The spread operator expands an iterable (like an array or string) into individual elements in places where zero or more arguments or elements are expected, or unpacks an object's enumerable own properties into a new object. Performs shallow copies.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Spread Operator (...) active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Spread Operator (...) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3557,12 +3557,12 @@ export const stacksData = [
         "description": "Rest parameter syntax allows a function to accept an indefinite number of arguments as a true JavaScript Array, completely superseding the legacy pseudo-array 'arguments' object.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Rest Parameters (...args) active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Rest Parameters (...args) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3590,12 +3590,12 @@ export const stacksData = [
         "description": "The map() method creates a new Array populated with the results of calling a provided callback function on every element in the calling array. It does not mutate the original array and executes strictly in O(N) linear time.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.map() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.map() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Executes pure functional data transformations without mutating original source collections",
+          "Chains collection operations to produce clean, readable, and highly maintainable pipelines",
+          "Optimizes memory allocation by leveraging modern V8 internal engine optimizations"
         ],
         "props": [
           {
@@ -3636,12 +3636,12 @@ export const stacksData = [
         "description": "The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided callback function.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.filter() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.filter() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Executes pure functional data transformations without mutating original source collections",
+          "Chains collection operations to produce clean, readable, and highly maintainable pipelines",
+          "Optimizes memory allocation by leveraging modern V8 internal engine optimizations"
         ],
         "props": [
           {
@@ -3676,12 +3676,12 @@ export const stacksData = [
         "description": "The reduce() method executes a user-supplied \"reducer\" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements is a single aggregated value (sum, grouping map, flattened tree).",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.reduce() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.reduce() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Executes pure functional data transformations without mutating original source collections",
+          "Chains collection operations to produce clean, readable, and highly maintainable pipelines",
+          "Optimizes memory allocation by leveraging modern V8 internal engine optimizations"
         ],
         "props": [
           {
@@ -3722,12 +3722,12 @@ export const stacksData = [
         "description": "The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, 'undefined' is returned. Halts traversal immediately upon finding a match (short-circuit evaluation).",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.find() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.find() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3762,12 +3762,12 @@ export const stacksData = [
         "description": "Returns the index of the first element in an array that satisfies the provided testing function. If no elements satisfy the testing function, -1 is returned.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.findIndex() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.findIndex() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3802,12 +3802,12 @@ export const stacksData = [
         "description": "Executes a provided callback function once for each array element. Unlike map() or filter(), forEach() always returns 'undefined' and cannot be chained or aborted early with break.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.forEach() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.forEach() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3842,12 +3842,12 @@ export const stacksData = [
         "description": "Tests whether at least one element in the array passes the test implemented by the provided function. Returns true and halts early on first match.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.some() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.some() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3882,12 +3882,12 @@ export const stacksData = [
         "description": "Tests whether all elements in the array pass the test implemented by the provided function. Returns false immediately upon encountering a non-passing element.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.every() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.every() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3922,12 +3922,12 @@ export const stacksData = [
         "description": "Determines whether an array includes a certain value among its entries, returning true or false as appropriate. Correctly handles NaN equality.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.includes() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.includes() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -3968,12 +3968,12 @@ export const stacksData = [
         "description": "Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth (default 1). Pass 'Infinity' to flatten all nested dimensions.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.flat() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.flat() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4008,12 +4008,12 @@ export const stacksData = [
         "description": "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent index offsets. Original array is unmodified.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.slice() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.slice() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4054,12 +4054,12 @@ export const stacksData = [
         "description": "Changes the contents of an array in place by removing or replacing existing elements and/or adding new elements. Mutates the original array and returns the deleted elements.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Array.prototype.splice() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Array.prototype.splice() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4100,12 +4100,12 @@ export const stacksData = [
         "description": "The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It exists in one of three states: pending, fulfilled, or rejected.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Promises (new Promise) active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Promises (new Promise) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4146,12 +4146,12 @@ export const stacksData = [
         "description": "Takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when all of the input's promises fulfill, with an array of the fulfillment values. Rejects immediately if any input promise rejects (all-or-nothing concurrency).",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Promise.all() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Promise.all() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4186,12 +4186,12 @@ export const stacksData = [
         "description": "Returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise (used for timeouts).",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Promise.race() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Promise.race() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4226,12 +4226,12 @@ export const stacksData = [
         "description": "Returns a promise that resolves after all of the given promises have either fulfilled or rejected, with an array of objects that each describe the outcome of each promise.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Promise.allSettled() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Promise.allSettled() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4266,12 +4266,12 @@ export const stacksData = [
         "description": "Syntactic sugar over Promises. An async function always returns a Promise, and the 'await' keyword pauses execution of the async function until the awaited Promise settles, resuming with the resolved value or throwing the rejection error.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ async / await active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of async / await in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4299,12 +4299,12 @@ export const stacksData = [
         "description": "The global fetch() method starts the process of fetching a resource from the network, returning a Promise which is fulfilled once the response headers are available. Note that fetch only rejects on network failures (not 404 or 500 HTTP codes).",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ fetch() API active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of fetch() API in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4345,12 +4345,12 @@ export const stacksData = [
         "description": "Marks a block of statements to try and specifies a response should an exception be thrown. Prevents unhandled exceptions from crashing the JavaScript process.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ try...catch active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of try...catch in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4378,12 +4378,12 @@ export const stacksData = [
         "description": "Executes unconditionally after the try and catch blocks finish, regardless of whether an exception was thrown or caught. Ideal for closing database connections and releasing locks.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ finally active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of finally in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [],
         "methods": [],
@@ -4404,12 +4404,12 @@ export const stacksData = [
         "description": "The localStorage read-only property allows access to a Storage object for the Document's origin; the stored data is saved across browser sessions with no expiration time (persists until cleared). Maximum capacity is typically 5MB per origin.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ localStorage active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of localStorage in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Persists user settings, authentication tokens, and theme preferences across browser sessions",
+          "Provides zero-latency client-side caching to reduce redundant network round-trips",
+          "Synchronizes state across multiple browser tabs via storage event listeners"
         ],
         "props": [],
         "methods": [
@@ -4455,12 +4455,12 @@ export const stacksData = [
         "description": "Accesses a Storage object whose data is persisted only for the duration of the current page tab session (cleared immediately when tab is closed).",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ sessionStorage active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of sessionStorage in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Persists user settings, authentication tokens, and theme preferences across browser sessions",
+          "Provides zero-latency client-side caching to reduce redundant network round-trips",
+          "Synchronizes state across multiple browser tabs via storage event listeners"
         ],
         "props": [],
         "methods": [
@@ -4494,12 +4494,12 @@ export const stacksData = [
         "description": "Parses a JSON string, constructing the JavaScript value or object described by the string. Throws SyntaxError if invalid JSON is supplied.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ JSON.parse() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of JSON.parse() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4540,12 +4540,12 @@ export const stacksData = [
         "description": "Converts a JavaScript value to a JSON string, optionally replacing values if a replacer function is specified or including only specified properties.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ JSON.stringify() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of JSON.stringify() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4586,12 +4586,12 @@ export const stacksData = [
         "description": "Sets a timer which executes a function or specified piece of code once the timer expires. Returns a numeric timeoutID that can be cancelled via clearTimeout().",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ setTimeout() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of setTimeout() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4632,12 +4632,12 @@ export const stacksData = [
         "description": "Repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ setInterval() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of setInterval() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4678,12 +4678,12 @@ export const stacksData = [
         "description": "Cancels a timeout previously established by calling setTimeout(). Passing an invalid or expired ID silently does nothing.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ clearTimeout() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of clearTimeout() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Manages non-blocking asynchronous operations via microtask queues and event loop orchestration",
+          "Handles network requests and parallel data fetching without freezing the main UI thread",
+          "Provides robust error handling and fallback recovery using Promise.catch() and Promise.allSettled()"
         ],
         "props": [
           {
@@ -4718,12 +4718,12 @@ export const stacksData = [
         "description": "Sets up a function that will be called whenever the specified event is delivered to the target DOM node. Supports capture phase and 'passive: true' for high-performance scroll handling.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ addEventListener() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of addEventListener() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4764,12 +4764,12 @@ export const stacksData = [
         "description": "Removes an event listener previously registered with addEventListener(). Crucial in single-page apps to avoid memory leaks.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ removeEventListener() active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of removeEventListener() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4810,12 +4810,12 @@ export const stacksData = [
         "description": "Declares a class with constructor, instance methods, static methods, and getters/setters. Under the hood, JavaScript classes are syntactical sugar over the prototype-based inheritance model.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ class active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of class in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4843,12 +4843,12 @@ export const stacksData = [
         "description": "The 'extends' keyword is used in class declarations to create a class that is a child of another class. The 'super' keyword calls the parent constructor or accesses parent methods.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ extends & super active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of extends & super in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [],
         "methods": [
@@ -4876,12 +4876,12 @@ export const stacksData = [
         "description": "Static import declaration used to import read-only live bindings exported by another module. Static imports are parsed and hoisted before code execution begins.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ import active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of import in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -4909,12 +4909,12 @@ export const stacksData = [
         "description": "Used when creating JavaScript modules to export functions, objects, or primitive values so they can be used by other programs with the import statement.",
         "demo": {
           "type": "js",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ export active in js runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of export in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard js engineering guidelines and best practices"
+          "Implements robust, modern ES2024 algorithms for client and server JavaScript runtimes",
+          "Enforces clean separation of concerns and immutable data transformation patterns",
+          "Ensures high-performance V8 engine JIT compilation and low memory overhead"
         ],
         "props": [
           {
@@ -5011,12 +5011,12 @@ export const stacksData = [
         "description": "A type alias declares a compile-time name for any type definition, including primitive types, union types, intersection types, tuples, and mapped types. Unlike interfaces, type aliases cannot be reopened for declaration merging, making them ideal for immutable type contracts, complex mapped transformations, and function signatures.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ type (Type Alias) active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of type (Type Alias) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5044,12 +5044,12 @@ export const stacksData = [
         "description": "An interface defines the syntactic contract that an object must adhere to. TypeScript interfaces support declaration merging (multiple declarations with the same name automatically merge into one) and can be extended with 'extends' to build clean object hierarchies for API payloads and class contracts.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ interface active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of interface in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5077,12 +5077,12 @@ export const stacksData = [
         "description": "Generics allow developers to create reusable components and functions that can work over a variety of types rather than a single one, providing compile-time type safety while avoiding the untyped pitfalls of 'any'. Generics can be constrained using the 'extends' keyword.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Generics (<T>) active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Generics (<T>) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5117,12 +5117,12 @@ export const stacksData = [
         "description": "A union type is formed from two or more other types, representing values that may be any one of those types. TypeScript restricts operations on union types to properties common to all union members until narrowed via type guards.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Union Types (A | B) active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Union Types (A | B) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5150,12 +5150,12 @@ export const stacksData = [
         "description": "An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Intersection Types (A & B) active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Intersection Types (A & B) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5183,12 +5183,12 @@ export const stacksData = [
         "description": "In a type context, 'typeof' extracts and produces the TypeScript type of an existing variable or object, allowing you to derive types directly from runtime constants without code duplication.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ typeof Operator active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of typeof Operator in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5209,12 +5209,12 @@ export const stacksData = [
         "description": "A JavaScript runtime operator that TypeScript uses as a powerful type guard to narrow down variable types inside conditional blocks by inspecting prototype chains.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ instanceof Operator active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of instanceof Operator in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5235,12 +5235,12 @@ export const stacksData = [
         "description": "A way to tell the TypeScript compiler \"trust me, I know what I'm doing\" to override the compiler's inferred type. It performs no runtime checks or conversions.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Type Assertions (as) active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Type Assertions (as) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5261,12 +5261,12 @@ export const stacksData = [
         "description": "A pattern using a shared literal property (the discriminator, typically 'type' or 'kind') across union members, allowing the TypeScript compiler to exhaustively narrow down complex data structures inside switch statements.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Discriminated Unions active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Discriminated Unions in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5287,12 +5287,12 @@ export const stacksData = [
         "description": "Constructs a type with all properties of T set to optional (marked with '?'). Commonly used for update DTOs where only modified fields are transmitted.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Partial<T> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Partial<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5320,12 +5320,12 @@ export const stacksData = [
         "description": "Constructs a type consisting of all properties of T set to required. The opposite of Partial<T>.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Required<T> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Required<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5353,12 +5353,12 @@ export const stacksData = [
         "description": "Constructs a type with all properties of T set to 'readonly', meaning the properties of the constructed type cannot be reassigned.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Readonly<T> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Readonly<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5386,12 +5386,12 @@ export const stacksData = [
         "description": "Constructs a type by picking the set of properties K (string literal or union of string literals) from T.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Pick<T, K> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Pick<T, K> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5425,12 +5425,12 @@ export const stacksData = [
         "description": "Constructs a type by picking all properties from T and then removing K (string literal or union of string literals). Ideal for scrubbing sensitive fields.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Omit<T, K> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Omit<T, K> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5464,12 +5464,12 @@ export const stacksData = [
         "description": "Constructs an object type whose property keys are K and whose property values are T. This utility can be used to map the properties of a type to another type.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Record<K, T> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Record<K, T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5503,12 +5503,12 @@ export const stacksData = [
         "description": "Constructs a type by excluding from T all union members that are assignable to U.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Exclude<T, U> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Exclude<T, U> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5542,12 +5542,12 @@ export const stacksData = [
         "description": "Constructs a type by extracting from T all union members that are assignable to U.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Extract<T, U> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Extract<T, U> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5581,12 +5581,12 @@ export const stacksData = [
         "description": "Constructs a type by excluding 'null' and 'undefined' from type T.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ NonNullable<T> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of NonNullable<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5614,12 +5614,12 @@ export const stacksData = [
         "description": "Constructs a type consisting of the return type of function type T.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ReturnType<T> active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ReturnType<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [
           {
@@ -5647,12 +5647,12 @@ export const stacksData = [
         "description": "The keyof operator takes an object type and produces a string or numeric literal union of its keys. Crucial for type-safe property lookups.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ keyof Operator active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of keyof Operator in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5673,12 +5673,12 @@ export const stacksData = [
         "description": "Enums allow a developer to define a set of named constants. Numeric enums have auto-incrementing values and reverse mappings, while string enums provide readable serialized output.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ enum active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of enum in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5699,12 +5699,12 @@ export const stacksData = [
         "description": "A tuple type is another sort of Array type which knows exactly how many elements it contains, and exactly which types it contains at specific positions.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Tuple Types active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Tuple Types in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5725,12 +5725,12 @@ export const stacksData = [
         "description": "The 'unknown' type represents any value, but is much safer than 'any' because it is not legal to do anything with an unknown value without first narrowing it via typeof, instanceof, or custom type guards.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ unknown Type active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of unknown Type in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5751,12 +5751,12 @@ export const stacksData = [
         "description": "The 'any' type turns off all TypeScript type checking for the variable. Use sparingly only as an escape hatch for untyped third-party legacy code.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ any Type active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of any Type in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5777,12 +5777,12 @@ export const stacksData = [
         "description": "The 'never' type represents the type of values that never occur. It is the return type for functions that always throw an exception or never return (infinite loops), and is used for exhaustive checking in switch statements.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ never Type active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of never Type in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5803,12 +5803,12 @@ export const stacksData = [
         "description": "Represents the return value of functions which don't return a value. In JavaScript, a function that returns void actually returns 'undefined' under the hood.",
         "demo": {
           "type": "typescript",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ void Type active in typescript runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of void Type in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard typescript engineering guidelines and best practices"
+          "Catches type mismatch bugs and undefined access errors at compile time before production release",
+          "Enforces rigorous domain data contracts and self-documenting API interfaces across engineering teams",
+          "Facilitates confident large-scale refactoring and IntelliSense autocompletion in enterprise codebases"
         ],
         "props": [],
         "methods": [],
@@ -5898,12 +5898,12 @@ export const stacksData = [
         "description": "The 'useState' hook declares a state variable in a functional React component. React preserves this state between re-renders and triggers component reconciliation whenever the state updater function is invoked.\n\nUnder the hood, React manages hook states as a linked list attached to the component's Fiber node. Calling setState with a function 'setState(prev => next)' ensures thread-safe updates based on the latest queued state.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useState active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useState in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Maintains reactive local component state synchronized with React Fiber reconciliation lifecycle",
+          "Triggers surgical DOM diff updates while avoiding unnecessary re-renders of parent trees",
+          "Encapsulates complex stateful business logic into reusable custom hook primitives"
         ],
         "props": [
           {
@@ -5938,12 +5938,12 @@ export const stacksData = [
         "description": "The 'useEffect' hook allows functional components to perform side effects (data fetching, DOM mutations, timer subscriptions). It runs asynchronously after the browser paints the screen, ensuring that side effects do not block UI rendering.\n\nIf a cleanup function is returned, React executes it before running the effect again and during component unmount. Omitting the dependency array runs the effect on every render; passing '[]' runs it only on mount.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useEffect active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useEffect in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -5984,12 +5984,12 @@ export const stacksData = [
         "description": "Accepts a context object (the value returned from React.createContext) and returns the current context value for that context. Allows components to consume global values (themes, auth sessions, stores) without prop-drilling.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useContext active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useContext in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6024,12 +6024,12 @@ export const stacksData = [
         "description": "An alternative to useState for managing complex state logic that involves multiple sub-values or when the next state depends on the previous one. Follows the Redux pattern with pure reducer functions.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useReducer active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useReducer in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Maintains reactive local component state synchronized with React Fiber reconciliation lifecycle",
+          "Triggers surgical DOM diff updates while avoiding unnecessary re-renders of parent trees",
+          "Encapsulates complex stateful business logic into reusable custom hook primitives"
         ],
         "props": [
           {
@@ -6070,12 +6070,12 @@ export const stacksData = [
         "description": "Returns a memoized value. React will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useMemo active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useMemo in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6116,12 +6116,12 @@ export const stacksData = [
         "description": "Returns a memoized version of the callback that only changes if one of the dependencies has changed. Essential when passing callbacks to optimized child components that rely on reference equality to prevent re-renders.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useCallback active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useCallback in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6162,12 +6162,12 @@ export const stacksData = [
         "description": "Returns a mutable ref object whose '.current' property is initialized to the passed argument. The returned object will persist for the full lifetime of the component and mutating '.current' does NOT trigger a re-render. Commonly used to access direct DOM nodes.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useRef active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useRef in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6202,12 +6202,12 @@ export const stacksData = [
         "description": "Fires synchronously after all DOM mutations but BEFORE the browser has a chance to paint. Use this to read layout from the DOM (measuring element dimensions) and synchronously re-render without flickering.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useLayoutEffect active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useLayoutEffect in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Structures scalable App Router directory hierarchies with nested layout persistence",
+          "Enables zero-bundle-size React Server Components (RSC) rendered directly on the server edge",
+          "Performs automatic background route prefetching for instant page navigation without full reload"
         ],
         "props": [
           {
@@ -6248,12 +6248,12 @@ export const stacksData = [
         "description": "A hook for generating unique IDs that are stable across server and client rendering, preventing hydration mismatches when linking form inputs to accessible labels.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useId active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useId in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -6281,12 +6281,12 @@ export const stacksData = [
         "description": "A hook that lets you mark state updates as non-blocking transitions. Urgent updates (like typing in an input) can interrupt non-urgent transitions (like filtering a heavy data list).",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useTransition active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useTransition in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -6314,12 +6314,12 @@ export const stacksData = [
         "description": "Accepts a value and returns a deferred copy of that value that will \"lag behind\" urgent updates. Keeps UI responsive during heavy re-renders.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useDeferredValue active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useDeferredValue in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6354,12 +6354,12 @@ export const stacksData = [
         "description": "Customizes the instance value that is exposed to parent components when using 'ref'. Should be used with forwardRef to expose specific imperative methods rather than raw DOM nodes.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ useImperativeHandle active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of useImperativeHandle in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6400,12 +6400,12 @@ export const stacksData = [
         "description": "Creates a Context object. When React renders a component that subscribes to this Context object, it will read the current context value from the closest matching Provider above it in the tree.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ createContext active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of createContext in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6440,12 +6440,12 @@ export const stacksData = [
         "description": "Higher order component for memoizing functional components. If your component renders the same result given the same props, you can wrap it in React.memo for a performance boost by skipping re-renders.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ React.memo active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of React.memo in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6486,12 +6486,12 @@ export const stacksData = [
         "description": "Lets you display a fallback UI (such as a skeleton or spinner) until its children have finished loading (via React.lazy, Next.js Server Components, or data-fetching libraries).",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Suspense active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Suspense in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6519,12 +6519,12 @@ export const stacksData = [
         "description": "Lets you defer loading component code until it is rendered for the first time. Enables automated bundle code-splitting in Vite and Webpack.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ lazy active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of lazy in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6559,12 +6559,12 @@ export const stacksData = [
         "description": "Lets a component expose a DOM node to a parent component with a ref. Allows parent components to imperatively focus, measure, or scroll child elements.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ forwardRef active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of forwardRef in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6599,12 +6599,12 @@ export const stacksData = [
         "description": "Renders children into a different part of the DOM that exists outside the DOM hierarchy of the parent component (used for modal dialogs, tooltips, and floating menus).",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ createPortal active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of createPortal in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6645,12 +6645,12 @@ export const stacksData = [
         "description": "Lets you group a list of children without adding extra wrapper nodes to the DOM. If keys are required during array mapping, use the explicit '<Fragment key={id}>' syntax.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Fragment (<>...</>) active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Fragment (<>...</>) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6678,12 +6678,12 @@ export const stacksData = [
         "description": "React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the whole component tree.",
         "demo": {
           "type": "react",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Error Boundaries active in react runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Error Boundaries in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard react engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -6786,12 +6786,12 @@ export const stacksData = [
         "description": "The 'page.tsx' file is the unique UI entry point for a route segment in the Next.js App Router. By default, pages are React Server Components (RSC), fetching data directly on the server with zero client bundle overhead.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ page.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of page.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Structures scalable App Router directory hierarchies with nested layout persistence",
+          "Enables zero-bundle-size React Server Components (RSC) rendered directly on the server edge",
+          "Performs automatic background route prefetching for instant page navigation without full reload"
         ],
         "props": [
           {
@@ -6825,12 +6825,12 @@ export const stacksData = [
         "description": "A layout is UI that is shared between multiple routes. On navigation, layouts preserve state, remain interactive, and do not re-render. 'app/layout.tsx' is the root layout required for all Next.js applications.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ layout.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of layout.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Structures scalable App Router directory hierarchies with nested layout persistence",
+          "Enables zero-bundle-size React Server Components (RSC) rendered directly on the server edge",
+          "Performs automatic background route prefetching for instant page navigation without full reload"
         ],
         "props": [
           {
@@ -6858,12 +6858,12 @@ export const stacksData = [
         "description": "An optional file that automatically wraps the route page and its nested children in a React Suspense Boundary, showing an instant loading skeleton while page data streams in from the server.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ loading.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of loading.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [],
@@ -6884,12 +6884,12 @@ export const stacksData = [
         "description": "An error UI boundary for a route segment. Must be a Client Component ('\"use client\"'). Wraps the segment in a React Error Boundary, catching unexpected server or client errors.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ error.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of error.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6923,12 +6923,12 @@ export const stacksData = [
         "description": "Rendered when the 'notFound()' function is triggered within a route segment or when a URL does not match any route.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ not-found.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of not-found.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [],
@@ -6949,12 +6949,12 @@ export const stacksData = [
         "description": "Similar to layouts, but creates a new instance for each of its children on navigation (DOM elements are recreated, state is reset, and animations re-trigger).",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ template.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of template.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -6982,12 +6982,12 @@ export const stacksData = [
         "description": "Used within Parallel Routes to render a fallback for unmatched slots during hard browser page reloads.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ default.tsx active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of default.tsx in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [],
@@ -7008,12 +7008,12 @@ export const stacksData = [
         "description": "Route Handlers allow you to create custom request handlers for a given route using the Web Request and Response APIs. Supports GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Route Handlers (route.ts) active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Route Handlers (route.ts) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Structures scalable App Router directory hierarchies with nested layout persistence",
+          "Enables zero-bundle-size React Server Components (RSC) rendered directly on the server edge",
+          "Performs automatic background route prefetching for instant page navigation without full reload"
         ],
         "props": [],
         "methods": [
@@ -7041,12 +7041,12 @@ export const stacksData = [
         "description": "Asynchronous functions that are executed on the server. They can be called in Server and Client Components to handle form submissions and data mutations in Next.js applications without boilerplate API routes.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Server Actions (\"use server\") active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Server Actions (\"use server\") in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -7074,12 +7074,12 @@ export const stacksData = [
         "description": "Declares a boundary between a Server and Client Component module graph. Any component with '\"use client\"' at the top of the file can use React hooks, browser APIs, and event listeners.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ \"use client\" Directive active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of \"use client\" Directive in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [],
@@ -7100,12 +7100,12 @@ export const stacksData = [
         "description": "Extends the HTML <img> element with automatic image optimization: automatic WebP/AVIF format serving, layout shift prevention, lazy loading, and edge resizing.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ <Image /> (next/image) active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <Image /> (next/image) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -7151,12 +7151,12 @@ export const stacksData = [
         "description": "Extends the HTML <a> element to provide client-side navigation and route prefetching. When links appear in the user's viewport, Next.js automatically prefetches the linked route in the background.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ <Link /> (next/link) active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <Link /> (next/link) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Structures scalable App Router directory hierarchies with nested layout persistence",
+          "Enables zero-bundle-size React Server Components (RSC) rendered directly on the server edge",
+          "Performs automatic background route prefetching for instant page navigation without full reload"
         ],
         "props": [
           {
@@ -7196,12 +7196,12 @@ export const stacksData = [
         "description": "Enables loading third-party scripts with optimal loading priority strategies ('beforeInteractive', 'afterInteractive', 'lazyOnload', 'worker').",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ <Script /> (next/script) active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of <Script /> (next/script) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -7235,12 +7235,12 @@ export const stacksData = [
         "description": "Function to define dynamic metadata (OpenGraph tags, page title, description, Twitter cards) based on dynamic route params or database lookups.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ generateMetadata() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of generateMetadata() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -7275,12 +7275,12 @@ export const stacksData = [
         "description": "Used in combination with dynamic route segments to statically generate routes at build time instead of on-demand at request time.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ generateStaticParams() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of generateStaticParams() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -7308,12 +7308,12 @@ export const stacksData = [
         "description": "Purges cached data on-demand for a specific path. Allows immediate cache invalidation after database mutations.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ revalidatePath() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of revalidatePath() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -7354,12 +7354,12 @@ export const stacksData = [
         "description": "Purges cached fetch requests tagged with a specific cache tag across the entire application.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ revalidateTag() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of revalidateTag() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -7394,12 +7394,12 @@ export const stacksData = [
         "description": "Server Component function that allows you to read the HTTP incoming request cookies or write outgoing response cookies (in Server Actions or Route Handlers).",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ cookies() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of cookies() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -7433,12 +7433,12 @@ export const stacksData = [
         "description": "Allows you to read the HTTP incoming request headers in Server Components. Calling headers() opts the route into dynamic request rendering.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ headers() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of headers() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -7466,12 +7466,12 @@ export const stacksData = [
         "description": "Allows you to redirect the user to another URL from Server Components, Route Handlers, and Server Actions. Internally throws a Next.js control-flow exception.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ redirect() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of redirect() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [
           {
@@ -7512,12 +7512,12 @@ export const stacksData = [
         "description": "Invoking notFound() throws a special NEXT_NOT_FOUND error that terminates rendering and renders the closest 'not-found.tsx' boundary file.",
         "demo": {
           "type": "nextjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ notFound() active in nextjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of notFound() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nextjs engineering guidelines and best practices"
+          "Builds composable, high-performance UI components with declarative component architectures",
+          "Optimizes client and server rendering performance with granular caching and hydration",
+          "Adheres to modern production React best practices and strict concurrent rendering guidelines"
         ],
         "props": [],
         "methods": [
@@ -7613,13 +7613,13 @@ export const stacksData = [
         "tagline": "Essential architecture primitives and primary APIs of React Native",
         "description": "The core React Native architecture bridges JavaScript logic with native iOS (UIKit/Swift) and Android (Android View/Kotlin) platform code. With the New Architecture (Fabric Renderer and TurboModules), JavaScript communicates with C++ core modules via JSI (JavaScript Interface) with zero JSON serialization overhead.",
         "demo": {
-          "type": "terminal",
-          "preview": "Running React Native verification... -> 200 OK"
+          "type": "react-native",
+          "active": true
         },
         "useCases": [
-          "58 Comprehensive Core Components, Native APIs & React Hooks",
-          "Dual Bare CLI & Expo CLI Environment Setup Guides",
-          "Authentic Apple Dynamic Island & Android Punch-Hole Interactive Previews"
+          "Engineered for production reliability, clean readability, and high operational throughput",
+          "Complies with standard React Native architectural guidelines and verified industry best practices",
+          "Designed for seamless integration within modern enterprise full-stack topologies"
         ],
         "props": [
           {
@@ -7665,12 +7665,13 @@ export const stacksData = [
         "tagline": "Best practices, scaling patterns, and optimization techniques for React Native",
         "description": "Production patterns in high-scale React Native applications focus on memory optimization, virtualized list rendering (FlatList windowing), Hermes bytecode ahead-of-time (AOT) compilation, and native-thread gesture tracking via Reanimated and Gesture Handler.",
         "demo": {
-          "type": "terminal",
-          "preview": "Optimized React Native execution complete."
+          "type": "react-native",
+          "active": true
         },
         "useCases": [
-          "Production enterprise deployments",
-          "Performance tuning and security hardening"
+          "Engineered for production reliability, clean readability, and high operational throughput",
+          "Complies with standard React Native architectural guidelines and verified industry best practices",
+          "Designed for seamless integration within modern enterprise full-stack topologies"
         ],
         "props": [
           {
@@ -7780,12 +7781,12 @@ export const stacksData = [
         "description": "The 'http.createServer()' method instantiates a new HTTP server that listens for incoming TCP socket connections and dispatches HTTP requests. In the Node.js event-driven architecture, the server handles thousands of concurrent requests over a single non-blocking event loop by leveraging the libuv thread pool for network I/O.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ http.createServer() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of http.createServer() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -7832,12 +7833,12 @@ export const stacksData = [
         "description": "Asynchronously reads the entire contents of a file without blocking the Node.js event loop. Delegated to the libuv thread pool, returning a Promise that resolves to a Buffer (or string if an encoding like 'utf8' is provided).",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ fs.promises.readFile() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of fs.promises.readFile() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -7878,12 +7879,12 @@ export const stacksData = [
         "description": "Asynchronously writes data to a file, replacing the file if it already exists. Takes strings, Buffers, TypedArrays, or asynchronous iterables.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ fs.promises.writeFile() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of fs.promises.writeFile() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -7930,12 +7931,12 @@ export const stacksData = [
         "description": "Joins all given path segments together using the platform-specific separator ('/' on POSIX, '\\\\' on Windows) and normalizes the resulting path, resolving '..' and '.' relative segments.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ path.join() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of path.join() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -7970,12 +7971,12 @@ export const stacksData = [
         "description": "Resolves a sequence of paths or path segments into an absolute path, processing segments from right to left until an absolute root path is constructed.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ path.resolve() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of path.resolve() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8010,12 +8011,12 @@ export const stacksData = [
         "description": "Returns the extension of the path, from the last occurrence of the '.' (period) character to end of string in the last portion of the path.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ path.extname() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of path.extname() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8050,12 +8051,12 @@ export const stacksData = [
         "description": "The core pub/sub event mechanism in Node.js. Much of the Node.js core API (streams, http servers, child processes) is built around the EventEmitter class. When an EventEmitter instance experiences an event, all functions attached to that specific event are called synchronously.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ EventEmitter active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of EventEmitter in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -8089,12 +8090,12 @@ export const stacksData = [
         "description": "An abstraction for a source of data from which you can consume data chunks over time. Readable streams operate in either paused or flowing mode, preventing excessive memory consumption when processing large multi-gigabyte files.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Readable Stream active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Readable Stream in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8135,12 +8136,12 @@ export const stacksData = [
         "description": "An abstraction for a destination to which data can be written. Writable streams implement backpressure mechanisms (returning false from write()) when the internal buffer exceeds highWaterMark.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Writable Stream active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Writable Stream in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8181,12 +8182,12 @@ export const stacksData = [
         "description": "A Duplex stream where the output is computationally computed from the input (e.g. zlib compression, cryptographic hashing, or data format conversion).",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Transform Stream active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Transform Stream in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -8214,12 +8215,12 @@ export const stacksData = [
         "description": "A module method to pipe between streams forwarding errors and properly cleaning up, closing all streams if one fails, preventing file descriptor and memory leaks.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ stream.pipeline() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of stream.pipeline() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8254,12 +8255,12 @@ export const stacksData = [
         "description": "Allocates a new Buffer containing a copy of the provided string, array, or buffer. Buffers represent fixed-length sequences of raw binary bytes allocated outside the V8 V8 garbage-collected heap in unmanaged C++ memory.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Buffer.from() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Buffer.from() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8300,12 +8301,12 @@ export const stacksData = [
         "description": "Allocates a new Buffer of specified octet size. Memory is safely zero-filled to prevent leaking previous uninitialized memory contents.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Buffer.alloc() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Buffer.alloc() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8346,12 +8347,12 @@ export const stacksData = [
         "description": "An object containing the user environment variables. Used in enterprise architectures to access environment configuration, secrets, database URLs, and deployment flags.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ process.env active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of process.env in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [],
@@ -8372,12 +8373,12 @@ export const stacksData = [
         "description": "Instructs Node.js to terminate the process synchronously with the specified exit status code (0 for success, non-zero for fatal error). Should only be used after graceful connection cleanup.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ process.exit() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of process.exit() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8412,12 +8413,12 @@ export const stacksData = [
         "description": "Returns the current working directory of the Node.js process (the directory from which the node command was executed in the terminal).",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ process.cwd() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of process.cwd() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -8445,12 +8446,12 @@ export const stacksData = [
         "description": "Spawns a shell and runs a command within that shell, buffering the generated stdout and stderr outputs in memory before passing them to a callback.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ child_process.exec() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of child_process.exec() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8491,12 +8492,12 @@ export const stacksData = [
         "description": "Spawns a new process asynchronously using the given command and arguments without invoking an expensive intermediate shell. Streams stdout and stderr as Readable streams for high performance.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ child_process.spawn() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of child_process.spawn() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8537,12 +8538,12 @@ export const stacksData = [
         "description": "Specialized spawn that creates a new Node.js V8 instance and establishes an IPC (Inter-Process Communication) messaging channel between parent and child via process.send() and process.on('message').",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ child_process.fork() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of child_process.fork() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8577,12 +8578,12 @@ export const stacksData = [
         "description": "Forks a new worker process that shares server sockets across multiple CPU cores, enabling horizontal multi-core scale on a single machine.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ cluster.fork() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of cluster.fork() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8617,12 +8618,12 @@ export const stacksData = [
         "description": "Creates and returns a Hash object that can be used to generate cryptographic digests of data (e.g. SHA-256, MD5) using native OpenSSL bindings.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ crypto.createHash() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of crypto.createHash() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8663,12 +8664,12 @@ export const stacksData = [
         "description": "Generates cryptographically strong pseudorandom data suitable for security tokens, salts, and session identifiers using OS entropy.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ crypto.randomBytes() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of crypto.randomBytes() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8703,12 +8704,12 @@ export const stacksData = [
         "description": "Returns an array of objects containing information about each logical CPU core (model, speed in MHz, and time spent in user, nice, sys, idle modes).",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ os.cpus() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of os.cpus() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -8736,12 +8737,12 @@ export const stacksData = [
         "description": "Returns the total amount of system memory (RAM) in bytes as an integer. Useful for telemetry health checks and dynamic cache budgeting.",
         "demo": {
           "type": "nodejs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ os.totalmem() active in nodejs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of os.totalmem() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nodejs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -8838,12 +8839,12 @@ export const stacksData = [
         "description": "Class decorator that defines a NestJS controller responsible for handling incoming HTTP requests and returning responses. Automatically binds route paths and maps dependencies via the Inversion-of-Control (IoC) container.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Controller() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Controller() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8878,12 +8879,12 @@ export const stacksData = [
         "description": "Route handler decorator that creates an endpoint for HTTP GET requests.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Get() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Get() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8918,12 +8919,12 @@ export const stacksData = [
         "description": "Route handler decorator that maps HTTP POST requests. Automatically responds with 201 Created by default.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Post() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Post() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8958,12 +8959,12 @@ export const stacksData = [
         "description": "Route handler decorator for HTTP PUT requests, typically used for full resource updates.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Put() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Put() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -8998,12 +8999,12 @@ export const stacksData = [
         "description": "Route handler decorator for HTTP PATCH requests, used for partial resource updates.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Patch() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Patch() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9038,12 +9039,12 @@ export const stacksData = [
         "description": "Route handler decorator for HTTP DELETE requests. Responds with 200 OK or 204 No Content.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Delete() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Delete() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9078,12 +9079,12 @@ export const stacksData = [
         "description": "Route handler parameter decorator that extracts the entire request body or a specific property from req.body and validates it using DTOs.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Body() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Body() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9118,12 +9119,12 @@ export const stacksData = [
         "description": "Extracts route parameters from the request URL (e.g. /users/:id). Can be piped through transforms like ParseIntPipe or ParseUUIDPipe.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Param() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Param() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9158,12 +9159,12 @@ export const stacksData = [
         "description": "Extracts query parameters from the URL query string (e.g. ?page=2&limit=20).",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Query() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Query() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9198,12 +9199,12 @@ export const stacksData = [
         "description": "Extracts an incoming HTTP request header value from req.headers.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Headers() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Headers() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9238,12 +9239,12 @@ export const stacksData = [
         "description": "Declares that a class can be managed by the NestJS Inversion of Control (IoC) container as a provider (service, repository, factory, helper).",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Injectable() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Injectable() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9278,12 +9279,12 @@ export const stacksData = [
         "description": "Defines an application module, grouping related controllers and providers into a cohesive functional domain boundary.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Module() active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Module() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9336,12 +9337,12 @@ export const stacksData = [
         "description": "Global pipe that binds class-validator and class-transformer to validate incoming request bodies against DTO classes automatically, rejecting non-compliant payloads with 400 Bad Request.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ValidationPipe active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ValidationPipe in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9382,12 +9383,12 @@ export const stacksData = [
         "description": "Interface implemented by NestJS Guards. Guards determine whether a given request will be handled by the route handler or rejected (403 Forbidden), commonly used for JWT authentication and role-based access control (RBAC).",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CanActivate (Guards) active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CanActivate (Guards) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -9415,12 +9416,12 @@ export const stacksData = [
         "description": "Interface for NestJS HTTP middleware functions that have access to request and response objects, matching Express middleware signatures.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ NestMiddleware active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of NestMiddleware in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -9448,12 +9449,12 @@ export const stacksData = [
         "description": "Interface for custom exception filters that catch unhandled exceptions and format custom JSON error responses across the application.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ExceptionFilter active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ExceptionFilter in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -9481,12 +9482,12 @@ export const stacksData = [
         "description": "Interceptors bind extra logic before or after method execution, transform function results, transform exceptions, or extend basic function behavior (caching, logging, measuring execution time).",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Interceptors active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Interceptors in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -9514,12 +9515,12 @@ export const stacksData = [
         "description": "Built-in pipe that parses a string into an integer. If parsing fails, it automatically throws a BadRequestException (400).",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ParseIntPipe active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ParseIntPipe in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [],
         "methods": [
@@ -9547,12 +9548,12 @@ export const stacksData = [
         "description": "Built-in pipe that validates that an incoming string parameter is a valid UUID, throwing 400 Bad Request if invalid.",
         "demo": {
           "type": "nestjs",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ParseUUIDPipe active in nestjs runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ParseUUIDPipe in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard nestjs engineering guidelines and best practices"
+          "Handles high-concurrency network requests leveraging Libuv non-blocking event-driven architecture",
+          "Processes massive payloads efficiently using streaming buffers with automated backpressure handling",
+          "Provides enterprise modularity with Inversion of Control (IoC), dependency injection, and clean DTO validation"
         ],
         "props": [
           {
@@ -9656,12 +9657,12 @@ export const stacksData = [
         "description": "Records are immutable data carrier classes introduced in Java 16. The compiler automatically creates private final fields, a canonical constructor, getters, equals(), hashCode(), and toString() methods.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ record (Record Classes) active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of record (Record Classes) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -9689,12 +9690,12 @@ export const stacksData = [
         "description": "A sequence of elements supporting sequential and parallel aggregate operations. Streams do not store data; they pipeline computational operations lazily evaluated upon invoking a terminal operation.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Stream (stream()) active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Stream (stream()) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -9722,12 +9723,12 @@ export const stacksData = [
         "description": "Intermediate Stream operation returning a stream consisting of the elements that match the given Predicate.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ filter() active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of filter() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -9762,12 +9763,12 @@ export const stacksData = [
         "description": "Intermediate Stream operation returning a stream consisting of the results of applying the given Function to each element.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ map() active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of map() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -9802,12 +9803,12 @@ export const stacksData = [
         "description": "Intermediate Stream operation replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ flatMap() active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of flatMap() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -9842,12 +9843,12 @@ export const stacksData = [
         "description": "Terminal Stream operation performing a mutable reduction operation on the elements of the stream using a Collector.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ collect() active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of collect() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -9882,12 +9883,12 @@ export const stacksData = [
         "description": "Returns a Collector that accumulates the input elements into a new List.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Collectors.toList() active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Collectors.toList() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -9915,12 +9916,12 @@ export const stacksData = [
         "description": "Returns a Collector implementing a \"group by\" operation on input elements of type T, grouping them according to a classification function and returning results in a Map.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Collectors.groupingBy() active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Collectors.groupingBy() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -9955,12 +9956,12 @@ export const stacksData = [
         "description": "A container object which may or may not contain a non-null value. Designed to provide a type-level solution for representing optional values instead of null references, preventing NullPointerExceptions.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Optional<T> active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Optional<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -9994,12 +9995,12 @@ export const stacksData = [
         "description": "Lightweight threads introduced in Java 21 (Project Loom) that dramatically reduce the effort of writing, maintaining, and observing high-throughput concurrent applications. Managed by the JVM runtime rather than 1:1 OS kernel threads, allowing millions of concurrent threads.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Virtual Threads (Thread.ofVirtual()) active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Virtual Threads (Thread.ofVirtual()) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -10033,12 +10034,12 @@ export const stacksData = [
         "description": "A Future that may be explicitly completed, and may be used as a CompletionStage, supporting dependent functions and actions that trigger upon its completion for asynchronous non-blocking programming.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CompletableFuture<T> active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CompletableFuture<T> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -10072,12 +10073,12 @@ export const stacksData = [
         "description": "Java Generics provide compile-time type checking and eliminate the risk of ClassCastException that was common when working with raw Object types. Implemented via type erasure.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Generics (<T>) active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Generics (<T>) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10098,12 +10099,12 @@ export const stacksData = [
         "description": "Resizable-array implementation of the List interface. Provides amortized O(1) random access by index via direct contiguous memory array backing.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ArrayList active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ArrayList in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10144,12 +10145,12 @@ export const stacksData = [
         "description": "Doubly-linked list implementation of the List and Deque interfaces. Provides O(1) insertions and deletions at ends, but O(N) index access.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ LinkedList active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of LinkedList in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -10183,12 +10184,12 @@ export const stacksData = [
         "description": "Hash table based implementation of the Map interface. Provides O(1) average time complexity for get and put operations. Converts colliding buckets to Red-Black trees when bucket length exceeds 8.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ HashMap active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of HashMap in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10235,12 +10236,12 @@ export const stacksData = [
         "description": "A hash table supporting full concurrency of retrievals and high expected concurrency for updates without locking the entire table (uses synchronized bucket bins and CAS operations).",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ConcurrentHashMap active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ConcurrentHashMap in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -10268,12 +10269,12 @@ export const stacksData = [
         "description": "Implements the Set interface backed by a HashMap instance. Guarantees element uniqueness and O(1) containment checks.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ HashSet active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of HashSet in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -10307,12 +10308,12 @@ export const stacksData = [
         "description": "A try statement that declares one or more resources. A resource is an object that implements java.lang.AutoCloseable. It guarantees that each resource will be closed at the end of the statement, preventing file and socket leaks.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ try-with-resources active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of try-with-resources in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10333,12 +10334,12 @@ export const stacksData = [
         "description": "A concise representation of an anonymous function that can be passed around. Enables functional programming in Java, implementing Single Abstract Method (SAM) functional interfaces.",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ lambda expressions (() -> {}) active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of lambda expressions (() -> {}) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10359,12 +10360,12 @@ export const stacksData = [
         "description": "Compact, easy-to-read lambda expressions for methods that already have a name. Supports static methods, instance methods of particular objects, or constructor references (Class::new).",
         "demo": {
           "type": "java",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Method References (::) active in java runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Method References (::) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard java engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10454,12 +10455,12 @@ export const stacksData = [
         "description": "Convenience annotation that bundles three core annotations: @Configuration (enables Java-based config), @EnableAutoConfiguration (automatically configures Spring based on jar dependencies on classpath), and @ComponentScan (scans for @Component, @Service, @Repository).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @SpringBootApplication active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @SpringBootApplication in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [
@@ -10487,12 +10488,12 @@ export const stacksData = [
         "description": "A specialized version of @Controller that combines @Controller and @ResponseBody, automatically serializing method return values directly into HTTP response bodies as JSON or XML.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @RestController active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @RestController in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10513,12 +10514,12 @@ export const stacksData = [
         "description": "Composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @GetMapping active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @GetMapping in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10546,12 +10547,12 @@ export const stacksData = [
         "description": "Composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.POST).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @PostMapping active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @PostMapping in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10579,12 +10580,12 @@ export const stacksData = [
         "description": "Shortcut annotation for @RequestMapping(method = RequestMethod.PUT).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @PutMapping active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @PutMapping in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10612,12 +10613,12 @@ export const stacksData = [
         "description": "Shortcut annotation for @RequestMapping(method = RequestMethod.DELETE).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @DeleteMapping active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @DeleteMapping in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10645,12 +10646,12 @@ export const stacksData = [
         "description": "Binds the HTTP request body to a domain object, deserializing JSON using Jackson HttpMessageConverter.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @RequestBody active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @RequestBody in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10678,12 +10679,12 @@ export const stacksData = [
         "description": "Binds Servlet request parameters (query string parameters or form data) to a method parameter in your controller.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @RequestParam active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @RequestParam in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10717,12 +10718,12 @@ export const stacksData = [
         "description": "Binds a URI template variable from the route path to a method parameter in your controller.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @PathVariable active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @PathVariable in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10750,12 +10751,12 @@ export const stacksData = [
         "description": "Indicates that an annotated class is a \"Service\", holding business logic in the service layer. Specialization of @Component.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Service active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Service in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10776,12 +10777,12 @@ export const stacksData = [
         "description": "Indicates that an annotated class or interface is a \"Repository\", operating as an abstraction for data access and enabling automatic exception translation.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Repository active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Repository in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10802,12 +10803,12 @@ export const stacksData = [
         "description": "The fundamental archetype for any Spring-managed component (bean). Candidate for auto-detection through classpath scanning.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Component active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Component in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10828,12 +10829,12 @@ export const stacksData = [
         "description": "Marks a constructor, field, or setter method as to be autowired by Spring's dependency injection facilities. Constructor injection is the recommended pattern.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Autowired active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Autowired in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10861,12 +10862,12 @@ export const stacksData = [
         "description": "Spring Data JPA specific interface that provides complete CRUD operations, pagination, sorting, and query derivation by method name (e.g. findByEmail).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ JpaRepository<T, ID> active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of JpaRepository<T, ID> in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10919,12 +10920,12 @@ export const stacksData = [
         "description": "Describes a transaction boundary on a method or class. Spring manages transaction commit, rollback on unhandled runtime exceptions, and connection propagation.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Transactional active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Transactional in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -10958,12 +10959,12 @@ export const stacksData = [
         "description": "Specifies that the class is an entity and is mapped to a database table in Jakarta Persistence (JPA).",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Entity active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Entity in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -10984,12 +10985,12 @@ export const stacksData = [
         "description": "Specifies the primary table for the annotated entity in the relational schema, including table name, schema, and indexes.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Table active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Table in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -11017,12 +11018,12 @@ export const stacksData = [
         "description": "Specifies the primary key of an entity (@Id) and provides generation strategies (@GeneratedValue) such as IDENTITY, SEQUENCE, or UUID.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Id & @GeneratedValue active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Id & @GeneratedValue in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -11050,12 +11051,12 @@ export const stacksData = [
         "description": "Indicates that a class declares one or more @Bean methods and may be processed by the Spring container to generate bean definitions and service requests.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Configuration active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Configuration in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -11076,12 +11077,12 @@ export const stacksData = [
         "description": "Indicates that a method produces a bean to be managed by the Spring container. Equivalent to XML's <bean/> element.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @Bean active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @Bean in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [],
         "methods": [],
@@ -11102,12 +11103,12 @@ export const stacksData = [
         "description": "Annotation for handling exceptions in specific handler classes and/or handler methods. Paired with @RestControllerAdvice for global API error formatting.",
         "demo": {
           "type": "springboot",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ @ExceptionHandler active in springboot runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of @ExceptionHandler in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard springboot engineering guidelines and best practices"
+          "Scales throughput massively across thousands of concurrent operations using Java 21 Virtual Threads",
+          "Enforces enterprise transactional ACID boundaries and automated database rollbacks (@Transactional)",
+          "Decouples microservice domain logic with Spring dependency injection, REST controllers, and JPA repositories"
         ],
         "props": [
           {
@@ -11204,12 +11205,12 @@ export const stacksData = [
         "description": "A goroutine is an extremely lightweight thread managed by the Go runtime scheduler (not the OS kernel). Initializing with a tiny 2KB stack that grows dynamically in memory, a single Go process can execute hundreds of thousands of concurrent goroutines using an M:N work-stealing scheduler.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ goroutine (go func()) active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of goroutine (go func()) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11237,12 +11238,12 @@ export const stacksData = [
         "description": "Channels are the typed conduits through which you can send and receive values with the channel operator (<-), following Go's concurrency philosophy: \"Do not communicate by sharing memory; instead, share memory by communicating.\"",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ channel (chan T) active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of channel (chan T) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -11283,12 +11284,12 @@ export const stacksData = [
         "description": "Sends a value into a channel. In an unbuffered channel, this operation blocks until a receiver is ready. In a buffered channel, it blocks only when the buffer is full.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ channel send (<-) active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of channel send (<-) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11309,12 +11310,12 @@ export const stacksData = [
         "description": "Receives a value from a channel. If the channel is open, ok is true. If the channel is closed and empty, it immediately receives the zero value with ok as false.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ channel receive (<-) active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of channel receive (<-) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11335,12 +11336,12 @@ export const stacksData = [
         "description": "The select statement lets a goroutine wait on multiple communication operations simultaneously. It blocks until one of its cases can run, then it executes that case. If multiple are ready, it picks one pseudo-randomly.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ select statement active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of select statement in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11361,12 +11362,12 @@ export const stacksData = [
         "description": "A typed collection of fields. The primary composite data type in Go used to represent state, data structures, and domain entities. Supports struct tags for serialization.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ struct active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of struct in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11387,12 +11388,12 @@ export const stacksData = [
         "description": "An abstract type that defines a set of method signatures. In Go, interfaces are implemented implicitly (duck typing): a type implements an interface simply by implementing its methods, without an 'implements' keyword.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ interface active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of interface in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11413,12 +11414,12 @@ export const stacksData = [
         "description": "A synchronization primitive used to wait for a collection of goroutines to finish executing. Add() increments the counter, Done() decrements it, and Wait() blocks until the counter reaches zero.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ sync.WaitGroup active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of sync.WaitGroup in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11458,12 +11459,12 @@ export const stacksData = [
         "description": "A mutual exclusion lock used to guard critical sections of code, ensuring only one goroutine accesses shared memory or data structures at a time to prevent race conditions.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ sync.Mutex active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of sync.Mutex in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11497,12 +11498,12 @@ export const stacksData = [
         "description": "A reader/writer mutual exclusion lock. Multiple readers can hold the read lock concurrently (RLock), while a writer requires exclusive access (Lock).",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ sync.RWMutex active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of sync.RWMutex in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11536,12 +11537,12 @@ export const stacksData = [
         "description": "Defers the execution of a function until the surrounding function returns. Deferred calls are pushed onto a LIFO stack and run in reverse order, ensuring resources (files, locks, connections) are cleaned up even during panics.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ defer statement active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of defer statement in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11562,12 +11563,12 @@ export const stacksData = [
         "description": "Go's exception mechanism. 'panic()' halts ordinary flow and begins unwinding the goroutine stack. 'recover()' is a built-in function that regains control of a panicking goroutine when called inside a deferred function.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ panic & recover active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of panic & recover in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11595,12 +11596,12 @@ export const stacksData = [
         "description": "Go handles errors by returning values of the built-in 'error' interface as the last return parameter of functions. The idiomatic 'if err != nil' check ensures explicit, robust error handling without silent failures.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ error (if err != nil) active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of error (if err != nil) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -11621,12 +11622,12 @@ export const stacksData = [
         "description": "Registers the handler function for the given pattern in the DefaultServeMux.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ http.HandleFunc() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of http.HandleFunc() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -11667,12 +11668,12 @@ export const stacksData = [
         "description": "Listens on the TCP network address and then calls Serve with handler to handle requests on incoming connections.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ http.ListenAndServe() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of http.ListenAndServe() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -11713,12 +11714,12 @@ export const stacksData = [
         "description": "Returns a copy of parent context with a deadline adjusted to be no later than now + timeout. Essential for cancelling slow HTTP requests and database queries when deadlines expire.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ context.WithTimeout() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of context.WithTimeout() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -11759,12 +11760,12 @@ export const stacksData = [
         "description": "Returns a copy of parent context with a new Done channel that is closed when the returned cancel function is called.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ context.WithCancel() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of context.WithCancel() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11792,12 +11793,12 @@ export const stacksData = [
         "description": "Returns the JSON encoding of v by inspecting exported struct fields and tags.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ json.Marshal() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of json.Marshal() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -11832,12 +11833,12 @@ export const stacksData = [
         "description": "Parses the JSON-encoded data and stores the result in the value pointed to by v.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ json.Unmarshal() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of json.Unmarshal() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -11878,12 +11879,12 @@ export const stacksData = [
         "description": "The make built-in function allocates and initializes an object of type slice, map, or chan (only). Unlike new(), make returns an initialized (not zeroed) value of type T.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ make() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of make() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -11911,12 +11912,12 @@ export const stacksData = [
         "description": "The append built-in function appends elements to the end of a slice. If capacity is exceeded, a new, larger underlying array is allocated automatically.",
         "demo": {
           "type": "golang",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ append() active in golang runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of append() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard golang engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12013,12 +12014,12 @@ export const stacksData = [
         "description": "Creates a Gin engine instance with Logger and Recovery middleware already attached. Delivers sub-millisecond HTTP routing via an optimized Radix tree.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ gin.Default() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of gin.Default() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12046,12 +12047,12 @@ export const stacksData = [
         "description": "Returns a blank Gin engine without any middleware attached.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ gin.New() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of gin.New() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12079,12 +12080,12 @@ export const stacksData = [
         "description": "Registers a new HTTP GET route with the Gin engine's internal radix tree router. Routes are evaluated with zero memory allocations during request routing, traversing compressed prefix trees in logarithmic time. Multiple handlers passed to r.GET() form a sequential middleware pipeline executed prior to the final controller logic.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ r.GET() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of r.GET() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12125,12 +12126,12 @@ export const stacksData = [
         "description": "Registers a new HTTP POST route intended for state-mutating requests, resource creation, or remote action dispatches. The route node is integrated into the METHOD-specific radix tree, allowing efficient body stream reading via c.ShouldBindJSON() or c.Request.Body while maintaining isolated handler execution contexts.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ r.POST() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of r.POST() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12171,12 +12172,12 @@ export const stacksData = [
         "description": "Registers a new HTTP PUT route designed for idempotent, complete resource replacement. The Gin router mounts the handler onto the PUT tree structure; handlers typically extract URL path identifiers via c.Param(\"id\") and bind replacement entity representations via JSON binding.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ r.PUT() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of r.PUT() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12217,12 +12218,12 @@ export const stacksData = [
         "description": "Registers a new HTTP DELETE route designated for removing resources. Handlers attached to this method typically validate client permissions, verify tenant ownership of the target resource, and invoke underlying storage or database deletion procedures before responding with HTTP 204 No Content or HTTP 200 OK.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ r.DELETE() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of r.DELETE() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12263,12 +12264,12 @@ export const stacksData = [
         "description": "Creates a new router group for organizing routes with shared path prefixes and middlewares.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ r.Group() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of r.Group() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12303,12 +12304,12 @@ export const stacksData = [
         "description": "Serializes the given struct or map as JSON into the response body and sets the 'Content-Type: application/json' header.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.JSON() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.JSON() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12349,12 +12350,12 @@ export const stacksData = [
         "description": "Writes the given string into the response body with 'Content-Type: text/plain'.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.String() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.String() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12382,12 +12383,12 @@ export const stacksData = [
         "description": "Writes raw binary data directly to the response body with the specified Content-Type.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Data() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Data() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12415,12 +12416,12 @@ export const stacksData = [
         "description": "Returns the value of the URL route parameter (e.g. /users/:id).",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Param() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Param() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12455,12 +12456,12 @@ export const stacksData = [
         "description": "Returns the keyed URL query value if it exists, otherwise it returns an empty string \"\".",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Query() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Query() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12495,12 +12496,12 @@ export const stacksData = [
         "description": "Returns the keyed URL query value if it exists, otherwise it returns the specified defaultValue.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.DefaultQuery() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.DefaultQuery() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12541,12 +12542,12 @@ export const stacksData = [
         "description": "Checks the Method and Content-Type to select a binding engine automatically, parses the JSON body into a target struct, and validates struct tags.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.ShouldBindJSON() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.ShouldBindJSON() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12581,12 +12582,12 @@ export const stacksData = [
         "description": "Binds URL query parameters into a target struct using form struct tags.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.ShouldBindQuery() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.ShouldBindQuery() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12621,12 +12622,12 @@ export const stacksData = [
         "description": "Writes an HTTP header into the response headers map.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Header() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Header() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12667,12 +12668,12 @@ export const stacksData = [
         "description": "Returns the value of the specified request header from client.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.GetHeader() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.GetHeader() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12707,12 +12708,12 @@ export const stacksData = [
         "description": "Should be used only inside middleware. It executes the pending handlers in the chain inside calling handler.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Next() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Next() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12740,12 +12741,12 @@ export const stacksData = [
         "description": "Prevents pending handlers from being called. Does not stop the current handler.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Abort() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Abort() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12773,12 +12774,12 @@ export const stacksData = [
         "description": "Calls Abort() and writes JSON with the given status code. Commonly used for auth rejections.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.AbortWithStatusJSON() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.AbortWithStatusJSON() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -12806,12 +12807,12 @@ export const stacksData = [
         "description": "Stores a new key/value pair exclusively in this request context.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Set() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Set() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12852,12 +12853,12 @@ export const stacksData = [
         "description": "Returns the value for the given key and a boolean indicating whether the key was present in context.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ c.Get() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of c.Get() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -12892,12 +12893,12 @@ export const stacksData = [
         "description": "Attaches global middleware to the router, executing for all incoming requests.",
         "demo": {
           "type": "gin",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ r.Use() active in gin runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of r.Use() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gin engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13001,12 +13002,12 @@ export const stacksData = [
         "description": "A base struct containing fields ID (uint primary key), CreatedAt, UpdatedAt, and DeletedAt (gorm.DeletedAt for soft deletes).",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ gorm.Model active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of gorm.Model in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [],
@@ -13027,12 +13028,12 @@ export const stacksData = [
         "description": "Automatically migrates schema, keeping the database schema up to date. It creates tables, missing foreign keys, constraints, columns, and indexes.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.AutoMigrate() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.AutoMigrate() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13067,12 +13068,12 @@ export const stacksData = [
         "description": "Inserts a new record into the database and populates the auto-generated primary key ID into the passed struct pointer.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Create() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Create() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13107,12 +13108,12 @@ export const stacksData = [
         "description": "Finds the first record ordered by primary key, returning ErrRecordNotFound if not found.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.First() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.First() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13153,12 +13154,12 @@ export const stacksData = [
         "description": "Finds all records matching the query conditions and populates a slice.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Find() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Find() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13193,12 +13194,12 @@ export const stacksData = [
         "description": "Builds a SQL WHERE filter clause using parameterized statements to protect against SQL injections.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Where() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Where() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13239,12 +13240,12 @@ export const stacksData = [
         "description": "Appends a SQL disjunction (OR condition) to the current statement query tree. GORM generates a composite AST clause grouping conditions with logical OR precedence, allowing developers to filter models matching either of multiple criteria safely using parameterized query arguments.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Or() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Or() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13285,12 +13286,12 @@ export const stacksData = [
         "description": "Constructs a SQL negation filter (NOT condition) in the query clause builder. GORM inverts the provided predicate, generating expressions such as WHERE NOT (status = 'banned') or checking IS NOT NULL, preventing unintended matches while maintaining SQL dialect compatibility.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Not() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Not() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13331,12 +13332,12 @@ export const stacksData = [
         "description": "Updates multiple attributes simultaneously. Note: When updating with struct, GORM will only update non-zero fields. Use map[string]interface{} to update zero values.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Updates() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Updates() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13371,12 +13372,12 @@ export const stacksData = [
         "description": "Updates a single column attribute in the matched record.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Update() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Update() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13417,12 +13418,12 @@ export const stacksData = [
         "description": "Deletes records matching given conditions. If the model contains a gorm.DeletedAt field, GORM performs a soft delete.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Delete() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Delete() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13457,12 +13458,12 @@ export const stacksData = [
         "description": "Bypasses GORM soft-delete filters to find or permanently hard delete records from the physical database table.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Unscoped() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Unscoped() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -13490,12 +13491,12 @@ export const stacksData = [
         "description": "Eager loads related associations in separate queries to prevent N+1 query performance problems.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Preload() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Preload() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13530,12 +13531,12 @@ export const stacksData = [
         "description": "Specifies SQL JOIN conditions for combining tables in a single query.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Joins() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Joins() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13570,12 +13571,12 @@ export const stacksData = [
         "description": "Executes a database operation within an atomic transaction. If the function returns an error, GORM automatically rolls back; otherwise it commits.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Transaction() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Transaction() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13610,12 +13611,12 @@ export const stacksData = [
         "description": "Rolls back changes in a manual transaction started via db.Begin().",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Rollback() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Rollback() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -13643,12 +13644,12 @@ export const stacksData = [
         "description": "Commits changes in a manual transaction started via db.Begin().",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Commit() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Commit() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -13676,12 +13677,12 @@ export const stacksData = [
         "description": "GORM lifecycle hook method invoked immediately before a new record is inserted into the database. Ideal for UUID generation, password hashing, and data validation.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ BeforeCreate Hook active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of BeforeCreate Hook in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -13709,12 +13710,12 @@ export const stacksData = [
         "description": "GORM lifecycle hook method invoked before existing records are updated.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ BeforeUpdate Hook active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of BeforeUpdate Hook in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [],
         "methods": [
@@ -13742,12 +13743,12 @@ export const stacksData = [
         "description": "Specifies the SQL ORDER BY expression when retrieving records from database.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Order() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Order() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13782,12 +13783,12 @@ export const stacksData = [
         "description": "Specifies the maximum number of records to retrieve (SQL LIMIT).",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Limit() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Limit() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13822,12 +13823,12 @@ export const stacksData = [
         "description": "Specifies the number of records to skip before starting to return records (SQL OFFSET).",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Offset() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Offset() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13862,12 +13863,12 @@ export const stacksData = [
         "description": "Counts the number of records matching the query conditions.",
         "demo": {
           "type": "gorm",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ db.Count() active in gorm runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of db.Count() in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard gorm engineering guidelines and best practices"
+          "Coordinates lightweight concurrent goroutines using type-safe channels and sync primitives",
+          "Processes high-throughput REST APIs with zero-allocation radix tree routing exceeding 100K req/sec",
+          "Executes safe parameterized SQL queries with automatic connection pooling and soft-delete support"
         ],
         "props": [
           {
@@ -13967,16 +13968,16 @@ export const stacksData = [
         "num": "01",
         "name": "SELECT",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: SELECT",
+        "tagline": "SELECT specification and production engineering reference.",
         "description": "The SELECT statement retrieves rows and columns from one or more tables, views, or materialized views in PostgreSQL. The PostgreSQL query planner (cost-based optimizer) analyzes table statistics generated by ANALYZE to determine whether to perform a Sequential Scan, Index Scan, Index Only Scan, or Bitmap Index Scan based on selectivity, table size, and I/O cost. Projections can transform column values using scalar functions, mathematical expressions, or window computations before returning the final result set.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ SELECT active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of SELECT in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14031,16 +14032,16 @@ export const stacksData = [
         "num": "02",
         "name": "INSERT INTO",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: INSERT INTO",
+        "tagline": "INSERT INTO specification and production engineering reference.",
         "description": "INSERT INTO persists new rows into a relational table, acquiring a RowExclusiveLock on the target table. PostgreSQL executes defined constraints (CHECK, FOREIGN KEY, NOT NULL) and default column expressions before persisting tuples to heap pages. Using the RETURNING clause enables callers to instantly receive auto-generated primary keys (SERIAL, BIGSERIAL, IDENTITY, UUID) or computed default values without requiring an expensive secondary SELECT query round-trip.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ INSERT INTO active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of INSERT INTO in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14089,16 +14090,16 @@ export const stacksData = [
         "num": "03",
         "name": "UPDATE",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: UPDATE",
+        "tagline": "UPDATE specification and production engineering reference.",
         "description": "UPDATE modifies column values in existing rows that satisfy the optional WHERE clause. Because PostgreSQL utilizes Multi-Version Concurrency Control (MVCC), an update does not overwrite physical data in place; instead, it marks the existing tuple header (xmax) as expired and writes a brand new tuple (xmin) to the heap. PostgreSQL automatically applies HOT (Heap-Only Tuples) optimization when indexed columns remain unchanged and free space exists on the page, eliminating index update overhead.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ UPDATE active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of UPDATE in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14147,16 +14148,16 @@ export const stacksData = [
         "num": "04",
         "name": "DELETE FROM",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: DELETE FROM",
+        "tagline": "DELETE FROM specification and production engineering reference.",
         "description": "DELETE FROM removes specified rows from a target table. Under PostgreSQL MVCC architecture, rows are not instantly wiped from disk; PostgreSQL stamps the tuple's xmax transaction identifier with the current transaction ID, rendering it invisible to future queries while maintaining visibility for concurrent snapshot transactions. Reclaiming dead tuples and reorganizing heap pages is subsequently performed automatically by the autovacuum background daemon.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ DELETE FROM active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of DELETE FROM in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14205,16 +14206,16 @@ export const stacksData = [
         "num": "05",
         "name": "INNER JOIN",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: INNER JOIN",
+        "tagline": "INNER JOIN specification and production engineering reference.",
         "description": "INNER JOIN evaluates rows between two relations against a join predicate, retaining only records where matching keys exist in both sets. The PostgreSQL cost-based optimizer evaluates relation statistics to select the fastest execution plan: Hash Join (building an in-memory hash table on the smaller relation using work_mem), Merge Join (traversing pre-sorted inputs along join keys), or Nested Loop Join (iterating outer rows against an inner index scan).",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ INNER JOIN active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of INNER JOIN in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14251,16 +14252,16 @@ export const stacksData = [
         "num": "06",
         "name": "LEFT JOIN",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: LEFT JOIN",
+        "tagline": "LEFT JOIN specification and production engineering reference.",
         "description": "LEFT JOIN (LEFT OUTER JOIN) returns all records from the left relation, matching rows from the right relation when the join condition succeeds and populating NULL values for all right columns when no match exists. PostgreSQL query planning leverages Hash Left Join or Nested Loop Left Join, prioritizing preservation of the outer table cardinality while filtering or projecting secondary relations.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ LEFT JOIN active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of LEFT JOIN in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14291,16 +14292,16 @@ export const stacksData = [
         "num": "07",
         "name": "RIGHT JOIN",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: RIGHT JOIN",
+        "tagline": "RIGHT JOIN specification and production engineering reference.",
         "description": "RIGHT JOIN (RIGHT OUTER JOIN) preserves all rows from the right table, pairing them with matching tuples from the left table or returning NULLs for left-side attributes when no match is found. Internally, the PostgreSQL optimizer frequently rewrites a RIGHT JOIN into a canonical LEFT JOIN with swapped table operands to streamline join tree ordering and leverage left-leaning plan tree structures.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ RIGHT JOIN active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of RIGHT JOIN in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14331,16 +14332,16 @@ export const stacksData = [
         "num": "08",
         "name": "FULL OUTER JOIN",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: FULL OUTER JOIN",
+        "tagline": "FULL OUTER JOIN specification and production engineering reference.",
         "description": "FULL OUTER JOIN merges the results of both LEFT JOIN and RIGHT JOIN, returning all rows from both tables and substituting NULLs wherever either side lacks a corresponding match. Because full outer joins cannot easily be converted into nested loop scans without substantial work, PostgreSQL predominantly plans FULL OUTER JOINs using Hash Full Join or Merge Full Join operations requiring both inputs to be hashed or sorted.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ FULL OUTER JOIN active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of FULL OUTER JOIN in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14371,16 +14372,16 @@ export const stacksData = [
         "num": "09",
         "name": "GROUP BY",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: GROUP BY",
+        "tagline": "GROUP BY specification and production engineering reference.",
         "description": "GROUP BY condenses rows sharing identical values across specified columns into single summary rows, enabling aggregation functions such as COUNT(), SUM(), AVG(), MIN(), and MAX(). PostgreSQL executes grouping through either HashAggregate (building an in-memory hash bucket structure within work_mem) or GroupAggregate (requiring an existing pre-sorted input or explicit sort step).",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ GROUP BY active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of GROUP BY in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14417,16 +14418,16 @@ export const stacksData = [
         "num": "10",
         "name": "HAVING",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: HAVING",
+        "tagline": "HAVING specification and production engineering reference.",
         "description": "HAVING filters grouped records resulting from a GROUP BY clause, operating strictly after aggregation has taken place. Unlike WHERE, which filters individual raw tuples before grouping, HAVING evaluates aggregate conditions (such as HAVING COUNT(*) > 5 or HAVING SUM(revenue) >= 100000) against aggregated buckets stored in memory.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ HAVING active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of HAVING in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14457,16 +14458,16 @@ export const stacksData = [
         "num": "11",
         "name": "ORDER BY",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: ORDER BY",
+        "tagline": "ORDER BY specification and production engineering reference.",
         "description": "ORDER BY dictates the deterministic sort sequence of result sets in ascending (ASC) or descending (DESC) order. When matching B-Tree indexes exist covering the requested sort columns and NULL ordering specifications (NULLS FIRST or NULLS LAST), PostgreSQL can stream ordered rows directly without an explicit Sort node, avoiding costly on-disk external merge sorts when data exceeds work_mem.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ORDER BY active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ORDER BY in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14503,16 +14504,16 @@ export const stacksData = [
         "num": "12",
         "name": "LIMIT & OFFSET",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: LIMIT & OFFSET",
+        "tagline": "LIMIT & OFFSET specification and production engineering reference.",
         "description": "LIMIT constrains the total number of rows returned by a query, while OFFSET skips a specified number of initial records before returning results. While OFFSET is simple for modest pagination, large OFFSET values (e.g. OFFSET 50000) force PostgreSQL to scan and discard 50,000 tuples, making keyset/cursor-based pagination (e.g., WHERE id > last_seen_id) far more performant for massive datasets.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ LIMIT & OFFSET active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of LIMIT & OFFSET in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14549,16 +14550,16 @@ export const stacksData = [
         "num": "13",
         "name": "CREATE TABLE",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: CREATE TABLE",
+        "tagline": "CREATE TABLE specification and production engineering reference.",
         "description": "CREATE TABLE allocates a new relational table within the specified schema, establishing its physical storage structure, column definitions, default values, and integrity constraints. Tables are registered in PostgreSQL system catalogs (pg_class, pg_attribute) and assigned a RelFileNode corresponding to the physical storage file on disk in the PostgreSQL data directory.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CREATE TABLE active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CREATE TABLE in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14601,16 +14602,16 @@ export const stacksData = [
         "num": "14",
         "name": "PRIMARY KEY Constraint",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: PRIMARY KEY Constraint",
+        "tagline": "PRIMARY KEY Constraint specification and production engineering reference.",
         "description": "A PRIMARY KEY constraint uniquely identifies each tuple in a table by enforcing both UNIQUE and NOT NULL constraints on designated columns. PostgreSQL automatically creates an underlying unique B-Tree index on the specified columns to rapidly validate uniqueness during INSERT and UPDATE operations and facilitate fast point lookups.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ PRIMARY KEY Constraint active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of PRIMARY KEY Constraint in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14647,16 +14648,16 @@ export const stacksData = [
         "num": "15",
         "name": "FOREIGN KEY Constraint",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: FOREIGN KEY Constraint",
+        "tagline": "FOREIGN KEY Constraint specification and production engineering reference.",
         "description": "A FOREIGN KEY constraint establishes referential integrity between columns of a referencing table and the primary/unique key of a referenced table. PostgreSQL enforces this constraint using internal system triggers, validating that inserted or updated foreign keys exist in the parent table and executing referential actions (CASCADE, SET NULL, RESTRICT) when parent records are updated or deleted.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ FOREIGN KEY Constraint active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of FOREIGN KEY Constraint in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14699,16 +14700,16 @@ export const stacksData = [
         "num": "16",
         "name": "CHECK Constraint",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: CHECK Constraint",
+        "tagline": "CHECK Constraint specification and production engineering reference.",
         "description": "A CHECK constraint specifies a boolean expression that every row in the table must evaluate to TRUE or UNKNOWN (NULL) for an INSERT or UPDATE to succeed. CHECK constraints provide robust, zero-latency domain-level integrity rules directly within the database engine, avoiding invalid data ingestion regardless of which client application issues the write.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CHECK Constraint active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CHECK Constraint in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14745,16 +14746,16 @@ export const stacksData = [
         "num": "17",
         "name": "CREATE INDEX (B-Tree)",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: CREATE INDEX (B-Tree)",
+        "tagline": "CREATE INDEX (B-Tree) specification and production engineering reference.",
         "description": "CREATE INDEX creates a self-balancing B-Tree index on one or more columns, organizing keys into multi-level pages containing root, interior, and leaf nodes. B-Tree is PostgreSQL's default index type and supports high-concurrency equality (=) and range (<, <=, >, >=, BETWEEN) queries with logarithmic time complexity O(log N). Creating indexes with CONCURRENTLY avoids taking an exclusive table lock.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CREATE INDEX (B-Tree) active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CREATE INDEX (B-Tree) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14797,16 +14798,16 @@ export const stacksData = [
         "num": "18",
         "name": "CREATE INDEX USING GIN",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: CREATE INDEX USING GIN",
+        "tagline": "CREATE INDEX USING GIN specification and production engineering reference.",
         "description": "CREATE INDEX USING GIN builds a Generalized Inverted Index designed for handling composite or multi-valued data types such as JSONB, full-text search tsvector, and arrays. Instead of indexing entire row values, GIN maps individual internal keys and elements to list or tree structures of row pointers (TIDs), enabling ultra-fast containment (@>), existence (?), and overlap (&&) lookups across millions of semi-structured objects.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CREATE INDEX USING GIN active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CREATE INDEX USING GIN in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14843,16 +14844,16 @@ export const stacksData = [
         "num": "19",
         "name": "EXPLAIN ANALYZE",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: EXPLAIN ANALYZE",
+        "tagline": "EXPLAIN ANALYZE specification and production engineering reference.",
         "description": "EXPLAIN ANALYZE prompts PostgreSQL to actually execute a query statement and output both the planner's estimated costs and the real-world execution metrics, including actual startup time, total execution time, row count per node, loop iterations, and memory/disk buffer usage. It is the premier diagnostic tool for troubleshooting slow queries, detecting sequential table scans, verifying index usage, and pinpointing inaccurate planner statistics.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ EXPLAIN ANALYZE active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of EXPLAIN ANALYZE in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14895,16 +14896,16 @@ export const stacksData = [
         "num": "20",
         "name": "JSONB -> (Object Field)",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: JSONB -> (Object Field)",
+        "tagline": "JSONB -> (Object Field) specification and production engineering reference.",
         "description": "The JSONB -> operator extracts a specific JSON object field by key string or an array element by integer index, returning the result as a jsonb data type. Because JSONB stores semi-structured data in a parsed binary decomposed format with key dictionaries, field extraction is performed in memory without re-parsing raw JSON text strings, allowing chained extractions such as data -> 'address' -> 'city'.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ JSONB -> (Object Field) active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of JSONB -> (Object Field) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14941,16 +14942,16 @@ export const stacksData = [
         "num": "21",
         "name": "JSONB ->> (Text Field)",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: JSONB ->> (Text Field)",
+        "tagline": "JSONB ->> (Text Field) specification and production engineering reference.",
         "description": "The JSONB ->> operator extracts a JSON object field or array element as a native PostgreSQL text string rather than a JSONB object. This operator is crucial when projecting human-readable strings, casting JSON scalar values to numbers or timestamps (e.g. (data ->> 'amount')::numeric), or matching text values against traditional string filters in WHERE and ORDER BY clauses.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ JSONB ->> (Text Field) active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of JSONB ->> (Text Field) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -14987,16 +14988,16 @@ export const stacksData = [
         "num": "22",
         "name": "JSONB @> (Contains)",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: JSONB @> (Contains)",
+        "tagline": "JSONB @> (Contains) specification and production engineering reference.",
         "description": "The JSONB @> (contains) operator checks whether the left-hand JSONB document fully contains the key-value structures, arrays, or primitive values specified in the right-hand JSONB operand. When paired with a GIN index on the target JSONB column, containment queries bypass sequential table scans and execute high-speed inverted index lookups in milliseconds even across multi-gigabyte collections.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ JSONB @> (Contains) active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of JSONB @> (Contains) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -15027,16 +15028,16 @@ export const stacksData = [
         "num": "23",
         "name": "ROW_NUMBER() Window Func",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: ROW_NUMBER() Window Func",
+        "tagline": "ROW_NUMBER() Window Func specification and production engineering reference.",
         "description": "ROW_NUMBER() is a built-in window function that assigns a contiguous, unique 1-based sequential integer to each row within an OVER (PARTITION BY ... ORDER BY ...) partition. Unlike GROUP BY, window functions perform calculations across related sets of rows without collapsing the underlying result set, making ROW_NUMBER() indispensable for deduplication, rank-based filtering, and top-N-per-category queries.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ROW_NUMBER() Window Func active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ROW_NUMBER() Window Func in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -15073,16 +15074,16 @@ export const stacksData = [
         "num": "24",
         "name": "BEGIN, COMMIT, ROLLBACK",
         "category": "SQL Commands",
-        "tagline": "PostgreSQL database statement: BEGIN, COMMIT, ROLLBACK",
+        "tagline": "BEGIN, COMMIT, ROLLBACK specification and production engineering reference.",
         "description": "BEGIN, COMMIT, and ROLLBACK define transaction boundary control in PostgreSQL, upholding ACID (Atomicity, Consistency, Isolation, Durability) guarantees. BEGIN starts a transaction block; COMMIT persists all modifications made during the transaction to Write-Ahead Logging (WAL) and disk; and ROLLBACK aborts the transaction, reverting all uncommitted mutations immediately and releasing table and row locks.",
         "demo": {
           "type": "postgresql",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ BEGIN, COMMIT, ROLLBACK active in postgresql runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of BEGIN, COMMIT, ROLLBACK in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard postgresql engineering guidelines and best practices"
+          "Guarantees ACID relational consistency under high concurrency using Multi-Version Concurrency Control (MVCC)",
+          "Accelerates query execution using cost-based planner optimization and covering B-Tree/GIN indexes",
+          "Enforces strict data integrity directly in the database engine via foreign keys and domain CHECK constraints"
         ],
         "props": [
           {
@@ -15188,16 +15189,16 @@ export const stacksData = [
         "num": "01",
         "name": "docker run",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker run",
+        "tagline": "docker run specification and production engineering reference.",
         "description": "docker run creates a new container write layer over the specified image and executes it using the containerd runtime. The daemon allocates a container cgroup namespace (isolating CPU, memory, PIDs, and network), mounts volumes, injects environment variables, and executes the default ENTRYPOINT or specified command.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker run active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker run in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15252,16 +15253,16 @@ export const stacksData = [
         "num": "02",
         "name": "docker ps",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker ps",
+        "tagline": "docker ps specification and production engineering reference.",
         "description": "docker ps queries the Docker daemon via the engine REST API to list running containers, their IDs, source images, status, uptime, and mapped ports. Providing the -a (--all) flag displays stopped and exited containers, while formatting options allow machine-readable JSON output.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker ps active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker ps in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15304,16 +15305,16 @@ export const stacksData = [
         "num": "03",
         "name": "docker exec",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker exec",
+        "tagline": "docker exec specification and production engineering reference.",
         "description": "docker exec runs a new command inside the namespaces of an already running container without terminating the main process (PID 1). This is standard practice for inspecting container environments, debugging network connectivity, running diagnostic scripts, or launching interactive bash/sh shells.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker exec active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker exec in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15356,16 +15357,16 @@ export const stacksData = [
         "num": "04",
         "name": "docker stop",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker stop",
+        "tagline": "docker stop specification and production engineering reference.",
         "description": "docker stop initiates a graceful shutdown of one or more running containers. The Docker daemon first sends SIGTERM to the primary container process (PID 1) to allow the application to flush buffers and close connections; if the container does not exit within a configurable grace period (default 10 seconds), SIGKILL is dispatched.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker stop active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker stop in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15396,16 +15397,16 @@ export const stacksData = [
         "num": "05",
         "name": "docker start",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker start",
+        "tagline": "docker start specification and production engineering reference.",
         "description": "docker start restarts one or more stopped containers while preserving their existing filesystem changes, container configuration, allocated IP settings, and mounted volumes without creating a new container instance.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker start active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker start in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15442,16 +15443,16 @@ export const stacksData = [
         "num": "06",
         "name": "docker restart",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker restart",
+        "tagline": "docker restart specification and production engineering reference.",
         "description": "docker restart stops and immediately restarts one or more containers in sequence. It issues a SIGTERM followed by SIGKILL (if timeout expires) before reinitializing the container namespaces and executing its primary entrypoint.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker restart active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker restart in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15482,16 +15483,16 @@ export const stacksData = [
         "num": "07",
         "name": "docker rm",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker rm",
+        "tagline": "docker rm specification and production engineering reference.",
         "description": "docker rm permanently deletes one or more stopped containers, purging their read-write container layers from the host filesystem storage driver (overlay2). Containers must typically be stopped first unless forced with the -f flag.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker rm active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker rm in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15528,16 +15529,16 @@ export const stacksData = [
         "num": "08",
         "name": "docker logs",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker logs",
+        "tagline": "docker logs specification and production engineering reference.",
         "description": "docker logs fetches the stdout and stderr streams recorded by the Docker logging driver (e.g. json-file or journald) for a specific container. It supports live log streaming, log tailing, and timestamp filtering.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker logs active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker logs in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15580,16 +15581,16 @@ export const stacksData = [
         "num": "09",
         "name": "docker build",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker build",
+        "tagline": "docker build specification and production engineering reference.",
         "description": "docker build packages an application into an immutable Docker image according to the instructions in a Dockerfile. Using BuildKit backend, it computes an execution graph, caches unchanged intermediary layers, executes build steps in sandboxed runtimes, and tags the final layered output into the local image store.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker build active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker build in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15638,16 +15639,16 @@ export const stacksData = [
         "num": "10",
         "name": "docker images",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker images",
+        "tagline": "docker images specification and production engineering reference.",
         "description": "docker images lists all container images currently cached on the local Docker host, detailing repository name, tag, image ID, creation date, and total uncompressed virtual size.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker images active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker images in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15684,16 +15685,16 @@ export const stacksData = [
         "num": "11",
         "name": "docker rmi",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker rmi",
+        "tagline": "docker rmi specification and production engineering reference.",
         "description": "docker rmi removes one or more images from local host storage. Untagging occurs first; if no other tags reference the underlying layer chain and no containers depend on it, Docker deletes the layer blobs from disk.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker rmi active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker rmi in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15724,16 +15725,16 @@ export const stacksData = [
         "num": "12",
         "name": "docker volume create",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker volume create",
+        "tagline": "docker volume create specification and production engineering reference.",
         "description": "docker volume create allocates a managed host storage volume outside the container's union filesystem (typically under /var/lib/docker/volumes/). Volumes persist data across container recreation cycles and provide maximum disk I/O throughput.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker volume create active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker volume create in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15770,16 +15771,16 @@ export const stacksData = [
         "num": "13",
         "name": "docker volume ls",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker volume ls",
+        "tagline": "docker volume ls specification and production engineering reference.",
         "description": "docker volume ls lists all Docker-managed persistent volumes present on the host system, indicating volume driver and unique volume name.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker volume ls active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker volume ls in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15816,16 +15817,16 @@ export const stacksData = [
         "num": "14",
         "name": "docker network create",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker network create",
+        "tagline": "docker network create specification and production engineering reference.",
         "description": "docker network create sets up a software-defined virtual bridge, overlay, or macvlan network. User-defined bridge networks provide automatic internal DNS resolution among member containers using container names as hostnames.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker network create active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker network create in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15862,16 +15863,16 @@ export const stacksData = [
         "num": "15",
         "name": "docker network ls",
         "category": "CLI Commands",
-        "tagline": "Docker containerization command: docker network ls",
+        "tagline": "docker network ls specification and production engineering reference.",
         "description": "docker network ls lists all virtual networks configured on the Docker engine, including default system networks (bridge, host, none) and custom user networks.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker network ls active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker network ls in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15902,16 +15903,16 @@ export const stacksData = [
         "num": "16",
         "name": "Dockerfile: FROM",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: FROM",
+        "tagline": "Dockerfile: FROM specification and production engineering reference.",
         "description": "The FROM instruction defines the base image layer for subsequent build instructions in a Dockerfile. Multi-stage builds utilize multiple FROM statements to separate build dependencies from minimal production runtime environments (such as Alpine or Distroless).",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: FROM active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: FROM in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15948,16 +15949,16 @@ export const stacksData = [
         "num": "17",
         "name": "Dockerfile: WORKDIR",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: WORKDIR",
+        "tagline": "Dockerfile: WORKDIR specification and production engineering reference.",
         "description": "The WORKDIR instruction sets the working execution directory for any subsequent RUN, CMD, ENTRYPOINT, COPY, and ADD instructions in the Dockerfile. If the directory does not exist, Docker creates it automatically.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: WORKDIR active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: WORKDIR in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -15988,16 +15989,16 @@ export const stacksData = [
         "num": "18",
         "name": "Dockerfile: COPY",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: COPY",
+        "tagline": "Dockerfile: COPY specification and production engineering reference.",
         "description": "COPY copies files and directories from the host build context into the container filesystem. Unlike ADD, COPY is strictly intended for local files and does not extract tar archives or fetch remote URLs, ensuring predictable builds.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: COPY active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: COPY in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16034,16 +16035,16 @@ export const stacksData = [
         "num": "19",
         "name": "Dockerfile: ADD",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: ADD",
+        "tagline": "Dockerfile: ADD specification and production engineering reference.",
         "description": "ADD transfers files into the container filesystem and provides advanced capabilities: automatically extracting recognized compressed archives (.tar, .tar.gz, .tgz) into the target directory, and fetching files from remote URLs.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: ADD active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: ADD in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16080,16 +16081,16 @@ export const stacksData = [
         "num": "20",
         "name": "Dockerfile: RUN",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: RUN",
+        "tagline": "Dockerfile: RUN specification and production engineering reference.",
         "description": "RUN executes build-time commands on top of the current image layer and commits the resulting file changes as a new cached layer. Chaining commands with && and cleaning package caches in the same RUN instruction minimizes layer size.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: RUN active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: RUN in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16126,16 +16127,16 @@ export const stacksData = [
         "num": "21",
         "name": "Dockerfile: CMD",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: CMD",
+        "tagline": "Dockerfile: CMD specification and production engineering reference.",
         "description": "CMD provides default arguments and execution commands for an active container. If docker run is executed with custom arguments, the default CMD is completely overridden. When paired with ENTRYPOINT, CMD serves as default parameters.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: CMD active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: CMD in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16172,16 +16173,16 @@ export const stacksData = [
         "num": "22",
         "name": "Dockerfile: ENTRYPOINT",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: ENTRYPOINT",
+        "tagline": "Dockerfile: ENTRYPOINT specification and production engineering reference.",
         "description": "ENTRYPOINT configures a container to run as a fixed executable binary that cannot be overridden during docker run (unless --entrypoint is explicitly provided). Any CLI arguments supplied to docker run are appended directly to the ENTRYPOINT.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: ENTRYPOINT active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: ENTRYPOINT in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16212,16 +16213,16 @@ export const stacksData = [
         "num": "23",
         "name": "Dockerfile: EXPOSE",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: EXPOSE",
+        "tagline": "Dockerfile: EXPOSE specification and production engineering reference.",
         "description": "EXPOSE documents the network ports on which the container application listens at runtime. It functions as architectural metadata between image authors and operators; publishing the port to the host still requires -p or -P during docker run.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: EXPOSE active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: EXPOSE in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16252,16 +16253,16 @@ export const stacksData = [
         "num": "24",
         "name": "Dockerfile: ENV",
         "category": "Dockerfile",
-        "tagline": "Docker containerization command: Dockerfile: ENV",
+        "tagline": "Dockerfile: ENV specification and production engineering reference.",
         "description": "ENV defines environment variables that persist both during subsequent Dockerfile build stages and across the runtime life of containers launched from the image. Variables are inherited by all child processes spawned within the container.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Dockerfile: ENV active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Dockerfile: ENV in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16292,16 +16293,16 @@ export const stacksData = [
         "num": "25",
         "name": "docker compose up",
         "category": "Compose",
-        "tagline": "Docker containerization command: docker compose up",
+        "tagline": "docker compose up specification and production engineering reference.",
         "description": "docker compose up reads a compose.yaml definition to build, configure, and launch multi-container application topologies. It provisions isolated bridge networks, creates named volumes, sets dependency orders, and attaches stdout streams.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker compose up active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker compose up in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16338,16 +16339,16 @@ export const stacksData = [
         "num": "26",
         "name": "docker compose down",
         "category": "Compose",
-        "tagline": "Docker containerization command: docker compose down",
+        "tagline": "docker compose down specification and production engineering reference.",
         "description": "docker compose down stops running services defined in compose.yaml and tears down the networks, containers, and default volumes created by compose up, restoring the host environment to a pristine state.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker compose down active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker compose down in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16384,16 +16385,16 @@ export const stacksData = [
         "num": "27",
         "name": "docker compose logs",
         "category": "Compose",
-        "tagline": "Docker containerization command: docker compose logs",
+        "tagline": "docker compose logs specification and production engineering reference.",
         "description": "docker compose logs aggregates and multiplexes stdout and stderr output streams from all running services in the Compose stack, color-coding log lines by service name for comprehensive operational monitoring.",
         "demo": {
           "type": "docker",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ docker compose logs active in docker runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of docker compose logs in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard docker engineering guidelines and best practices"
+          "Packages applications with all runtime dependencies into immutable, reproducible container images",
+          "Isolates CPU, memory, networking, and process namespaces using Linux kernel cgroups",
+          "Streamlines local development and multi-container environments using declarative Compose files"
         ],
         "props": [
           {
@@ -16503,12 +16504,12 @@ export const stacksData = [
         "description": "A Pod is the smallest deployable compute unit in Kubernetes, encapsulating one or more tightly coupled containers that share identical network namespaces (including IP address and ports) and IPC, as well as shared volume storage. Containers inside a single pod communicate over localhost at memory speeds.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Pod active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Pod in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16555,12 +16556,12 @@ export const stacksData = [
         "description": "A Deployment provides declarative management for Pods and ReplicaSets, orchestrating zero-downtime rolling updates, automated rollback to previous revisions, and horizontal scaling. The Deployment controller reconciles desired state against the cluster by creating and transitioning ReplicaSets.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Deployment active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Deployment in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16607,12 +16608,12 @@ export const stacksData = [
         "description": "A ReplicaSet maintains a stable set of replica Pods running at any given time, guaranteeing compute availability. It identifies its target pods using set-based label selectors. While ReplicaSets can be used directly, they are almost exclusively managed indirectly via Deployments.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ReplicaSet active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ReplicaSet in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16653,12 +16654,12 @@ export const stacksData = [
         "description": "A StatefulSet manages stateful applications requiring unique, persistent identities and stable storage. Unlike Deployments, Pods in a StatefulSet are assigned predictable ordinal indexes (e.g. db-0, db-1), dedicated PersistentVolumeClaims via volumeClaimTemplates, and deterministic ordered startup and shutdown guarantees.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ StatefulSet active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of StatefulSet in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16699,12 +16700,12 @@ export const stacksData = [
         "description": "A DaemonSet guarantees that all (or some subset of) Kubernetes cluster nodes run a copy of a specified Pod. As new nodes are joined to the cluster, the DaemonSet controller automatically schedules pods onto them, making it ideal for cluster-wide logging collectors (e.g. Fluentd) and monitoring agents (e.g. Prometheus Node Exporter).",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ DaemonSet active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of DaemonSet in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16739,12 +16740,12 @@ export const stacksData = [
         "description": "A Job creates one or more Pods and ensures that a specified number of them terminate successfully with exit code 0. Once the declared number of completions is reached, the job completes, making it suitable for batch data migrations, backups, and computational tasks.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Job active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Job in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16791,12 +16792,12 @@ export const stacksData = [
         "description": "A CronJob manages time-based Job executions according to standard crontab syntax. It periodically spawns Job objects that run to completion, managing execution concurrency policies, history limits, and timezone awareness for automated maintenance.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ CronJob active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of CronJob in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16837,12 +16838,12 @@ export const stacksData = [
         "description": "Service (ClusterIP) is the default Kubernetes service type that assigns an internal cluster-only virtual IP address. kube-proxy configures iptables or IPVS rules to load balance incoming traffic across matching backend Pods with zero external exposure.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Service (ClusterIP) active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Service (ClusterIP) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16883,12 +16884,12 @@ export const stacksData = [
         "description": "Service (NodePort) exposes an application outside the cluster by dedicating a static port across the entire cluster's worker nodes (typically in the range 30000-32767). Traffic routed to any node IP on the designated nodePort is forwarded to matching backend pods.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Service (NodePort) active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Service (NodePort) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16923,12 +16924,12 @@ export const stacksData = [
         "description": "Service (LoadBalancer) instructs cloud providers (AWS, GCP, Azure) to automatically provision an external cloud load balancer (e.g. AWS NLB/ALB) pointing directly to Kubernetes worker node NodePorts to route external Internet traffic directly to pods.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Service (LoadBalancer) active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Service (LoadBalancer) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -16969,12 +16970,12 @@ export const stacksData = [
         "description": "An Ingress exposes HTTP and HTTPS routes from outside the cluster to internal Services. Controlled by an Ingress Controller (such as ingress-nginx or Traefik), it provides URL path routing, host-based virtual hosting, SSL/TLS termination, and centralized traffic management.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Ingress active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Ingress in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17015,12 +17016,12 @@ export const stacksData = [
         "description": "A ConfigMap stores non-confidential configuration data in key-value pairs, decoupling application container images from environment configurations. ConfigMaps can be consumed by Pods as environment variables, command-line arguments, or mounted configuration files in volumes.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ ConfigMap active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of ConfigMap in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17061,12 +17062,12 @@ export const stacksData = [
         "description": "A Secret stores sensitive data such as API tokens, private certificates, and database credentials. Secrets are stored base64-encoded in the API server (and optionally encrypted at rest in etcd), and can be mounted into Pods as tmpfs RAM-backed files or injected as environment variables.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Secret active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Secret in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17107,12 +17108,12 @@ export const stacksData = [
         "description": "A Namespace provides a mechanism for isolating groups of resources within a single Kubernetes cluster. Namespaces provide scopes for names, role-based access control (RBAC) boundaries, resource quota allocation (CPU/RAM limits), and network policies.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Namespace active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Namespace in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17147,12 +17148,12 @@ export const stacksData = [
         "description": "A PersistentVolume (PV) represents a piece of networked storage in the cluster provisioned either statically by an administrator or dynamically by a StorageClass. PVs have a lifecycle independent of any individual Pod that consumes them.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ PersistentVolume (PV) active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of PersistentVolume (PV) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17199,12 +17200,12 @@ export const stacksData = [
         "description": "A PersistentVolumeClaim (PVC) is a request for storage by a user or workload. It requests specific size and access modes; the control plane matches the PVC to an existing PV or dynamically triggers a StorageClass provisioner to allocate cloud storage disks.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ PersistentVolumeClaim (PVC) active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of PersistentVolumeClaim (PVC) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17245,12 +17246,12 @@ export const stacksData = [
         "description": "The HorizontalPodAutoscaler (HPA) automatically scales the number of Pod replicas in a Deployment or StatefulSet based on observed CPU utilization, memory consumption, or custom application metrics provided by metrics-server or Prometheus adapter.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ HorizontalPodAutoscaler (HPA) active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of HorizontalPodAutoscaler (HPA) in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17291,12 +17292,12 @@ export const stacksData = [
         "description": "kubectl apply manages applications through declarative configuration files, computing a three-way merge patch between the live cluster state, the previous applied configuration annotation, and the new local file specification to update resources with minimal churn.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ kubectl apply active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of kubectl apply in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17343,12 +17344,12 @@ export const stacksData = [
         "description": "kubectl get fetches and displays status information for one or more Kubernetes resources directly from etcd via the API server, supporting diverse output formatting including wide tabular, JSON, and YAML specifications.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ kubectl get active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of kubectl get in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17395,12 +17396,12 @@ export const stacksData = [
         "description": "kubectl describe renders an exhaustive diagnostic summary of a specific cluster resource, detailing metadata, specifications, current conditions, related sub-resources, and the chronological event stream recorded by Kubernetes controllers.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ kubectl describe active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of kubectl describe in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17435,12 +17436,12 @@ export const stacksData = [
         "description": "kubectl logs streams stdout and stderr logs from containers running in a Pod. It includes options for streaming live logs (-f), retrieving logs from previously crashed container instances (-p), and filtering by timestamps.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ kubectl logs active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of kubectl logs in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17487,12 +17488,12 @@ export const stacksData = [
         "description": "kubectl exec opens an interactive or one-shot command execution channel inside a running container using SPDY or WebSocket streaming protocols, connecting the local terminal directly to the remote container runtime.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ kubectl exec active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of kubectl exec in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17533,12 +17534,12 @@ export const stacksData = [
         "description": "kubectl delete deletes resources by file, name, or label selector. For workloads like Pods, it initiates graceful shutdown by dispatching SIGTERM and waiting for the grace period before sending SIGKILL and unlinking resources.",
         "demo": {
           "type": "kubernetes",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ kubectl delete active in kubernetes runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of kubectl delete in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard kubernetes engineering guidelines and best practices"
+          "Orchestrates automated zero-downtime rolling updates and self-healing pod reconciliations",
+          "Manages cluster-wide internal traffic routing, service discovery, and external load balancing",
+          "Dynamically scales compute replica counts in response to real-time CPU and memory utilization thresholds"
         ],
         "props": [
           {
@@ -17648,12 +17649,12 @@ export const stacksData = [
         "description": "PutObject uploads an object (binary payload, text, or stream) to a specified Amazon S3 bucket. Objects are durably replicated across multiple Availability Zones with 99.999999999% (11 9s) durability. Callers can enforce server-side encryption (AES256 or AWS KMS) and attach custom metadata headers.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon S3: PutObject active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon S3: PutObject in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -17712,12 +17713,12 @@ export const stacksData = [
         "description": "GetObject retrieves an object from an Amazon S3 bucket. The returned payload includes the readable byte stream, HTTP metadata, content length, entity tag (ETag), and server-side encryption details, supporting byte-range requests for streaming large media files.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon S3: GetObject active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon S3: GetObject in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -17764,12 +17765,12 @@ export const stacksData = [
         "description": "DeleteObject permanently removes an object from an Amazon S3 bucket. In versioning-enabled buckets, calling DeleteObject without specifying a VersionId adds a delete marker; specifying a VersionId permanently deletes that specific version.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon S3: DeleteObject active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon S3: DeleteObject in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -17816,12 +17817,12 @@ export const stacksData = [
         "description": "Presigned URLs grant temporary read or write access to an S3 object to clients without requiring AWS credentials. Generated using HMAC signing with IAM credentials, the URL encodes security tokens and expiration timestamps, enabling client browsers to upload directly to S3 without proxying through backend servers.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon S3: Presigned URLs active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon S3: Presigned URLs in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -17868,12 +17869,12 @@ export const stacksData = [
         "description": "The AWS Lambda Function Handler is the entry point method invoked when a serverless Lambda function is triggered by an event source (such as API Gateway, SQS, S3, or EventBridge). The handler receives the event payload and runtime context (containing invocation timeout, AWS request ID, and CloudWatch log stream names).",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ AWS Lambda: Function Handler active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of AWS Lambda: Function Handler in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -17914,12 +17915,12 @@ export const stacksData = [
         "description": "AWS Lambda Environment Variables provide key-value configuration pairs injected into the execution sandbox, allowing code to adapt to dev, staging, and production environments without code modification. Variables are encrypted in transit and can be encrypted at rest using AWS KMS Customer Managed Keys.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ AWS Lambda: Environment Variables active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of AWS Lambda: Environment Variables in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -17954,12 +17955,12 @@ export const stacksData = [
         "description": "PutItem writes a new item or replaces an existing item with the same primary key in an Amazon DynamoDB table. Using DynamoDB DocumentClient automatically marshalls JavaScript objects to DynamoDB AttributeValues. Conditional expressions (ConditionExpression) guarantee idempotent or non-colliding writes.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon DynamoDB: PutItem active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon DynamoDB: PutItem in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18006,12 +18007,12 @@ export const stacksData = [
         "description": "GetItem retrieves a single item matching the provided Partition Key and Sort Key with single-digit millisecond latency. By default, GetItem performs an Eventually Consistent Read; setting ConsistentRead: true performs a Strongly Consistent Read from the primary replica.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon DynamoDB: GetItem active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon DynamoDB: GetItem in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18058,12 +18059,12 @@ export const stacksData = [
         "description": "Query retrieves multiple items sharing the same Partition Key and optionally satisfying comparison predicates on the Sort Key. Queries can target the base table or Global Secondary Indexes (GSI), consuming minimal Read Capacity Units (RCUs) by directly scanning indexed B-Tree buckets.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon DynamoDB: Query active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon DynamoDB: Query in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18110,12 +18111,12 @@ export const stacksData = [
         "description": "Scan examines every single item across an entire Amazon DynamoDB table, filtering results according to FilterExpression after reading every page. Because Scan consumes RCUs proportional to the total size of the entire table rather than the filtered result size, it should generally be avoided in latency-sensitive paths in favor of Query.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon DynamoDB: Scan active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon DynamoDB: Scan in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18162,12 +18163,12 @@ export const stacksData = [
         "description": "UpdateItem modifies specific attributes in an existing item or inserts the item if it does not exist. Update expressions (SET, REMOVE, ADD, DELETE) allow modifying attributes, incrementing atomic counters, and appending to list attributes in place without full document replacement.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon DynamoDB: UpdateItem active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon DynamoDB: UpdateItem in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18208,12 +18209,12 @@ export const stacksData = [
         "description": "Amazon API Gateway HTTP APIs provide high-performance, low-latency, and cost-effective RESTful entrypoints for serverless applications. They offer native support for OpenID Connect (OIDC) / OAuth2 JWT authorizers, CORS configuration, automatic staging, and direct routing to AWS Lambda functions.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon API Gateway: HTTP API active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon API Gateway: HTTP API in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18260,12 +18261,12 @@ export const stacksData = [
         "description": "SendMessage delivers a message payload to an Amazon Simple Queue Service (SQS) standard or FIFO queue. Messages are redundantly stored across multiple data centers. Standard queues guarantee at-least-once delivery with high throughput, while FIFO queues guarantee exact first-in-first-out ordering and deduplication.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon SQS: SendMessage active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon SQS: SendMessage in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18318,12 +18319,12 @@ export const stacksData = [
         "description": "ReceiveMessage polls one or more messages from an Amazon SQS queue. Using WaitTimeSeconds > 0 enables Long Polling, reducing empty responses and minimizing AWS billing costs. Retrieved messages become invisible to other consumers for the duration of VisibilityTimeout.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon SQS: ReceiveMessage active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon SQS: ReceiveMessage in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18376,12 +18377,12 @@ export const stacksData = [
         "description": "Publish broadcasts an asynchronous message to an Amazon Simple Notification Service (SNS) topic. SNS fans out the message simultaneously to thousands of subscribed endpoints including SQS queues, AWS Lambda functions, HTTPS webhooks, SMS mobile devices, and mobile push notifications.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon SNS: Publish active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon SNS: Publish in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18434,12 +18435,12 @@ export const stacksData = [
         "description": "An AWS IAM Policy is a JSON document that explicitly defines fine-grained authorization permissions within AWS. It specifies Effect (Allow or Deny), Actions (API operations), Resources (ARNs of target entities), and Conditions (contextual checks such as IP CIDR, MFA, or tag values) evaluated by the authorization engine.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ AWS IAM: Policy active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of AWS IAM: Policy in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18492,12 +18493,12 @@ export const stacksData = [
         "description": "An AWS IAM Role is an identity with specific permission policies that can be assumed by trusted entities, such as AWS Lambda functions, EC2 instances, or federated OpenID Connect (OIDC) identities (like GitHub Actions). It eliminates hardcoded long-term access keys by issuing temporary STS security tokens.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ AWS IAM: Role active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of AWS IAM: Role in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18544,12 +18545,12 @@ export const stacksData = [
         "description": "GetSecretValue retrieves encrypted credentials, API keys, or database connection strings from AWS Secrets Manager. Secrets are protected using envelope encryption backed by AWS KMS and support automated scheduled secret rotation via Lambda functions.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ AWS Secrets Manager: GetSecretValue active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of AWS Secrets Manager: GetSecretValue in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18590,12 +18591,12 @@ export const stacksData = [
         "description": "Amazon CloudWatch Logs provides centralized aggregation, monitoring, and indexing of system and application log streams. Logs are indexed, retained according to configurable retention rules, and queryable using CloudWatch Logs Insights syntax with sub-second execution speeds.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon CloudWatch: Logs active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon CloudWatch: Logs in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18642,12 +18643,12 @@ export const stacksData = [
         "description": "PutMetricData publishes custom time-series metrics to Amazon CloudWatch. Metrics can include dimensions (key-value metadata tags), custom units (Milliseconds, Bytes, Count), and timestamped values, empowering operational dashboards and automated scaling triggers.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon CloudWatch: Metrics active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon CloudWatch: Metrics in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {
@@ -18700,12 +18701,12 @@ export const stacksData = [
         "description": "PutMetricAlarm monitors CloudWatch metrics over specified evaluation periods and triggers automated actions—such as dispatching Amazon SNS notifications, invoking EC2 auto-scaling policies, or triggering Systems Manager remediation—when metric thresholds are breached.",
         "demo": {
           "type": "aws",
-          "preview": "<div style=\"background:#1e212b;padding:12px;border-radius:6px;color:#00d25b;font-family:monospace;font-size:12px;\">✓ Amazon CloudWatch: Alarms active in aws runtime environment.</div>"
+          "active": true
         },
         "useCases": [
-          "Production implementation of Amazon CloudWatch: Alarms in modern architectures",
-          "Optimized for clean readability, accessibility, and high throughput",
-          "Complies with standard aws engineering guidelines and best practices"
+          "Scales serverless compute and distributed storage elastically to meet fluctuating global traffic demand",
+          "Ensures 99.999999999% data durability with multi-AZ replication and automated envelope encryption",
+          "Enforces least-privilege security boundaries using granular IAM policies and temporary STS session tokens"
         ],
         "props": [
           {

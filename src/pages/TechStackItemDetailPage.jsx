@@ -254,7 +254,7 @@ export default function TechStackItemDetailPage({ item, stack, onBackToStack, on
                 <h3 className="block-title-apple" style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: 0 }}>
                   <Zap size={20} style={{ color: stack.accentColor || 'var(--color-corona-green)' }} />
                   <span>
-                    {isVisualUIItem(stack, item) ? 'Interactive Web / Mobile Screen Demo' : 'Runtime Simulation & Execution Console'}
+                    {isVisualUIItem(stack, item) ? 'Interactive Web & Mobile Live Sandbox' : 'Runtime Simulation & Execution Console'}
                   </span>
                 </h3>
                 

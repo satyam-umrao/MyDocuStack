@@ -221,12 +221,14 @@ export default function App() {
           />
 
           <main style={{ flexGrow: 1 }}>
-            <MasterDocuStackPage
-              stacks={stacksData}
-              onSelectStack={handleSelectStack}
-              searchQuery={masterSearchQuery}
-              setSearchQuery={setMasterSearchQuery}
-            />
+            <div key="master-hub" className="page-enter-active">
+              <MasterDocuStackPage
+                stacks={stacksData}
+                onSelectStack={handleSelectStack}
+                searchQuery={masterSearchQuery}
+                setSearchQuery={setMasterSearchQuery}
+              />
+            </div>
           </main>
 
           <Footer onNavigateHome={handleNavigateMaster} onSelectStack={handleSelectStack} />
@@ -247,23 +249,25 @@ export default function App() {
           />
 
           <main style={{ flexGrow: 1 }}>
-            {rnActivePage === 'home' ? (
-              <HomePage
-                tocItems={tocData}
-                components={componentsData}
-                setupData={setupData}
-                onSelectComponent={handleSelectRNComponent}
-                selectedCategory={selectedRNCategory}
-                setSelectedCategory={setSelectedRNCategory}
-                searchQuery={rnSearchQuery}
-                setSearchQuery={setRNSearchQuery}
-              />
-            ) : (
-              <ComponentDetailPage
-                component={activeRNComponentObj}
-                onBack={handleNavigateRNHome}
-              />
-            )}
+            <div key={`rn-${rnActivePage}-${selectedRNComponentId || 'home'}`} className="page-enter-active">
+              {rnActivePage === 'home' ? (
+                <HomePage
+                  tocItems={tocData}
+                  components={componentsData}
+                  setupData={setupData}
+                  onSelectComponent={handleSelectRNComponent}
+                  selectedCategory={selectedRNCategory}
+                  setSelectedCategory={setSelectedRNCategory}
+                  searchQuery={rnSearchQuery}
+                  setSearchQuery={setRNSearchQuery}
+                />
+              ) : (
+                <ComponentDetailPage
+                  component={activeRNComponentObj}
+                  onBack={handleNavigateRNHome}
+                />
+              )}
+            </div>
           </main>
 
           <Footer onNavigateHome={handleNavigateRNHome} onSelectStack={handleSelectStack} />
@@ -285,22 +289,24 @@ export default function App() {
           />
 
           <main style={{ flexGrow: 1 }}>
-            {techActivePage === 'home' ? (
-              <TechStackMainPage
-                stack={activeStackObj}
-                onSelectItem={handleSelectTechItem}
-                onBackToMaster={handleNavigateMaster}
-                searchQuery={techSearchQuery}
-                setSearchQuery={setTechSearchQuery}
-              />
-            ) : (
-              <TechStackItemDetailPage
-                item={activeTechItemObj}
-                stack={activeStackObj}
-                onBackToStack={handleNavigateTechHome}
-                onBackToMaster={handleNavigateMaster}
-              />
-            )}
+            <div key={`tech-${currentStack}-${techActivePage}-${selectedTechItemId || 'home'}`} className="page-enter-active">
+              {techActivePage === 'home' ? (
+                <TechStackMainPage
+                  stack={activeStackObj}
+                  onSelectItem={handleSelectTechItem}
+                  onBackToMaster={handleNavigateMaster}
+                  searchQuery={techSearchQuery}
+                  setSearchQuery={setTechSearchQuery}
+                />
+              ) : (
+                <TechStackItemDetailPage
+                  item={activeTechItemObj}
+                  stack={activeStackObj}
+                  onBackToStack={handleNavigateTechHome}
+                  onBackToMaster={handleNavigateMaster}
+                />
+              )}
+            </div>
           </main>
 
           <Footer onNavigateHome={handleNavigateMaster} onSelectStack={handleSelectStack} />

@@ -1417,7 +1417,7 @@ export default function MobileDevicePreview({ component = { id: 'view', name: 'V
               <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center' }}>
                 <div style={{ fontSize: '13px', fontWeight: '600', color: '#00d25b' }}>useImperativeHandle Ref Methods</div>
                 <input
-                  id="demo-imperative-input"
+                  id="interactive-imperative-input"
                   type="text"
                   value={childRefInputVal}
                   onChange={(e) => setChildRefInputVal(e.target.value)}
@@ -1425,7 +1425,7 @@ export default function MobileDevicePreview({ component = { id: 'view', name: 'V
                   style={{ padding: '8px 12px', borderRadius: '6px', border: '1px solid #444', background: isDarkMode ? '#222' : '#fff', color: isDarkMode ? '#fff' : '#000', fontSize: '12px' }}
                 />
                 <div style={{ display: 'flex', gap: '8px' }}>
-                  <button onClick={() => { document.getElementById('demo-imperative-input')?.focus(); triggerAlert('childRef.current.focusInput() called!'); }} style={{ padding: '6px 12px', fontSize: '11px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Call focusInput()</button>
+                  <button onClick={() => { document.getElementById('interactive-imperative-input')?.focus(); triggerAlert('childRef.current.focusInput() called!'); }} style={{ padding: '6px 12px', fontSize: '11px', background: '#00d25b', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Call focusInput()</button>
                   <button onClick={() => { setChildRefInputVal(''); triggerAlert('childRef.current.clearInput() called!'); }} style={{ padding: '6px 12px', fontSize: '11px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Call clearInput()</button>
                 </div>
               </div>
@@ -1475,7 +1475,7 @@ export default function MobileDevicePreview({ component = { id: 'view', name: 'V
             {/* 58. useDeferredValue */}
             {compId === 'usedeferredvalue' && (
               <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8', textAlign: 'center' }}>useDeferredValue Lag Demo</div>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: '#8f5fe8', textAlign: 'center' }}>useDeferredValue Concurrent Deferral</div>
                 <input
                   type="text"
                   placeholder="Type rapidly..."

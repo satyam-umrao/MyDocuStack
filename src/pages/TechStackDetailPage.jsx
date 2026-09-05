@@ -60,7 +60,7 @@ export default function TechStackDetailPage({ stack, onBackToMaster }) {
           setSandboxLog(`$ npx tsc --noEmit\n✓ Type-checking completed in 0.42s\n✓ 0 Errors found across 48 source files.\n✓ Strict mode: true | No implicit any: true`);
           break;
         default:
-          setSandboxLog(`✓ Successfully executed ${stack.name} demonstration.\n✓ Environment runtime verified and active.\n✓ Status: 200 OK`);
+          setSandboxLog(`✓ Successfully executed ${stack.name} execution pipeline.\n✓ Environment runtime verified and active.\n✓ Status: 200 OK`);
           break;
       }
     }, 600);

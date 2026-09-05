@@ -28,6 +28,9 @@
   --shadow-product-subtle: 0 4px 16px rgba(0, 0, 0, 0.4);
 
   --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-color: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 * {
@@ -175,11 +178,14 @@ a:hover {
   padding: 0 12px;
   height: 38px;
   width: 280px;
-  transition: border-color var(--transition-fast);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.corona-search-box.focused, .corona-search-box:hover {
+.corona-search-box.focused, 
+.corona-search-box:focus-within,
+.corona-search-box:hover {
   border-color: var(--color-corona-blue);
+  box-shadow: 0 0 0 2px rgba(0, 144, 231, 0.2);
 }
 
 .corona-search-icon {
@@ -251,7 +257,7 @@ a:hover {
   justify-content: center;
   gap: 6px;
   white-space: nowrap;
-  transition: opacity var(--transition-fast);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
 }
 
 .corona-green-btn.full-width {
@@ -261,7 +267,13 @@ a:hover {
 }
 
 .corona-green-btn:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 210, 91, 0.35);
+}
+
+.corona-green-btn:active {
+  transform: translateY(0);
 }
 
 .corona-github-icon {
@@ -467,6 +479,13 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.28s ease;
+}
+
+.corona-stat-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .corona-stat-top {
@@ -580,11 +599,19 @@ a:hover {
   flex-direction: column;
   gap: 14px;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.28s ease;
+  will-change: transform;
 }
 
 .toc-boxed-card:hover {
   background-color: var(--color-corona-surface-hover);
+  border-color: rgba(0, 144, 231, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.toc-boxed-card:active {
+  transform: translateY(-1px);
 }
 
 .toc-boxed-top {
@@ -664,10 +691,12 @@ a:hover {
   font-size: 14px;
   color: #ffffff;
   outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-pill-input:focus {
   border-color: var(--color-corona-blue);
+  box-shadow: 0 0 0 2px rgba(0, 144, 231, 0.25);
 }
 
 .search-pill-icon {
@@ -695,18 +724,25 @@ a:hover {
   padding: 6px 14px;
   border-radius: var(--radius-xs);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
 .filter-chip:hover {
   color: #ffffff;
+  border-color: rgba(0, 144, 231, 0.4);
+  transform: translateY(-1px);
+}
+
+.filter-chip:active {
+  transform: translateY(0);
 }
 
 .filter-chip.active {
   background-color: var(--color-corona-blue);
   color: #ffffff;
   border-color: var(--color-corona-blue);
+  box-shadow: 0 2px 10px rgba(0, 144, 231, 0.35);
 }
 
 /* Corona Component Showcase Cards */
@@ -726,13 +762,21 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
-  transition: background-color var(--transition-fast);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.28s ease;
   cursor: pointer;
   min-height: 200px;
+  will-change: transform;
 }
 
 .comp-card-apple:hover {
   background-color: var(--color-corona-surface-hover);
+  border-color: rgba(0, 210, 91, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.comp-card-apple:active {
+  transform: translateY(-1px);
 }
 
 .comp-card-header {
@@ -844,6 +888,12 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.setup-compact-card:hover {
+  border-color: rgba(0, 210, 91, 0.3);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
 }
 
 .setup-card-top-header {
@@ -1048,10 +1098,17 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .copy-btn-apple:hover {
   background-color: var(--color-corona-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 144, 231, 0.3);
+}
+
+.copy-btn-apple:active {
+  transform: translateY(0) scale(0.97);
 }
 
 pre.code-text-apple {
@@ -1112,6 +1169,12 @@ pre.code-text-apple {
   border-radius: var(--radius-sm);
   padding: 28px;
   margin-bottom: 28px;
+  transition: border-color 0.25s ease, box-shadow 0.28s ease;
+}
+
+.block-card-apple:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 .block-title-apple {
@@ -1166,6 +1229,14 @@ pre.code-text-apple {
   font-family: var(--font-mono);
   color: var(--color-corona-purple);
   font-size: 12px;
+}
+
+.props-table tr {
+  transition: background-color 0.18s ease;
+}
+
+.props-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 /* Corona Dark Footer */
@@ -1513,3 +1584,42 @@ pre.code-text-apple {
     padding: 12px;
   }
 }
+
+/* ==========================================================================
+   Smooth Page Transitions and Global Animation Utilities
+   ========================================================================== */
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 210, 91, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 210, 91, 0.35);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.page-enter-active {
+  animation: pageFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
